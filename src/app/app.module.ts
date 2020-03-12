@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+ 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import {MatInputModule} from '@angular/material';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatSelectModule} from '@angular/material/select'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './website/navbar/navbar.component';
@@ -71,6 +71,7 @@ import { UserHomeComponent } from './user/user-home/user-home.component';
     MatSliderModule,
     MatButtonModule,
     HttpClientModule,
+    MatSelectModule,
     HttpModule,
     FormsModule
   ],

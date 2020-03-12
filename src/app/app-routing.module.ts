@@ -17,6 +17,10 @@ import { ManyProductComponent } from './website/many-product/many-product.compon
 import { UserComponent } from './user/user/user.component';
 import { TransferComponent } from './user/transfer/transfer.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
+import { UserTeamComponent } from './user/user-team/user-team.component';
+import { UserInformationComponent } from './user/user-information/user-information.component';
+import { UserResultComponent } from './user/user-result/user-result.component';
+import { UserNotesComponent } from './user/user-notes/user-notes.component';
 
 
 const routes: Routes = [
@@ -45,6 +49,11 @@ const routes: Routes = [
 {
   path : 'user', component :UserComponent, children: [
     { path: '', component: UserHomeComponent} ,
+    { path: 'user-team', component: UserTeamComponent} ,
+    { path: 'user-information', component: UserInformationComponent} ,
+    { path: 'user-result', component: UserResultComponent} ,
+    { path: 'user-notes', component: UserNotesComponent} ,
+    { path: 'transfer', component: TransferComponent} ,
   ]
 },
 

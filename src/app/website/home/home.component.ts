@@ -102,7 +102,7 @@ $('#header-slider').owlCarousel({
   animateOut: 'fadeOut',
   animateIn: 'fadeIn'
   });
-  var owl = $('.owl-carousel');
+  var owl = $('.owl-carousell');
   owl.owlCarousel();
   // owl.on('translate.owl.carousel', function (event) {
   // $('.owl-carousel h1').removeClass('animated').hide();

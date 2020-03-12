@@ -12,15 +12,19 @@
         <span><img src="assets/img/phone.png" alt=""></span>
       </div>
       <div class=" header-fix"  >
-        <div class="" style="position: relative;">
+        <div class="" style="position: relative;top: -15px;">
           <form class="search-container" action="//llamaswill.tumblr.com/search" style="display: inline-block;">
             <input id="search-box" type="text" class="search-box  "   name="q" />
             <label for="search-box" class="search-lable"><span class="glyphicon glyphicon-search fa fa-search "></span></label>
             <input type="submit" id="search-submit" />
-          </form>
-
-          <a href="#"><span>UZ</span></a>
-          <button mat-button>Click me!</button>
+          </form> 
+          <mat-form-field style="width: 50px;margin: 0 20px;"> 
+            <mat-select [(value)]="selected"> 
+              <mat-option value="option1">RU</mat-option>
+              <mat-option value="option2">UZ</mat-option>
+              <mat-option value="option3">ENG</mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
 
 

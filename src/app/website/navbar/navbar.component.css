@@ -19,10 +19,11 @@
   }
   .mobile-navbar{
       display: none;
+      
   }
   header{
-    overflow: hidden;
-    padding-bottom: 45px;
+    /* overflow: hidden; */
+    padding-bottom: 32px;
     width: 100%;
     height: auto;
     z-index: 55;
@@ -30,6 +31,7 @@
     background: rgb(167,32,181);
 background: linear-gradient(90deg, rgba(167,32,181,1) 0%, rgba(62,151,208,1) 100%);
   }
+ 
   .navbar{
     width: 62%;
     margin: 0 auto;
@@ -43,6 +45,7 @@ background: linear-gradient(90deg, rgba(167,32,181,1) 0%, rgba(62,151,208,1) 100
   .navbar li a{
     position: relative;
     z-index: 5855;
+    font-size: 16px;
     ;
   }
 /* add */
@@ -191,7 +194,9 @@ header a:hover{
   /*  NAV
   ========================================== */
   nav {
-    background-color: #2a2a2a;
+    background-color: #080067;
+    background: rgb(167,32,181);
+    background: linear-gradient(90deg, rgba(167,32,181,1) 0%, rgba(62,151,208,1) 100%);
     position: fixed;
     z-index: 9;
     top: 0;
