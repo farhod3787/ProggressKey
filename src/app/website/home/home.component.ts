@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from 'src/app/shared/service/contactService';
 declare var $: any;
+import Swal from 'sweetalert2';
+import { News_Service } from 'src/app/shared/service/news_Service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,7 +10,21 @@ declare var $: any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  news: any = [];
+  constructor(
+    private contactService: ContactService,
+    private newsService: News_Service,
+  ) {
+    this.getNews();
+   }
+
+
+   getNews() {
+      this.newsService.getLimit().subscribe( result => {
+        this.news = result.json();
+        // console.log(this.news);
+      });
+   }
 
   ngOnInit() {
 
@@ -118,7 +135,22 @@ $('#header-slider').owlCarousel({
 
   }
   send(name, phone, text) {
-    console.log(name, phone, text);
+    this.contactService.post(name, phone, text).subscribe( result => {
+      if (result.ok) {
+        Swal.fire(
+          'Good job!',
+          'Text Sended',
+          'success'
+        );
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Error in Send message',
+          timer: 3000
+        });
+      }
+    });
   }
 
 

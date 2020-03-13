@@ -51,7 +51,7 @@ router.post('/create/:token', upload.single('image'), async (req, res) =>{
   }
   var news_one = new News(news);
 
-  if (obj.isModerator) {
+  if (obj.isAdmin) {
       news_one.save().then(result => {
           res.status(200).json(true);
       }).catch(err => {
@@ -70,7 +70,7 @@ router.get('/getall', async(request, response, next) => {
     News.find().then( (all)=>{
         for(let i=all.length-1; i>=0; i--){
                 prod = all[i];
-                prod.image_original_name = 'http://localhost:5000' + '/images/' + all[i].image_original_name;
+                prod.image = 'http://localhost:5000' + '/images/' + all[i].image;
                 news.push(prod);
         }
         response.status(200).json(news);
@@ -88,9 +88,9 @@ router.get('/getLimit', async(request, response, next) => {
       for(let i=all.length-1; i>=0; i--){
           q++;
               prod = all[i];
-              prod.image_original_name = 'http://localhost:5000' + '/images/' + all[i].image_original_name;
+              prod.image = 'http://localhost:5000' + '/images/' + all[i].image;
               news.push(prod);
-              if (q == 5) { break};
+              if (q == 8) { break};
       }
       response.status(200).json(news);
   }).catch( (err) =>{
@@ -241,6 +241,6 @@ router.get('/updateRaiting/:id', async function(request, response) {
     })
 })
 
- 
+
 
 module.exports = router;

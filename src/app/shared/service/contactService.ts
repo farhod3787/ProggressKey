@@ -23,13 +23,13 @@ export class ContactService {
 
   post(
     name: string,
-    email: string,
+    // email: string,
     number: string,
     message: string
   ) {
     const body = {
                   'name ': name,
-                  'email ': email,
+                  // 'email ': email,
                   'number ': number,
                   'message ' : message
     };

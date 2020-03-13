@@ -6,3 +6,4 @@ local - registrar: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6ImxvZ2luIiwi
 Ishlar: 
 
 	HomePage ni Bazaga ulash
+	Products ni Stars ni ishlatish

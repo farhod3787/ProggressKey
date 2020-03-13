@@ -1,5 +1,5 @@
 const express = require('express');
-const UserType = require('../models/userType');
+const Filial = require('../models/filal');
 const Registrar = require('../models/registrar');
 const Admin = require('../models/admin')
 const router = express.Router();
@@ -9,22 +9,21 @@ router.post('/:token', async function (request, response, next) {
    var body = request.body;
     var token = request.params.token;
     var admins = await  Registrar.find();
-    console.log(body);
     var obj = await Registrar.verifyOfUser(admins, token);
 
-    let type = {
-        nameUz : body.nameUz,
-        nameRu : body.nameRu,
-        nameEn : body.nameEn
+    let filial = {
+        province : body.province,
+        region : body.region,
+        name : body.name
     }
-    const user = new UserType(type);
+    const newFilial = new Filial(filial);
 
     if(obj.isRegistrar) {
-    user.save().then( (res) =>{
-        response.status(200).json({message: "New Type saved"})
+      newFilial.save().then( (res) =>{
+        response.status(200).json({message: "New Filial saved"})
     }).catch( err =>{
         console.log(err);
-        response.status(404).json({message: "Error in Saved type"})
+        response.status(404).json({message: "Error in Saved Filial"})
     })
 }
 else {
@@ -34,21 +33,21 @@ else {
 });
 
 router.get('/getall', async(request, response, next) => {
-    let types = await UserType.find();
+    let types = await Filial.find();
     response.status(200).json(types)
 })
 
-router.get('/getType/:id', async function(request, response, next) {
+router.get('/getFilial/:id', async function(request, response, next) {
     var id = request.params.id;
-      await UserType.findById(id).then((res) => {
+      await Filial.findById(id).then((res) => {
         if (!res) {
-            response.status(400).json({ message: "Category Not found" });
+            response.status(400).json({ message: "Filial Not found" });
         } else {
             response.status(200).json(res);
         }
     }).catch((err) => {
         console.log(err);
-        response.status(400).json({ message: "Category Not found" });
+        response.status(400).json({ message: "Filial Not found" });
     })
 })
 
@@ -59,12 +58,12 @@ router.delete('/:id/:token', async function(request, response, next) {
 
     var obj = Registrar.verifyOfUser(admin, token);
     if (obj.isModerator) {
-            await UserType.findByIdAndDelete(id).then((res) => {
-                response.status(200).json({ message: "Category deleted!" });
+            await Filial.findByIdAndDelete(id).then((res) => {
+                response.status(200).json({ message: "Filial deleted!" });
             })
             .catch((err) => {
                 console.log(err);
-                response.status(400).json({ message: "Error in delete Category" });
+                response.status(400).json({ message: "Error in delete Filial" });
             })
     } else {
         console.log(obj)
@@ -84,7 +83,7 @@ router.patch('/:id/:token' , async function(request, response, next) {
 
     var obj = Registrar.verifyOfUser(admin, token);
     if (obj.isAdmin) {
-        await UserType.findByIdAndUpdate(id, { $set: body }, { new: true }).then((res) => {
+        await Filial.findByIdAndUpdate(id, { $set: body }, { new: true }).then((res) => {
             if (res) {
                 response.status(200).json({ message: "Category Update Successfully" });
             } else {

@@ -28,13 +28,13 @@ const routes: Routes = [
   {
     path : '', component : NavbarComponent, children: [
       { path: '', component: HomeComponent} ,
-      {path: 'department-stores' , component:DepartmentStoresComponent},
-      {path: 'news' , component:NewsComponent},
-      {path: 'product' , component:ProductComponent},
-      {path: 'product-about' , component:ProductAboutComponent},
-      {path: 'news-about' , component:NewsAboutComponent},
-      {path: 'gallery' , component:GalleryComponent},
-      {path: 'contact' , component:ContactComponent},
+      {path: 'department-stores' , component: DepartmentStoresComponent},
+      {path: 'news' , component: NewsComponent},
+      {path: 'product' , component: ProductComponent},
+      {path: 'product-about' , component: ProductAboutComponent},
+      {path: 'news-about' , component: NewsAboutComponent},
+      {path: 'gallery' , component: GalleryComponent},
+      {path: 'contact' , component: ContactComponent},
       {path: 'all-product' , component: AllProductComponent, children: [
         {path: '' , component: NewProductComponent} ,
         {path: 'top' , component: TopProductComponent} ,
@@ -47,7 +47,7 @@ const routes: Routes = [
 
   },
 {
-  path : 'user', component :UserComponent, children: [
+  path : 'user', component : UserComponent, children: [
     { path: '', component: UserHomeComponent} ,
     { path: 'user-team', component: UserTeamComponent} ,
     { path: 'user-information', component: UserInformationComponent} ,

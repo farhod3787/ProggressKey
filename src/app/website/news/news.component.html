@@ -4,38 +4,62 @@
             <div class="col-12 text-center mb-5">
                 <h4>Yangiliklar</h4>
                 <p>Hududiy do'konlarimizni aniqlash uchun sizdan quyidagi formani to'ldirish talab etiladi.</p>
-            </div> 
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-6 pr-lg-0 mb-3">
-                <a routerLink="/news-about">
-                    <div class="featured-posts-grid__item no-gutters row mb-3 flex-lg-row-reverse"  style="position: relative;">
-                        <div class="col-lg-6" > 
-                            <img src="assets/img/news1.jfif" class="img-fluid w-100" alt="" > 
+
+                <a routerLink="/news-about" *ngFor = 'let new of news, let i = index'>
+                    <div *ngIf = 'i%2 === 0' class="featured-posts-grid__item no-gutters row mb-3 flex-lg-row-reverse"  style="position: relative;">
+                        <div class="col-lg-6" >
+                            <img src="{{new.image}}" class="img-fluid w-100" alt="" >
                         </div>
                         <div class="col-lg-6  ">
                             <div class="card-body">
                                 <h2 class="entry__title ">
-                                    <a routerLink="/news-about"  >3 Founders With Booming Businesses Share Stories About Their Difficult Early</a>
+                                    <a routerLink="/news-about"  >{{new.nameUz}}</a>
                                   </h2>
                                   <ul class="entry__meta">
                                     <li class="entry__meta-author">
                                       <span>by</span>
-                                      <a routerLink="/news-about" class="px-2">DeoThemes</a>
+                                      <a routerLink="/news-about" class="px-2">DeoThemes qqqqq</a>
                                     </li>
                                     <li class="entry__meta-date">
-                                      Mar 21, 2020
-                                    </li>              
+                                      {{new.date}}
+                                    </li>
                                   </ul>
                             </div>
                         </div>
- 
+                      </div>
+
+                      <div *ngIf = 'i%2 !== 0' class="featured-posts-grid__item no-gutters mb-3 row">
+                        <div class="col-lg-6">
+                            <img src="{{new.image}}" class="img-fluid w-100" alt="">
+                         </div>
+                        <div class="col-lg-6">
+                            <div class="card-body">
+                                <h2 class="entry__title ">
+                                    <a routerLink="/news-about"  >{{new.nameUz}}</a>
+                                  </h2>
+                                  <ul class="entry__meta">
+                                    <li class="entry__meta-author">
+                                      <span>by</span>
+                                      <a routerLink="/news-about" class="px-2">DeoThemes  AASASAS</a>
+                                    </li>
+                                    <li class="entry__meta-date">
+                                      {{new.date}}
+                                    </li>
+                                  </ul>
+                            </div>
+                        </div>
                       </div>
                 </a>
+
+
                 <a routerLink="/news-about">
                     <div class="featured-posts-grid__item no-gutters mb-3 row">
                         <div class="col-lg-6">
-                            <img src="assets/img/news2.jfif" class="img-fluid w-100" alt=""> 
+                            <img src="assets/img/news2.jfif" class="img-fluid w-100" alt="">
                          </div>
                         <div class="col-lg-6">
                             <div class="card-body">
@@ -49,17 +73,16 @@
                                     </li>
                                     <li class="entry__meta-date">
                                       Mar 21, 2020
-                                    </li>              
+                                    </li>
                                   </ul>
                             </div>
                         </div>
-     
                       </div>
                 </a>
                 <a routerLink="/news-about">
                     <div class="featured-posts-grid__item no-gutters row flex-lg-row-reverse mb-3">
                         <div class="col-lg-6">
-                            <img src="assets/img/news1.jfif" class="img-fluid w-100" alt=""> 
+                            <img src="assets/img/news1.jfif" class="img-fluid w-100" alt="">
                          </div>
                         <div class="col-lg-6  ">
                             <div class="card-body">
@@ -73,24 +96,24 @@
                                     </li>
                                     <li class="entry__meta-date">
                                       Mar 21, 2020
-                                    </li>              
+                                    </li>
                                   </ul>
                             </div>
                         </div>
- 
+
                       </div>
-                </a> 
+                </a>
             </div>
             <div class="col-lg-6 mb-3">
                 <a routerLink="/news-about">
                     <div class="featured-posts-grid__item no-gutters row">
                         <div class="col-lg-12">
-                            <img src="assets/img/news3.jpg" class="img-fluid w-100" alt=""> 
+                            <img src="{{lastNews.image}}" class="img-fluid w-100" alt="">
                          </div>
                         <div class="col-lg-12">
                             <div class="card-body">
                                 <h2 class="entry__title p-3" style="font-size: 32px; line-height: 1.2;">
-                                    <a routerLink="/news-about"  > What Days and Hours are PH Online Shoppers Most Likely to Buy?</a>
+                                    <a routerLink="/news-about"  > {{lastNews.nameUz}}</a>
                                   </h2>
                                   <ul class="entry__meta">
                                     <li class="entry__meta-author">
@@ -98,15 +121,15 @@
                                       <a routerLink="/news-about" class="px-2">DeoThemes</a>
                                     </li>
                                     <li class="entry__meta-date">
-                                      Mar 21, 2020
-                                    </li>              
+                                      {{lastNews.date}}
+                                    </li>
                                   </ul>
                             </div>
-                        </div> 
+                        </div>
                       </div>
-                </a> 
+                </a>
             </div>
-        </div>  
+        </div>
         <div class="row">
             <div class="col-lg-12  ">
                 <div class="row mb-3">
@@ -117,30 +140,30 @@
                     <div class="col-lg-4 pr-lg-0">
                         <div class="featured-posts-grid__item no-gutters row mb-3">
                             <div class="col-lg-12">
-                                <iframe width="100%" height="300" src="https://www.youtube.com/embed/s9jISF6pEmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                                <iframe width="100%" height="300" src="https://www.youtube.com/embed/s9jISF6pEmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                              </div>
- 
-                          </div> 
-                    </div> 
+
+                          </div>
+                    </div>
                     <div class="col-lg-4 pr-lg-0">
                         <div class="featured-posts-grid__item no-gutters row mb-3">
                             <div class="col-lg-12">
-                                <iframe width="100%" height="300" src="https://www.youtube.com/embed/s9jISF6pEmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                                <iframe width="100%" height="300" src="https://www.youtube.com/embed/s9jISF6pEmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                              </div>
-                          </div> 
-                    </div> 
+                          </div>
+                    </div>
                     <div class="col-lg-4 pr-lg-0">
                         <div class="featured-posts-grid__item no-gutters row mb-3">
                             <div class="col-lg-12">
-                                <iframe width="100%" height="300" src="https://www.youtube.com/embed/s9jISF6pEmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                                <iframe width="100%" height="300" src="https://www.youtube.com/embed/s9jISF6pEmo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                              </div>
-                          </div> 
-                    </div> 
- 
+                          </div>
+                    </div>
+
                 </div>
- 
+
             </div>
- 
+
         </div>
 
         <div class="row">
@@ -153,7 +176,7 @@
                     <div class="col-lg-6 pr-lg-0">
                         <div class="featured-posts-grid__item no-gutters row mb-3">
                             <div class="col-lg-12">
-                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt=""> 
+                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt="">
                              </div>
                             <div class="col-lg-12  ">
                                 <div class="card-body">
@@ -167,16 +190,16 @@
                                         </li>
                                         <li class="entry__meta-date">
                                           Mar 21, 2020
-                                        </li>              
+                                        </li>
                                       </ul>
                                 </div>
-                            </div> 
-                          </div> 
-                    </div> 
+                            </div>
+                          </div>
+                    </div>
                     <div class="col-lg-6 pr-lg-0">
                         <div class="featured-posts-grid__item no-gutters row mb-3">
                             <div class="col-lg-12">
-                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt=""> 
+                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt="">
                              </div>
                             <div class="col-lg-12  ">
                                 <div class="card-body">
@@ -190,16 +213,16 @@
                                         </li>
                                         <li class="entry__meta-date">
                                           Mar 21, 2020
-                                        </li>              
+                                        </li>
                                       </ul>
                                 </div>
-                            </div> 
-                          </div> 
-                    </div> 
+                            </div>
+                          </div>
+                    </div>
                     <div class="col-lg-6 pr-lg-0">
                         <div class="featured-posts-grid__item no-gutters row mb-3">
                             <div class="col-lg-12">
-                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt=""> 
+                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt="">
                              </div>
                             <div class="col-lg-12  ">
                                 <div class="card-body">
@@ -213,16 +236,16 @@
                                         </li>
                                         <li class="entry__meta-date">
                                           Mar 21, 2020
-                                        </li>              
+                                        </li>
                                       </ul>
                                 </div>
-                            </div> 
-                          </div> 
-                    </div> 
+                            </div>
+                          </div>
+                    </div>
                     <div class="col-lg-6 pr-lg-0">
                         <div class="featured-posts-grid__item no-gutters row mb-3">
                             <div class="col-lg-12">
-                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt=""> 
+                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt="">
                              </div>
                             <div class="col-lg-12  ">
                                 <div class="card-body">
@@ -236,16 +259,16 @@
                                         </li>
                                         <li class="entry__meta-date">
                                           Mar 21, 2020
-                                        </li>              
+                                        </li>
                                       </ul>
                                 </div>
-                            </div> 
-                          </div> 
-                    </div> 
+                            </div>
+                          </div>
+                    </div>
                     <div class="col-lg-6 pr-lg-0">
                         <div class="featured-posts-grid__item no-gutters row mb-3">
                             <div class="col-lg-12">
-                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt=""> 
+                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt="">
                              </div>
                             <div class="col-lg-12  ">
                                 <div class="card-body">
@@ -259,16 +282,16 @@
                                         </li>
                                         <li class="entry__meta-date">
                                           Mar 21, 2020
-                                        </li>              
+                                        </li>
                                       </ul>
                                 </div>
-                            </div> 
-                          </div> 
-                    </div> 
+                            </div>
+                          </div>
+                    </div>
                     <div class="col-lg-6 pr-lg-0">
                         <div class="featured-posts-grid__item no-gutters row mb-3">
                             <div class="col-lg-12">
-                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt=""> 
+                                <img src="assets/img/news4.jfif" class="img-fluid w-100" alt="">
                              </div>
                             <div class="col-lg-12  ">
                                 <div class="card-body">
@@ -282,18 +305,18 @@
                                         </li>
                                         <li class="entry__meta-date">
                                           Mar 21, 2020
-                                        </li>              
+                                        </li>
                                       </ul>
                                 </div>
-                            </div> 
-                          </div> 
-                    </div> 
+                            </div>
+                          </div>
+                    </div>
                 </div>
- 
+
             </div>
             <div class="col-lg-4  ">
                 <div class="row">
- 
+
                     <div class="col-lg-12  ">
                         <div class="featured-posts">
 
@@ -303,8 +326,8 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="card-body">
-                                        <img src="assets/img/news4.jfif"   alt=""> 
-                                    </div> 
+                                        <img src="assets/img/news4.jfif"   alt="">
+                                    </div>
                                  </div>
                                 <div class="col-lg-9 ">
                                     <div class="card-body">
@@ -318,16 +341,16 @@
                                             </li>
                                             <li class="entry__meta-date">
                                               Mar 21, 2020
-                                            </li>              
+                                            </li>
                                           </ul>
                                     </div>
-                                </div> 
-                            </div> 
+                                </div>
+                            </div>
                             <div class=" featured-posts-news no-gutters row  ">
                                 <div class="col-lg-3">
                                     <div class="card-body">
-                                        <img src="assets/img/news4.jfif"   alt=""> 
-                                    </div> 
+                                        <img src="assets/img/news4.jfif"   alt="">
+                                    </div>
                                  </div>
                                 <div class="col-lg-9 ">
                                     <div class="card-body">
@@ -341,16 +364,16 @@
                                             </li>
                                             <li class="entry__meta-date">
                                               Mar 21, 2020
-                                            </li>              
+                                            </li>
                                           </ul>
                                     </div>
-                                </div> 
-                            </div> 
+                                </div>
+                            </div>
                             <div class=" featured-posts-news no-gutters row ">
                                 <div class="col-lg-3">
                                     <div class="card-body">
-                                        <img src="assets/img/news4.jfif"   alt=""> 
-                                    </div> 
+                                        <img src="assets/img/news4.jfif"   alt="">
+                                    </div>
                                  </div>
                                 <div class="col-lg-9 ">
                                     <div class="card-body">
@@ -364,16 +387,16 @@
                                             </li>
                                             <li class="entry__meta-date">
                                               Mar 21, 2020
-                                            </li>              
+                                            </li>
                                           </ul>
                                     </div>
-                                </div> 
-                            </div> 
+                                </div>
+                            </div>
                             <div class=" featured-posts-news no-gutters row  ">
                                 <div class="col-lg-3">
                                     <div class="card-body">
-                                        <img src="assets/img/news4.jfif"   alt=""> 
-                                    </div> 
+                                        <img src="assets/img/news4.jfif"   alt="">
+                                    </div>
                                  </div>
                                 <div class="col-lg-9">
                                     <div class="card-body">
@@ -387,16 +410,16 @@
                                             </li>
                                             <li class="entry__meta-date">
                                               Mar 21, 2020
-                                            </li>              
+                                            </li>
                                           </ul>
                                     </div>
-                                </div> 
-                            </div> 
+                                </div>
+                            </div>
                             <div class=" featured-posts-news no-gutters row ">
                                 <div class="col-lg-3">
                                     <div class="card-body">
-                                        <img src="assets/img/news4.jfif"   alt=""> 
-                                    </div> 
+                                        <img src="assets/img/news4.jfif"   alt="">
+                                    </div>
                                  </div>
                                 <div class="col-lg-9 ">
                                     <div class="card-body">
@@ -410,16 +433,16 @@
                                             </li>
                                             <li class="entry__meta-date">
                                               Mar 21, 2020
-                                            </li>              
+                                            </li>
                                           </ul>
                                     </div>
-                                </div> 
-                            </div> 
+                                </div>
+                            </div>
                         </div>
- 
+
                     </div>
                 </div>
- 
+
             </div>
         </div>
     </div>

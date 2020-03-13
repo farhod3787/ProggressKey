@@ -8,7 +8,7 @@ const userRouter = require('./routes/users');
 const registrarRouter = require('./routes/registrar');
 const wareHouseRouter = require('./routes/wareHouse');
 const userTypeRouter = require('./routes/userType');
-
+const filialRouter = require('./routes/filial');
 
 const productRouter = require('./routes/products');
 const categoryRouter = require('./routes/category');
@@ -68,8 +68,7 @@ app.use('/api/registrar/', registrarRouter);
 app.use('/api/warehouse/', wareHouseRouter);
 app.use('/api/userType/', userTypeRouter);
 app.use('/api/news/', newsRouter);
-
-
+app.use('/api/filial/', filialRouter)
 app.use('/api/products/', productRouter);
 app.use('/api/category/', categoryRouter);
 app.use('/api/contact/', contactRouter);

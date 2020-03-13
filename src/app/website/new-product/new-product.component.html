@@ -1,4 +1,29 @@
 <div class="row">
+
+  <!-- News -->
+  <div class="col-lg-3 col-md-4 col-sm-6" *ngFor = 'let new of news'>
+        <div class="product-box">
+            <figure class="snip1205 green">
+                <img src="{{new.image}}"  class="img-fluid" alt="sample43"/>
+                <i class="fa fa-search"></i>
+                <!-- <a href="#"></a> -->
+            </figure>
+            <div class="text-center">
+                <div class="h5 m-0 pt-3 pb-2 text-dark"><a href="">{{new.nameUz}}</a></div>
+                <div class="h6 m-0 text-color">{{new.price}} sum</div>
+                <div class="h6  ">
+                    <button ><i class="fa fa-star text-warning"></i></button>
+                    <button ><i class="fa fa-star text-warning"></i></button>
+                    <button ><i class="fa fa-star text-warning"></i></button>
+                    <button ><i class="fa fa-star-o"></i></button>
+                    <button ><i class="fa fa-star-o"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- End News -->
+
     <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="product-box">
             <figure class="snip1205 green">
@@ -14,8 +39,8 @@
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
+                    <button ><i class="fa fa-star-o"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -34,8 +59,8 @@
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
+                    <button ><i class="fa fa-star-o"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -54,8 +79,8 @@
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
+                    <button ><i class="fa fa-star-o"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -74,8 +99,8 @@
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
+                    <button ><i class="fa fa-star-o"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -94,8 +119,8 @@
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
+                    <button ><i class="fa fa-star-o"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -114,8 +139,8 @@
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
+                    <button ><i class="fa fa-star-o"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -134,8 +159,8 @@
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
+                    <button ><i class="fa fa-star-o"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -154,8 +179,8 @@
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
+                    <button ><i class="fa fa-star-o"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -174,8 +199,8 @@
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
+                    <button ><i class="fa fa-star-o"></i></button>
+                </div>
             </div>
         </div>
     </div>
@@ -194,28 +219,8 @@
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="product-box">
-            <figure class="snip1205 green">
-                <img src="assets/img/product.png"  class="img-fluid" alt="sample43"/>
-                <i class="fa fa-search"></i>
-                <!-- <a href="#"></a> -->
-            </figure>
-            <div class="text-center">
-                <div class="h5 m-0 pt-3 pb-2 text-dark"><a href="">Vitamin B</a></div>
-                <div class="h6 m-0 text-color">192, 000 sum</div>
-                <div class="h6  ">
-                    <button ><i class="fa fa-star text-warning"></i></button>
-                    <button ><i class="fa fa-star text-warning"></i></button>
-                    <button ><i class="fa fa-star text-warning"></i></button>
                     <button ><i class="fa fa-star-o"></i></button>
-                    <button ><i class="fa fa-star-o"></i></button> 
-                </div> 
+                </div>
             </div>
         </div>
     </div>
