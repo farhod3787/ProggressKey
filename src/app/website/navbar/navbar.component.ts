@@ -31,6 +31,13 @@ export class NavbarComponent implements OnInit {
       $('nav').toggleClass('show');
       $('body').toggleClass('overflow');
     });
+
+    $(document).ready(function(){
+      $(".dropdown-toggle").dropdown();
+    });
+
+
+
   }
  
 

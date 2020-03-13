@@ -34,13 +34,18 @@
               "src/assets/css/fonts/icomoon/style.css",
               "src/assets/css/animation.css",
               "src/assets/css/style.css",
-              "src/assets/css/user.css"
+// user
+              "src/assets/user/flag-icon-css/css/flag-icon.min.css",
+              "src/assets/user/simple-line-icons/css/simple-line-icons.css"
+              // "src/assets/user/css/style.css"
             ],
             "scripts": [
+              "src/assets/js/jquery-3.3.1.min.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/owl.carousel/dist/owl.carousel.min.js",
               "src/assets/js/jquery-ui.min.js",
+            
               "src/assets/js/aos.js",
               "src/assets/js/main.js"
             ]
