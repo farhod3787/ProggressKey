@@ -36,8 +36,8 @@
               "src/assets/css/style.css",
 // user
               "src/assets/user/flag-icon-css/css/flag-icon.min.css",
-              "src/assets/user/simple-line-icons/css/simple-line-icons.css"
-              // "src/assets/user/css/style.css"
+              "src/assets/user/simple-line-icons/css/simple-line-icons.css",
+              "src/assets/user/css/style.css"
             ],
             "scripts": [
               "src/assets/js/jquery-3.3.1.min.js",

@@ -106,7 +106,7 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap");
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap"); */
 
 @-webkit-keyframes flash {
   0% {
@@ -1852,7 +1852,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
   color: #343a40;
@@ -12187,15 +12187,15 @@ dl {
 /* === Landing screens === */
 /* Auth */
 .auth .login-half-bg {
-  background: url("../../images/auth/login-bg.jpg");
+  background: url("../../../assets/user/images/auth/login-bg.jpg");
   background-size: cover; }
 
 .auth .register-half-bg {
-  background: url("../../images/auth/register-bg.jpg");
+  background: url("../../../assets/user/images/auth/register-bg.jpg");
   background-size: cover; }
 
 .auth.lock-full-bg {
-  background: url("../../images/auth/lockscreen-bg.jpg");
+  background: url("../../../assets/user/images/auth/lockscreen-bg.jpg");
   background-size: cover; }
 
 .auth .lock-profile-img {
@@ -12305,7 +12305,7 @@ dl {
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;
     -ms-transition: width 0.25s ease, background 0.25s ease;
-    background: #181824;
+    background: #a720b5;
     width: 240px;
     height: 70px;
     padding: 0 1.75rem; }
@@ -12318,14 +12318,16 @@ dl {
       color: #27367f;
       font-size: 1.5rem;
       line-height: 48px;
-      margin-right: 0;
-      padding: .25rem 0; }
+      margin: 0 auto;
+      padding: .25rem 0;
+     }
       .navbar .navbar-brand-wrapper .navbar-brand:active, .navbar .navbar-brand-wrapper .navbar-brand:focus, .navbar .navbar-brand-wrapper .navbar-brand:hover {
         color: #1b2658; }
       .navbar .navbar-brand-wrapper .navbar-brand img {
-        width: calc(240px - 120px);
+        /* width: calc(240px - 120px); */
         max-width: 100%;
-        height: 28px;
+        padding: 15px;
+        /* height: 28px; */
         margin: auto;
         vertical-align: middle; }
       .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini {
@@ -12362,7 +12364,8 @@ dl {
     width: calc(100% - 240px);
     height: 70px;
     -webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.11);
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.11); }
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.11);
+   }
     @media (max-width: 991px) {
       .navbar .navbar-menu-wrapper {
         width: auto;
@@ -12588,18 +12591,30 @@ dl {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 70px);
-  background: #181824;
+  /* background: #181824; */
+ 
   font-family: "Open Sans", sans-serif;
   padding: 0;
   width: 240px;
+  overflow: hidden;
+  position: relative;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
   -moz-transition: width 0.25s ease, background 0.25s ease;
-  -ms-transition: width 0.25s ease, background 0.25s ease; }
+  -ms-transition: width 0.25s ease, background 0.25s ease; 
+ height: 100vh;
+/* position: fixed; */
+}
+  
   .sidebar .nav {
+    background: rgb(167,32,181);
+    background: linear-gradient(180deg, rgba(167,32,181,1) 20%, rgba(37,75,240,1) 100%);
+    position: fixed;
+    height: 100vh; 
     overflow: hidden;
     -ms-flex-wrap: nowrap;
+    width: 240px;
     flex-wrap: nowrap;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -12636,7 +12651,7 @@ dl {
             font-size: 1.125rem;
             line-height: 1;
             margin-left: auto;
-            color: #626262; }
+            color: #fff; }
             .sidebar .nav .nav-item .nav-link i.menu-icon:before {
               vertical-align: middle; }
         .sidebar .nav .nav-item .nav-link .menu-title {
@@ -12697,12 +12712,12 @@ dl {
           .sidebar .nav .nav-item.nav-profile .nav-link .designation {
             margin-bottom: 0;
             font-weight: 400;
-            color: #9c9fa6;
+            color: #fff;
             font-size: 12px; }
           .sidebar .nav .nav-item.nav-profile .nav-link .icon-container {
             font-size: 16px;
             position: relative;
-            color: #626262;
+            color: #fff;
             margin-left: auto;
             -ms-flex-item-align: start;
             align-self: flex-start; }
@@ -12717,7 +12732,7 @@ dl {
               transform: none;
               color: #626262; }
       .sidebar .nav .nav-item.nav-category {
-        color: #38ce3c;
+        color: #fff;
         font-size: 13px;
         font-weight: 700;
         text-transform: uppercase; }

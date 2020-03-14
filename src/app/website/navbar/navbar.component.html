@@ -1,68 +1,94 @@
 
+ 
 
-
-  <header>
-    <div class="container">
-      <div class="logo">
-        <img src="assets/img/logo.png" alt="">
-      </div>
-      <div class="header-phone">
-        <div>Telefon</div>
-        <div class="h6">+998 (71) 258-36-69</div>
-        <span><img src="assets/img/phone.png" alt=""></span>
-      </div>
-      <div class=" header-fix"  >
-        <div class="" style="position: relative;top: -15px;">
-          <form class="search-container" action="//llamaswill.tumblr.com/search" style="display: inline-block;">
-            <input id="search-box" type="text" class="search-box  "   name="q" />
-            <label for="search-box" class="search-lable"><span class="glyphicon glyphicon-search fa fa-search "></span></label>
-            <input type="submit" id="search-submit" />
+  <header  >
+    <div class="container"></div>
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0  w-100  flex-row" style="background-color: transparent;">
+      <div class="navbar-menu-wrapper d-flex align-items-center flex-grow-1" style="height: 40px;  ">
+        <h4 class="mb-0 font-weight-medium d-none d-lg-flex text-white">Progreskey.uz ga xush kelibsiz</h4>
+        <ul class="navbar-nav navbar-nav-right ml-auto">
+          <form class="search-form d-none d-md-block" action="#">
+            <i class="icon-magnifier text-white"></i>
+            <input type="search" class="form-control" placeholder="Search Here" title="Search here">
           </form> 
-          <mat-form-field style="width: 50px;margin: 0 20px;"> 
-            <mat-select [(value)]="selected"> 
-              <mat-option value="option1">RU</mat-option>
-              <mat-option value="option2">UZ</mat-option>
-              <mat-option value="option3">ENG</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Dropdown Example
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-            <li role="presentation" class="divider"></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>    
-          </ul>
-        </div>
-
-
+          <li class="nav-item"><a href="#" class="nav-link"><i class="icon-chart text-white"></i></a></li>
+ 
+          <li class="nav-item dropdown language-dropdown d-none d-sm-flex align-items-center">
+            <a class="nav-link d-flex align-items-center dropdown-toggle" id="LanguageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+              <div class="d-inline-flex mr-3 text-white">
+                <i class="flag-icon flag-icon-us text-white"></i>
+              </div>
+              <span class="profile-text font-weight-normal text-white">English</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-left navbar-dropdown py-2" aria-labelledby="LanguageDropdown">
+              <a class="dropdown-item">
+                <i class="flag-icon flag-icon-us"></i> English </a>
+              <a class="dropdown-item">
+                <i class="flag-icon flag-icon-fr"></i> French </a>
+              <a class="dropdown-item">
+                <i class="flag-icon flag-icon-ae"></i> Arabic </a>
+              <a class="dropdown-item">
+                <i class="flag-icon flag-icon-ru"></i> Russian </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
+            <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+           <span class="font-weight-normal text-white"> Sing in</span></a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+              <div class="dropdown-header text-center">
+                <p class="mb-1 mt-3">Allen Moreno</p>
+                <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
+              </div>
+              <a class="dropdown-item">
+                <i class="dropdown-item-icon icon-user text-primary"></i> My Profile 
+                <span class="badge badge-pill badge-danger">1</span>
+              </a>
+              <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
+              <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a> 
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="icon-menu"></span>
+        </button>
       </div>
-      <ul class="navbar">
-        <li>
-            <a routerLink="/">Asosiy</a>
+    </nav>
+    <div class="">
+      <div class="container">
+        <div class="logo">
+          <img src="assets/img/logo.png" alt="">
+        </div>
+        <div class="header-phone">
+          <div>Telefon</div>
+          <div class="h5">+998 (71) 258-36-69</div>
+          <span><img src="assets/img/phone.png" alt=""></span>
+        </div>
+   
+        <ul class="navbar" style="background-color: transparent;">
+          <li>
+              <a routerLink="/">Asosiy</a>
+          </li>
+          <li>
+            <a routerLink="/all-product">Mahsulotlar</a>
         </li>
         <li>
-          <a routerLink="/all-product">Mahsulotlar</a>
+          <a routerLink="/department-stores">Hududiy do'konlar</a>
       </li>
       <li>
-        <a routerLink="/department-stores">Hududiy do'konlar</a>
-    </li>
-    <li>
-      <a routerLink="/news">Yangiliklar</a>
-    </li>
-    <li>
-      <a routerLink="/gallery">Galleriya</a>
-    </li>
-    <li>
-      <a routerLink="/contact">Bog'lanish</a>
-    </li>
-      </ul>
+        <a routerLink="/news">Yangiliklar</a>
+      </li>
+      <li>
+        <a routerLink="/gallery">Galleriya</a>
+      </li>
+      <li>
+        <a routerLink="/contact">Bog'lanish</a>
+      </li>
+        </ul>
+      </div>
     </div>
+ 
 
+ 
 </header>
 <!-- navbar mobile-->
 <div class="burger">
