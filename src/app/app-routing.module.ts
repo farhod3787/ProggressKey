@@ -21,6 +21,15 @@ import { UserTeamComponent } from './user/user-team/user-team.component';
 import { UserInformationComponent } from './user/user-information/user-information.component';
 import { UserResultComponent } from './user/user-result/user-result.component';
 import { UserNotesComponent } from './user/user-notes/user-notes.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
+import { AdminComponent } from './admin/admin/admin.component';
+import { ManagerComponent } from './manager/manager/manager.component';
+import { ManagerHomeComponent } from './manager/manager-home/manager-home.component';
+import { ManagerBlogComponent } from './manager/manager-blog/manager-blog.component';
+import { RegisterHomeComponent } from './register/register-home/register-home.component';
+import { RegisterComponent } from './register/register/register.component';
+import { RegisterBlogComponent } from './register/register-blog/register-blog.component';
 
 
 const routes: Routes = [
@@ -46,6 +55,8 @@ const routes: Routes = [
 
 
   },
+
+  // User
 {
   path : 'user', component : UserComponent, children: [
     { path: '', component: UserHomeComponent} ,
@@ -57,7 +68,32 @@ const routes: Routes = [
   ]
 },
 
+// admin
+{
+  path : 'admin', component : ManagerComponent , children: [
+    { path: '', component: ManagerHomeComponent} ,
+    { path: 'admin-blog', component: ManagerBlogComponent} 
+ 
+  ]
+},
 
+// manager
+{
+  path : 'manager', component : AdminComponent , children: [
+    { path: '', component: AdminHomeComponent} ,
+    { path: 'manager-blog', component: AdminBlogComponent} 
+ 
+  ]
+},
+
+// manager
+{
+  path : 'register', component : RegisterComponent , children: [
+    { path: '', component: RegisterHomeComponent} ,
+    { path: 'manager-blog', component: RegisterBlogComponent} 
+ 
+  ]
+},
 ];
 
 

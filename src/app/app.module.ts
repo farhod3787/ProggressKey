@@ -35,6 +35,15 @@ import { UserResultComponent } from './user/user-result/user-result.component';
 import { UserInformationComponent } from './user/user-information/user-information.component';
 import { UserNotesComponent } from './user/user-notes/user-notes.component';
 import { UserHomeComponent } from './user/user-home/user-home.component';
+import { AdminComponent } from './admin/admin/admin.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
+import { ManagerComponent } from './manager/manager/manager.component';
+import { ManagerHomeComponent } from './manager/manager-home/manager-home.component';
+import { ManagerBlogComponent } from './manager/manager-blog/manager-blog.component';
+import { RegisterComponent } from './register/register/register.component';
+import { RegisterHomeComponent } from './register/register-home/register-home.component';
+import { RegisterBlogComponent } from './register/register-blog/register-blog.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +70,16 @@ import { UserHomeComponent } from './user/user-home/user-home.component';
     UserResultComponent,
     UserInformationComponent,
     UserNotesComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    AdminComponent,
+    AdminHomeComponent,
+    AdminBlogComponent,
+    ManagerComponent,
+    ManagerHomeComponent,
+    ManagerBlogComponent,
+    RegisterComponent,
+    RegisterHomeComponent,
+    RegisterBlogComponent
   ],
   imports: [
     BrowserModule,
