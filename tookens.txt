@@ -7,3 +7,4 @@ Ishlar:
 
 	HomePage ni Bazaga ulash
 	Products ni Stars ni ishlatish
+	User da parent_id si bo'lishi kerak
