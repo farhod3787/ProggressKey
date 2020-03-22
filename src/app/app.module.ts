@@ -44,6 +44,7 @@ import { ManagerBlogComponent } from './manager/manager-blog/manager-blog.compon
 import { RegisterComponent } from './register/register/register.component';
 import { RegisterHomeComponent } from './register/register-home/register-home.component';
 import { RegisterBlogComponent } from './register/register-blog/register-blog.component';
+import { BinarComponent } from './user/binar/binar.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { RegisterBlogComponent } from './register/register-blog/register-blog.co
     ManagerBlogComponent,
     RegisterComponent,
     RegisterHomeComponent,
-    RegisterBlogComponent
+    RegisterBlogComponent,
+    BinarComponent
   ],
   imports: [
     BrowserModule,

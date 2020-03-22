@@ -30,6 +30,8 @@ import { ManagerBlogComponent } from './manager/manager-blog/manager-blog.compon
 import { RegisterHomeComponent } from './register/register-home/register-home.component';
 import { RegisterComponent } from './register/register/register.component';
 import { RegisterBlogComponent } from './register/register-blog/register-blog.component';
+import { bindNodeCallback } from 'rxjs';
+import { BinarComponent } from './user/binar/binar.component';
 
 
 const routes: Routes = [
@@ -65,6 +67,7 @@ const routes: Routes = [
     { path: 'user-result', component: UserResultComponent} ,
     { path: 'user-notes', component: UserNotesComponent} ,
     { path: 'transfer', component: TransferComponent} ,
+    { path: 'binar', component: BinarComponent} ,
   ]
 },
 
