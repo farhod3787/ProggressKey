@@ -35,6 +35,10 @@ import { BinarComponent } from './user/binar/binar.component';
 import { SignComponent } from './website/sign/sign.component';
 import { LoginComponent } from './website/login/login.component';
 import { ErrorComponent } from './website/error/error.component';
+import { TransferHistoryComponent } from './user/transfer-history/transfer-history.component';
+import { ProductBuyComponent } from './user/product-buy/product-buy.component';
+import { TransferHomeComponent } from './user/transfer-home/transfer-home.component';
+import { TransferAboutComponent } from './user/transfer-about/transfer-about.component';
 
 
 const routes: Routes = [
@@ -71,8 +75,15 @@ const routes: Routes = [
     { path: 'user-information', component: UserInformationComponent} ,
     { path: 'user-result', component: UserResultComponent} ,
     { path: 'user-notes', component: UserNotesComponent} ,
-    { path: 'transfer', component: TransferComponent} ,
+    { path: 'transfer', component: TransferComponent ,children:[
+      { path: ' ', component: TransferHomeComponent} ,
+      { path: 'transfer-history', component: TransferHistoryComponent} , 
+      { path: 'product-buy', component: ProductBuyComponent} , 
+       { path: 'transfer-about', component: TransferAboutComponent} , 
+    ]
+  } ,
     { path: 'binar', component: BinarComponent} , 
+ 
   ]
 },
 

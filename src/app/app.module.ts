@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -48,6 +48,10 @@ import { BinarComponent } from './user/binar/binar.component';
 import { LoginComponent } from './website/login/login.component';
 import { ErrorComponent } from './website/error/error.component';
 import { SignComponent } from './website/sign/sign.component';
+import { TransferHistoryComponent } from './user/transfer-history/transfer-history.component';
+import { ProductBuyComponent } from './user/product-buy/product-buy.component';
+import { TransferHomeComponent } from './user/transfer-home/transfer-home.component';
+import { TransferAboutComponent } from './user/transfer-about/transfer-about.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +91,11 @@ import { SignComponent } from './website/sign/sign.component';
     BinarComponent, 
     LoginComponent,
     ErrorComponent,
-    SignComponent
+    SignComponent,
+    TransferHistoryComponent,
+    ProductBuyComponent,
+    TransferHomeComponent,
+    TransferAboutComponent
   ],
   imports: [
     BrowserModule,
