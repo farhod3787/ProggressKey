@@ -8,7 +8,7 @@ import {url} from '../../url/url';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class UserService {
 
   constructor(private http: Http) { }
 
