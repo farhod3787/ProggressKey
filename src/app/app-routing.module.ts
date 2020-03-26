@@ -31,7 +31,10 @@ import { RegisterHomeComponent } from './register/register-home/register-home.co
 import { RegisterComponent } from './register/register/register.component';
 import { RegisterBlogComponent } from './register/register-blog/register-blog.component';
 import { bindNodeCallback } from 'rxjs';
-import { BinarComponent } from './user/binar/binar.component';
+import { BinarComponent } from './user/binar/binar.component';   
+import { SignComponent } from './website/sign/sign.component';
+import { LoginComponent } from './website/login/login.component';
+import { ErrorComponent } from './website/error/error.component';
 
 
 const routes: Routes = [
@@ -54,10 +57,12 @@ const routes: Routes = [
       ]}
 
       ]
+     
 
-
-  },
-
+  }, 
+  { path: 'sign', component: SignComponent} , 
+  { path: 'login', component: LoginComponent} , 
+  { path: 'error', component: ErrorComponent} , 
   // User
 {
   path : 'user', component : UserComponent, children: [
@@ -67,7 +72,7 @@ const routes: Routes = [
     { path: 'user-result', component: UserResultComponent} ,
     { path: 'user-notes', component: UserNotesComponent} ,
     { path: 'transfer', component: TransferComponent} ,
-    { path: 'binar', component: BinarComponent} ,
+    { path: 'binar', component: BinarComponent} , 
   ]
 },
 
