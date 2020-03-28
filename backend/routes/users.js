@@ -233,6 +233,8 @@ router.get('/verifyUser/:token', async function(request, response) {
 
 router.post('/sign', async function(request, response) {
     var body = request.body;
+    console.log(body.login);
+
     var data = {}
     var users = await User.find();
     var obj = User.verifyUser(users, body);

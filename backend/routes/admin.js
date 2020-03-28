@@ -141,19 +141,18 @@ router.get('/verifyAdmin/:token', async function(request, response) {
 
 router.post('/sign', async function(request, response) {
     var body = request.body;
-    var data = {}
     var admins = await Admin.find();
     var obj = await Admin.verifyAdmin(admins, body);
     response.status(200).json(obj)
 
-    if(obj.isAdmin) {
-        data.token = obj.token;
-        data.isAdmin = obj.isAdmin;
-        // response.status(200).json(data)
-    }
-    else {
-        response.status(404).json({message: "User Not found!"})
-    }
+    // if(obj.isAdmin) {
+    //     data.token = obj.token;
+    //     data.isAdmin = obj.isAdmin;
+    //     response.status(200).json(data)
+    // }
+    // else {
+    //     response.status(404).json({message: "Admin Not found!"})
+    // }
 });
 
 

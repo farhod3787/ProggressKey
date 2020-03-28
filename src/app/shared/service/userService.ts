@@ -48,7 +48,11 @@ export class UserService {
     return this.http.get(this.api + id);
   }
 
-  sign(body) {
+  sign(login, password) {
+    const body = {
+       login,
+       password
+    };
     return this.http.post( this.api + 'sign', body);
   }
 

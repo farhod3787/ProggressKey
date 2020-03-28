@@ -1,8 +1,8 @@
- 
-  
+
+
  <!-- <router-outlet></router-outlet> -->
 
- <div class="container-scroller"> 
+ <div class="container-scroller">
 
   <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex align-items-center">
@@ -27,7 +27,7 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
             <a class="dropdown-item py-3">
-              <p class="mb-0 font-weight-medium float-left">Yuborilgan so'rovlar</p> 
+              <p class="mb-0 font-weight-medium float-left">Yuborilgan so'rovlar</p>
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item preview-item">
@@ -78,18 +78,18 @@
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
             <div class="dropdown-header text-center">
               <!-- <img class="img-md rounded-circle" src="../../../assets/user/images/faces/face8.jpg" alt="Profile image"> -->
-              <p class="mb-1 mt-3">Axmadov Davron</p> 
+              <p class="mb-1 mt-3">Axmadov Davron</p>
             </div>
             <a class="dropdown-item">
               <i class="dropdown-item-icon icon-user text-primary"></i>Mening profilim
               <span class="badge badge-pill badge-danger">1</span>
             </a>
             <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
-            <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Log out</a> 
+            <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Log out</a>
           </div>
         </li>
         <li class="nav-item">
-            <a routerLink="sign-in" class=" nav-link ">Sign in</a>
+            <a (click)='logOut()' class=" nav-link ">Log Out</a>
         </li>
       </ul>
       <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -100,7 +100,7 @@
   <!-- partial -->
 
 
-  
+
   <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -124,7 +124,7 @@
         <!-- <li class="nav-item nav-category">
           <span class="nav-link">Progresskey.uz</span>
         </li> -->
- 
+
         <!-- <li class="nav-item nav-category"><span class="nav-link">UI Elements</span></li> -->
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" routerLink="/user" aria-expanded="false" aria-controls="ui-basic">
@@ -150,7 +150,7 @@
             <i class="icon-book-open menu-icon"></i>
           </a>
         </li>
- 
+
         <li class="nav-item">
           <a class="nav-link" routerLink="user-result">
             <span class="menu-title">Statistika</span>
@@ -175,7 +175,7 @@
             <i class=" icon-speech menu-icon"></i>
           </a>
         </li>
- 
+
         <li class="nav-item pro-upgrade">
           <span class="nav-link">
             <a class="btn btn-block px-0 btn-rounded btn-upgrade" href="/" target="_blank"> <i class="icon-badge mx-2"></i>Progresskey.uz</a>
@@ -184,23 +184,23 @@
       </ul>
     </nav>
     <!-- partial -->
-    
+
     <div class="main-panel">
- 
+
       <div class="content-wrapper">
         <router-outlet></router-outlet>
- 
+
       </div>
- 
+
       <!-- <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
           <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2017 <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap Dash</a>. All rights reserved.</span>
           <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="icon-heart text-danger"></i></span>
         </div>
       </footer> -->
- 
+
     </div>
- 
+
   </div>
- 
-</div> 
+
+</div>

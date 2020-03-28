@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/shared/service/adminService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -7,7 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private adminService: AdminService,
+    private route: Router
+  ) {
+    this.verifyOfAdmin();
+  }
+
+  verifyOfAdmin() {
+    this.adminService.verify().subscribe( result => {
+      const object = result.json();
+      if ( object.isAdmin ) {
+        this.route.navigate(['admin']);
+      } else {
+        this.route.navigate(['sign']);
+      }
+    });
+  }
+
 
   ngOnInit(): void {
   }

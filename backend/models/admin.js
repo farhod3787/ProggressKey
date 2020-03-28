@@ -21,7 +21,31 @@ adminSchema.statics.generateToken = function(login, password) {
     var token = jwt.sign(value, 'pro');
     return token;
 }
- 
+
+adminSchema.statics.verifyAdmin = function(users, body) {
+  console.log(body.login);
+
+  var object = {isAdmin : false};
+  var distoken = undefined;
+
+  users.forEach((user) => {
+          distoken = jwt.verify(user.password, 'pro');
+          console.log(distoken);
+
+      if (distoken) {
+          if(user.login == body.login && distoken.password == body.password ) {
+                  object.isAdmin = true;
+                  object.token = jwt.sign({login: user.login, password: user.password}, 'pro')
+          }
+      }
+      else {
+          console.log("Distoken Undefined")
+      }
+  })
+  console.log(object);
+
+  return object;
+}
 
 adminSchema.statics.verifyOfAdmin = function(admins, token) {
     var object = {isAdmin : false, adminId: undefined};

@@ -31,7 +31,7 @@ import { RegisterHomeComponent } from './register/register-home/register-home.co
 import { RegisterComponent } from './register/register/register.component';
 import { RegisterBlogComponent } from './register/register-blog/register-blog.component';
 import { bindNodeCallback } from 'rxjs';
-import { BinarComponent } from './user/binar/binar.component';   
+import { BinarComponent } from './user/binar/binar.component';
 import { SignComponent } from './website/sign/sign.component';
 import { LoginComponent } from './website/login/login.component';
 import { ErrorComponent } from './website/error/error.component';
@@ -61,12 +61,12 @@ const routes: Routes = [
       ]}
 
       ]
-     
 
-  }, 
-  { path: 'sign', component: SignComponent} , 
-  { path: 'login', component: LoginComponent} , 
-  { path: 'error', component: ErrorComponent} , 
+
+  },
+  { path: 'sign', component: SignComponent} ,
+  { path: 'login', component: LoginComponent} ,
+  { path: 'error', component: ErrorComponent} ,
   // User
 {
   path : 'user', component : UserComponent, children: [
@@ -75,33 +75,33 @@ const routes: Routes = [
     { path: 'user-information', component: UserInformationComponent} ,
     { path: 'user-result', component: UserResultComponent} ,
     { path: 'user-notes', component: UserNotesComponent} ,
-    { path: 'transfer', component: TransferComponent ,children:[
+    { path: 'transfer', component: TransferComponent , children: [
       { path: ' ', component: TransferHomeComponent} ,
-      { path: 'transfer-history', component: TransferHistoryComponent} , 
-      { path: 'product-buy', component: ProductBuyComponent} , 
-       { path: 'transfer-about', component: TransferAboutComponent} , 
+      { path: 'transfer-history', component: TransferHistoryComponent} ,
+      { path: 'product-buy', component: ProductBuyComponent} ,
+       { path: 'transfer-about', component: TransferAboutComponent} ,
     ]
   } ,
-    { path: 'binar', component: BinarComponent} , 
- 
-  ]
-},
+    { path: 'binar', component: BinarComponent} ,
 
-// admin
-{
-  path : 'admin', component : ManagerComponent , children: [
-    { path: '', component: ManagerHomeComponent} ,
-    { path: 'admin-blog', component: ManagerBlogComponent} 
- 
   ]
 },
 
 // manager
 {
-  path : 'manager', component : AdminComponent , children: [
+  path : 'manager', component : ManagerComponent , children: [
+    { path: '', component: ManagerHomeComponent} ,
+    { path: 'manager-blog', component: ManagerBlogComponent}
+
+  ]
+},
+
+// admin
+{
+  path : 'admin', component : AdminComponent , children: [
     { path: '', component: AdminHomeComponent} ,
-    { path: 'manager-blog', component: AdminBlogComponent} 
- 
+    { path: 'manager-blog', component: AdminBlogComponent}
+
   ]
 },
 
@@ -109,8 +109,8 @@ const routes: Routes = [
 {
   path : 'register', component : RegisterComponent , children: [
     { path: '', component: RegisterHomeComponent} ,
-    { path: 'manager-blog', component: RegisterBlogComponent} 
- 
+    { path: 'manager-blog', component: RegisterBlogComponent}
+
   ]
 },
 ];
