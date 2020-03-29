@@ -39,6 +39,11 @@ import { TransferHistoryComponent } from './user/transfer-history/transfer-histo
 import { ProductBuyComponent } from './user/product-buy/product-buy.component';
 import { TransferHomeComponent } from './user/transfer-home/transfer-home.component';
 import { TransferAboutComponent } from './user/transfer-about/transfer-about.component';
+import { RegistratorAddComponent } from './admin/registrator-add/registrator-add.component';
+import { RegistratorComponent } from './admin/registrator/registrator.component';
+import { ClientAddComponent } from './admin/client-add/client-add.component';
+import { ClientComponent } from './admin/client/client.component';
+import { SiteManagementComponent } from './admin/site-management/site-management.component';
 
 
 const routes: Routes = [
@@ -100,7 +105,12 @@ const routes: Routes = [
 {
   path : 'admin', component : AdminComponent , children: [
     { path: '', component: AdminHomeComponent} ,
-    { path: 'manager-blog', component: AdminBlogComponent}
+    { path: 'manager-blog', component: AdminBlogComponent},
+    { path: 'client', component: ClientComponent},
+    { path: 'client-add', component: ClientAddComponent},
+    { path: 'registrator', component: RegistratorComponent},
+    { path: 'register-add', component: RegistratorAddComponent},
+    { path: 'site-manager', component: SiteManagementComponent},
 
   ]
 },

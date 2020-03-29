@@ -1314,4 +1314,98 @@ footer {
     to {transform: translateY(20%);}
   }
 
+ /* admin */
+ .registr-box{
+     width: 100%;
+     border-radius: 10px;
+     background-color: #CEE8CA;
+     padding: 15px;
+     min-height: 232px;
+     color: #023F53;
  
+ }
+ .registr-box h3{
+    color: #023F53;
+ }
+ .shopping-box-color{
+    background-color: #F2BC9E;
+ 
+ }
+ .registr-box .reg-add{
+     width: 100px;
+     height: 100px;
+     background-color: #fff;
+     border: 2ps solid #707070;
+     border-radius: 50%;
+     align-items: center;
+     display: flex;
+     justify-content: center;
+     cursor: pointer;
+ 
+ }
+ .registr-box-add {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+ }
+ .registr-box .reg-add p{
+     font-size: 50px;
+ }
+ .registr-box img{ 
+     border-radius: 10px;
+ }
+ .team-regadd img{
+     width: 20%;
+     border-radius: 50%;
+     border: 2px solid #fff;
+     position: relative;
+ }
+ .team-regadd img:nth-child(2){
+     left: -15px;
+ }
+ .team-regadd img:nth-child(3){
+    left: -30px;
+}
+.team-regadd img:nth-child(4){
+    left: -45px;
+}
+.team-regadd img:nth-child(5){
+    left: -60px;
+}
+.reg-temcolor{
+    color: #4A7745;
+}
+.shop-temcolor{
+    color: #C36338;
+}
+.slider-routing {
+    width: 100%;
+    background-color: #fff;
+  }
+  
+  .skills {
+    text-align: right; 
+    color: white;
+  }
+  
+  .routing-reg {
+      width: 90%;
+     background-color: #4CAF50;
+     height: 6px;
+    }
+    .routing-shop {
+        width: 90%;
+       background-color: #C36338;
+       height: 6px;
+      }
+      .add-span-new{
+          justify-content: center;
+          font-size: 18px;
+          color: #fff;
+          display: flex;
+          text-align: center;
+          align-items: center;
+        width: 30px;height: 30px;border-radius: 50%;
+        background-color: #FF9077;position: relative; 
+        display: inline-block;
+      }

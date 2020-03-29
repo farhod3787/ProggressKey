@@ -52,6 +52,12 @@ import { TransferHistoryComponent } from './user/transfer-history/transfer-histo
 import { ProductBuyComponent } from './user/product-buy/product-buy.component';
 import { TransferHomeComponent } from './user/transfer-home/transfer-home.component';
 import { TransferAboutComponent } from './user/transfer-about/transfer-about.component';
+import { RegistratorComponent } from './admin/registrator/registrator.component';
+import { ClientComponent } from './admin/client/client.component';
+import { ClientAddComponent } from './admin/client-add/client-add.component';
+import { RegistratorAddComponent } from './admin/registrator-add/registrator-add.component';
+import { SiteManagementComponent } from './admin/site-management/site-management.component';
+import { AdminSittingComponent } from './admin/admin-sitting/admin-sitting.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +101,13 @@ import { TransferAboutComponent } from './user/transfer-about/transfer-about.com
     TransferHistoryComponent,
     ProductBuyComponent,
     TransferHomeComponent,
-    TransferAboutComponent
+    TransferAboutComponent,
+    RegistratorComponent,
+    ClientComponent,
+    ClientAddComponent,
+    RegistratorAddComponent,
+    SiteManagementComponent,
+    AdminSittingComponent
   ],
   imports: [
     BrowserModule,
