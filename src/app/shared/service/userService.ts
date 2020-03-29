@@ -48,6 +48,10 @@ export class UserService {
     return this.http.get(this.api + id);
   }
 
+  getTeam() {
+    return this.http.get(this.api + 'team/' + localStorage.getItem('token'))
+  }
+
   sign(login, password) {
     const body = {
        login,

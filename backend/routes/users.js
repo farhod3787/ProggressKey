@@ -249,7 +249,31 @@ router.post('/sign', async function(request, response) {
     }
 });
 
+router.get('/team/:token', async function(request, response) {
+  var token = request.params.token;
+  var users = await User.find();
+  var obj = User.verifyOfUser(users, token);
 
+  if(obj.isUser) {
+    var id = obj.userId;
+    var team = await User.find({'whoBottom' : id});
+    for (let i =0; i<= team.length - 1; i++) {
+      team[i].image = 'http://localhost:5000/images/' + team[i].image
+    }
+    response.status(200).json(team)
+  }
+})
 
+router.get('/team/:id', async function(request, response) {
+  var id = request.params.id;
+  // var users = await User.find();
+  // var obj = User.verifyOfUser(users, token);
+
+  // if(obj.isUser) {
+    // var id = obj.userId;
+    var team = await User.find({'whoBottom' : id});
+    response.status(200).json(team)
+  // }
+})
 
 module.exports = router
