@@ -56,10 +56,12 @@ import { RegistratorComponent } from './admin/registrator/registrator.component'
 import { ClientComponent } from './admin/client/client.component';
 import { ClientAddComponent } from './admin/client-add/client-add.component';
 import { RegistratorAddComponent } from './admin/registrator-add/registrator-add.component';
-import { SiteManagementComponent } from './admin/site-management/site-management.component';
-import { AdminSittingComponent } from './admin/admin-sitting/admin-sitting.component';
+import { SiteManagementComponent } from './admin/site-management/site-management.component'; 
 import { WarehouseComponent } from './admin/warehouse/warehouse.component';
 import { RegistratorHomeComponent } from './admin/registrator-home/registrator-home.component';
+import { ClientHomeComponent } from './admin/client-home/client-home.component';
+import { WarehouseHomeComponent } from './admin/warehouse-home/warehouse-home.component';
+import { WarehouseAddComponent } from './admin/warehouse-add/warehouse-add.component';
 
 @NgModule({
   declarations: [
@@ -108,10 +110,12 @@ import { RegistratorHomeComponent } from './admin/registrator-home/registrator-h
     ClientComponent,
     ClientAddComponent,
     RegistratorAddComponent,
-    SiteManagementComponent,
-    AdminSittingComponent,
+    SiteManagementComponent, 
     WarehouseComponent,
-    RegistratorHomeComponent
+    RegistratorHomeComponent,
+    ClientHomeComponent,
+    WarehouseHomeComponent,
+    WarehouseAddComponent
   ],
   imports: [
     BrowserModule,

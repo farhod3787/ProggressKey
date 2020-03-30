@@ -44,9 +44,11 @@ import { RegistratorComponent } from './admin/registrator/registrator.component'
 import { ClientAddComponent } from './admin/client-add/client-add.component';
 import { ClientComponent } from './admin/client/client.component';
 import { SiteManagementComponent } from './admin/site-management/site-management.component';
-import { AdminSittingComponent } from './admin/admin-sitting/admin-sitting.component';
 import { WarehouseComponent } from './admin/warehouse/warehouse.component';
 import { RegistratorHomeComponent } from './admin/registrator-home/registrator-home.component';
+import { ClientHomeComponent } from './admin/client-home/client-home.component';
+import { WarehouseHomeComponent } from './admin/warehouse-home/warehouse-home.component';
+import { WarehouseAddComponent } from './admin/warehouse-add/warehouse-add.component';
 
 
 const routes: Routes = [
@@ -109,21 +111,39 @@ const routes: Routes = [
   path : 'admin', component : AdminComponent , children: [
     { path: '', component: AdminHomeComponent} ,
     { path: 'manager-blog', component: AdminBlogComponent},
-    { path: 'client', component: ClientComponent},
-    { path: 'client-add', component: ClientAddComponent},
+
+    { path: 'client', component: ClientHomeComponent , children: [
+      { path: '', component: ClientComponent},
+      { path: 'client-add', component: ClientAddComponent},
+    ]
+  },
+
 
     { path: 'registrator', component: RegistratorHomeComponent , children:[
       { path: '',  component: RegistratorComponent } ,
       { path: 'register-add', component: RegistratorAddComponent},
+
     ]
 
   },
 
+<<<<<<< HEAD
 
     { path: 'site-manager', component: SiteManagementComponent},
     { path: 'admin-sitting', component: AdminSittingComponent},
     // { path: 'warehouse', component: WarehouseComponent},
 
+=======
+
+    { path: 'site-manager', component: SiteManagementComponent},
+    { path: 'warehouse', component: WarehouseHomeComponent , children: [
+      { path: '',  component: WarehouseComponent } ,
+      {path: 'warehosue-add' , component: WarehouseAddComponent},
+
+    ]
+  },
+
+>>>>>>> fecae19aaf036d442fa3280c6797070c3d59fdb7
 
   ]
 },

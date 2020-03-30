@@ -31,3 +31,8 @@
   .example-result-card h2 {
     margin: 0 8px;
   }
+  .card-title-border{
+    border-left: 2px solid #FF9077;
+    padding-left: 10px;
+    color: #FF9077;
+  }
