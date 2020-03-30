@@ -9,6 +9,8 @@ import { UserService } from 'src/app/shared/service/userService';
 export class UserHomeComponent implements OnInit {
 
   users = [];
+  testTime: any;
+  testTime2: any;
   constructor(
     private userService: UserService
   ) {
@@ -18,9 +20,22 @@ export class UserHomeComponent implements OnInit {
   getUsers() {
     this.userService.getTeam().subscribe( result => {
       this.users = result.json();
-      console.log(this.users);
-
+      this.testTime = new Date();
+      console.log(this.testTime);
     });
+  }
+  test() {
+    this.testTime2 = new Date();
+    console.log(this.testTime);
+    console.log(this.testTime2);
+    const time = this.testTime2 - this.testTime;
+    const secund = time / 1000;
+    const min = secund / 60;
+    const hour = min / 60;
+    console.log('Time ' + time);
+    console.log('Secund ' + secund);
+    console.log('Min ' + min);
+    console.log('Hour ' + hour);
   }
 
   ngOnInit() {

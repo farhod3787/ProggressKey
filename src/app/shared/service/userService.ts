@@ -52,6 +52,10 @@ export class UserService {
     return this.http.get(this.api + 'team/' + localStorage.getItem('token'))
   }
 
+  getInformation() {
+    return this.http.get(this.api + 'userInformation/' + localStorage.getItem('token'));
+  }
+
   sign(login, password) {
     const body = {
        login,

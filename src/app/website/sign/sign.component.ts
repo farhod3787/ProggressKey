@@ -18,7 +18,7 @@ export class SignComponent implements OnInit {
 
   ) {
     this.verifyOfUser();
-    this.verifyOfAdmin();
+    // this.verifyOfAdmin();
    }
 
    verifyOfUser() {

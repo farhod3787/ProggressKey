@@ -56,7 +56,7 @@ router.post('/', upload.single('image'), async function (request, response, next
         ballOfCheck : body.ballOfCheck,
         ballOfWeek : body.ballOfWeek,
         ballOfMonth : body.ballOfMonth,
-        date: new Date().toISOString().
+        date: new Date().toISOString().         //new Date() ni o'zi bo'lishi kerak
                           replace(/T/, ' ').
                           replace(/\..+/, '')
     }
@@ -275,5 +275,18 @@ router.get('/team/:id', async function(request, response) {
     response.status(200).json(team)
   // }
 })
+
+router.get('/userInformation/:token', async function( request, response) {
+    var token = request.params.token;
+    var users = await User.find();
+
+    var object = await User.verifyOfUser(users, token);
+    if (object.isUser) {
+      var user = await User.findById(object.userId);
+      response.status(200).json(user)
+    } else {
+      response.status(400).json(false)
+    }
+});
 
 module.exports = router

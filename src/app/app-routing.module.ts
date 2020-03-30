@@ -84,10 +84,10 @@ const routes: Routes = [
     { path: 'user-result', component: UserResultComponent} ,
     { path: 'user-notes', component: UserNotesComponent} ,
     { path: 'transfer', component: TransferComponent , children: [
-      { path: ' ', component: TransferHomeComponent} ,
+      { path: '', component: TransferAboutComponent } ,
       { path: 'transfer-history', component: TransferHistoryComponent} ,
       { path: 'product-buy', component: ProductBuyComponent} ,
-       { path: 'transfer-about', component: TransferAboutComponent} ,
+       { path: 'transfer-about', component: TransferHomeComponent} ,
     ]
   } ,
     { path: 'binar', component: BinarComponent} ,
@@ -111,19 +111,19 @@ const routes: Routes = [
     { path: 'manager-blog', component: AdminBlogComponent},
     { path: 'client', component: ClientComponent},
     { path: 'client-add', component: ClientAddComponent},
-    
+
     { path: 'registrator', component: RegistratorHomeComponent , children:[
       { path: '',  component: RegistratorComponent } ,
       { path: 'register-add', component: RegistratorAddComponent},
     ]
-  
+
   },
 
-     
+
     { path: 'site-manager', component: SiteManagementComponent},
     { path: 'admin-sitting', component: AdminSittingComponent},
     // { path: 'warehouse', component: WarehouseComponent},
-    
+
 
   ]
 },
