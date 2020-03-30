@@ -9,12 +9,15 @@ import { UserService } from 'src/app/shared/service/userService';
 export class UserHomeComponent implements OnInit {
 
   users = [];
+  user: any = {};
   testTime: any;
   testTime2: any;
+  status: any;
   constructor(
     private userService: UserService
   ) {
     this.getUsers();
+    this.getInformation();
   }
 
   getUsers() {
@@ -22,6 +25,21 @@ export class UserHomeComponent implements OnInit {
       this.users = result.json();
       this.testTime = new Date();
       console.log(this.testTime);
+    });
+  }
+
+  getInformation() {
+    this.userService.getInformation().subscribe( result => {
+      this.user = result.json();
+      if (this.user.firstBalance >= 500 && this.user.firstBalance <= 1000 && this.user.firstBalance <= 3000) {
+        this.status = 'Oddiy';
+      }
+      if (this.user.firstBalance >= 1000 && this.user.firstBalance <= 3000) {
+        this.status = 'O\'rta';
+      }
+      if (this.user.firstBalance >= 3000) {
+        this.status = 'Lider';
+      }
     });
   }
   test() {

@@ -14,6 +14,7 @@ const productRouter = require('./routes/products');
 const categoryRouter = require('./routes/category');
 const contactRouter = require('./routes/contact');
 const newsRouter = require('./routes/news');
+const transferRouter = require('./routes/transfer');
 
 
 const cors = require("cors");
@@ -35,10 +36,7 @@ mongoose.connect("mongodb://localhost:27017/progresskey").then( () => {
     console.log('Error in connected database')
 });
 
-
-
 module.exports = { mongoose };
-
 
 // app.use(express.bodyParser());
 app.use(bodyParser.json());
@@ -72,6 +70,7 @@ app.use('/api/filial/', filialRouter)
 app.use('/api/products/', productRouter);
 app.use('/api/category/', categoryRouter);
 app.use('/api/contact/', contactRouter);
+app.use('/api/transfers/', transferRouter);
 
 // app.get('/*', (req, res) => {
 //     res.sendFile(path.join(__dirname, '../dist/online-pharmacy', 'index.html'))

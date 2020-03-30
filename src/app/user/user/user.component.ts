@@ -9,6 +9,7 @@ declare var $: any;
 })
 export class UserComponent implements OnInit {
 
+  user: any = {};
   constructor(
     private userService: UserService,
     private router: Router
@@ -19,6 +20,9 @@ export class UserComponent implements OnInit {
     this.userService.verify().subscribe( result => {
       const object = result.json();
       if ( object.isUser ) {
+        this.userService.getId(object.userId).subscribe( res => {
+          this.user = res.json();
+        });
         this.router.navigate(['user']);
       } else {
         this.router.navigate(['sign']);
@@ -33,9 +37,10 @@ export class UserComponent implements OnInit {
 
 
   ngOnInit() {
-    $(function() {
-      $('[data-toggle="offcanvas"]').on("click", function() {
-        $('.sidebar-offcanvas').toggleClass('active')
+    // tslint:disable-next-line: only-arrow-functions
+    $( function () {
+      $('[data-toggle="offcanvas"]').on('click', function () {
+        $('.sidebar-offcanvas').toggleClass('active');
       });
     });
   }

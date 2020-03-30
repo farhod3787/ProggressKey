@@ -17,8 +17,8 @@ export class UserTeamComponent implements OnInit {
   getTeam() {
     this.userService.getTeam().subscribe( result => {
       this.users = result.json();
-      this.testTime = new Date();
-      console.log(this.testTime);
+      // this.testTime = new Date();
+      // console.log(this.testTime);
     });
   }
 

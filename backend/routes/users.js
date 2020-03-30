@@ -76,6 +76,7 @@ router.get('/', (request, response, next) =>{
     var users = [];
     User.find().then( (all) =>{
         for (let i=all.length-1; i>=0; i--) {
+          all[i].image = 'http://localhost:5000/images/' + all[i].image;
             users.push(all[i]);
         }
         response.status(200).json(users);
@@ -99,6 +100,7 @@ router.get('/:id', async function(request, response) {
             }
             else {
                 data = res;
+                data.image = 'http://localhost:5000/images/' + data.image;
                 response.status(200).json(data);
             }
         })

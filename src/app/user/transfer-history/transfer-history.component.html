@@ -11,80 +11,27 @@
                 <thead>
                   <tr>
                     <th class="font-weight-bold">User ID</th>
-                    <th class="font-weight-bold">F.I.O</th>
+                    <!-- <th class="font-weight-bold">F.I.O</th> -->
                     <th class="font-weight-bold">Sana</th>
-                    <th class="font-weight-bold">Kirim</th>
+                    <!-- <th class="font-weight-bold">Kirim</th> -->
                     <th class="font-weight-bold">Chiqim</th>
-                    <th class="font-weight-bold">Yuklash</th>
+                    <!-- <th class="font-weight-bold">Yuklash</th> -->
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr *ngFor = 'let transfer of transfers'>
                     <td>
-                      <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                    <td>Axmadov Dilmurod Akmal o'gli</td>
-                    <td>  20.03.2020</td>
-                    <td>114 000 so'm</td>
-                    <td> 250 000 so'm</td>
-                    <td>
+                      <!-- <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image">  -->
+                      {{transfer.to}}</td>
+                    <!-- <td>Axmadov Dilmurod Akmal o'gli</td> -->
+                    <td>{{transfer.date}}</td>
+                    <td>{{transfer.howMuch}} ball</td>
+                    <!-- <td> 250 000 so'm</td> -->
+                    <!-- <td>
                        <img style="border-radius: 0;" src="assets/img/doc.png" alt="">
-                    </td>
+                    </td> -->
                   </tr>
-                  <tr>
-                    <td>
-                      <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                    <td>Axmadov Dilmurod Akmal o'gli</td>
-                    <td>  20.03.2020</td>
-                    <td>114 000 so'm</td>
-                    <td> 250 000 so'm</td>
-                    <td>
-                       <img style="border-radius: 0;" src="assets/img/doc.png" alt="">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                    <td>Axmadov Dilmurod Akmal o'gli</td>
-                    <td>  20.03.2020</td>
-                    <td>114 000 so'm</td>
-                    <td> 250 000 so'm</td>
-                    <td>
-                       <img style="border-radius: 0;" src="assets/img/doc.png" alt="">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                    <td>Axmadov Dilmurod Akmal o'gli</td>
-                    <td>  20.03.2020</td>
-                    <td>114 000 so'm</td>
-                    <td> 250 000 so'm</td>
-                    <td>
-                       <img style="border-radius: 0;" src="assets/img/doc.png" alt="">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                    <td>Axmadov Dilmurod Akmal o'gli</td>
-                    <td>  20.03.2020</td>
-                    <td>114 000 so'm</td>
-                    <td> 250 000 so'm</td>
-                    <td>
-                       <img style="border-radius: 0;" src="assets/img/doc.png" alt="">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                    <td>Axmadov Dilmurod Akmal o'gli</td>
-                    <td>  20.03.2020</td>
-                    <td>114 000 so'm</td>
-                    <td> 250 000 so'm</td>
-                    <td>
-                       <img style="border-radius: 0;" src="assets/img/doc.png" alt="">
-                    </td>
-                  </tr>
+
 
 
 

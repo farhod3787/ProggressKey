@@ -127,13 +127,6 @@ const routes: Routes = [
 
   },
 
-<<<<<<< HEAD
-
-    { path: 'site-manager', component: SiteManagementComponent},
-    { path: 'admin-sitting', component: AdminSittingComponent},
-    // { path: 'warehouse', component: WarehouseComponent},
-
-=======
 
     { path: 'site-manager', component: SiteManagementComponent},
     { path: 'warehouse', component: WarehouseHomeComponent , children: [
@@ -143,7 +136,6 @@ const routes: Routes = [
     ]
   },
 
->>>>>>> fecae19aaf036d442fa3280c6797070c3d59fdb7
 
   ]
 },

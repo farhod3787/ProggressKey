@@ -5,7 +5,7 @@
       <div class="card-body">
         <div class="d-sm-flex align-items-center mb-4">
           <h4 class="card-title mb-sm-0">Products Inventory</h4>
-          <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Products</a>
+          <!-- <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Products</a> -->
         </div>
         <div class="table-responsive border rounded p-1">
           <table class="table">
@@ -31,86 +31,6 @@
                   <div class="badge badge-danger p-2">O'ng qo'l</div>
                 </td>
               </tr>
-          <tr>
-                <td>
-                  <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                <td>Axmadov Dilmurod Akmal o'gli</td>
-                <td>  Lider</td>
-                <td>33</td>
-                <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                <td>
-                  <div class="badge badge-danger p-2">O'ng qo'l</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                <td>Axmadov Dilmurod Akmal o'gli</td>
-                <td>  Lider</td>
-                <td>33</td>
-                <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                <td>
-                  <div class="badge badge-danger p-2">O'ng qo'l</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                <td>Axmadov Dilmurod Akmal o'gli</td>
-                <td>  Lider</td>
-                <td>33</td>
-                <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                <td>
-                  <div class="badge badge-danger p-2">O'ng qo'l</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                <td>Axmadov Dilmurod Akmal o'gli</td>
-                <td>  Lider</td>
-                <td>33</td>
-                <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                <td>
-                  <div class="badge badge-danger p-2">O'ng qo'l</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                <td>Axmadov Dilmurod Akmal o'gli</td>
-                <td>  Lider</td>
-                <td>33</td>
-                <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                <td>
-                  <div class="badge badge-danger p-2">O'ng qo'l</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                <td>Axmadov Dilmurod Akmal o'gli</td>
-                <td>  Lider</td>
-                <td>33</td>
-                <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                <td>
-                  <div class="badge badge-danger p-2">O'ng qo'l</div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                <td>Axmadov Dilmurod Akmal o'gli</td>
-                <td>  Lider</td>
-                <td>33</td>
-                <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                <td>
-                  <div class="badge badge-danger p-2">O'ng qo'l</div>
-                </td>
-              </tr>  
-
-
-
             </tbody>
           </table>
         </div>
@@ -142,9 +62,9 @@
                 <tr>
                   <td>
                     <i  class=" icon-magic-wand mr-2"></i>
-                    Lider</td>
+                    {{status}}</td>
                   <td>
-                    <label class="badge  badge-warning w-100 p-2">3 000 ball</label>
+                    <label class="badge  badge-warning w-100 p-2">{{user.firstBalance}} ball</label>
                   </td>
                 </tr>
                 <tr>
@@ -152,7 +72,7 @@
                     <i class=" icon-calendar mr-2"></i>
                     To'lov vaqti</td>
                   <td>
-                    <label class="badge  badge-warning w-100 p-2">3 000 ball</label>
+                    <label class="badge  badge-warning w-100 p-2">{{user.date}}</label>
                   </td>
                 </tr>
               </tbody>
@@ -181,7 +101,7 @@
                     Takliflar
                   </td>
                   <td>
-                    <label class="badge  badge-warning w-100 p-2">3 000 ball</label>
+                    <label class="badge  badge-warning w-100 p-2">{{user.ballOfInvite}} ball</label>
                   </td>
                 </tr>
                 <tr>
@@ -190,16 +110,16 @@
                     Binar:
                   </td>
                   <td>
-                    <label class="badge  badge-warning w-100 p-2">3 000 ball</label>
+                    <label class="badge  badge-warning w-100 p-2">{{user.ballOfBinar}} ball</label>
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <i class="icon-star mr-2"></i>
-                    Chekotchek:
+                    Chekdanchek:
                   </td>
                   <td>
-                    <label class="badge  badge-warning w-100 p-2">3 000 ball</label>
+                    <label class="badge  badge-warning w-100 p-2">{{user.ballOfCheck}} ball</label>
                   </td>
                 </tr>
                 <tr>
@@ -208,7 +128,7 @@
                     Haftalik:
                   </td>
                   <td>
-                    <label class="badge  badge-warning w-100 p-2">3 000 ball</label>
+                    <label class="badge  badge-warning w-100 p-2">{{user.ballOfWeek}} ball</label>
                   </td>
                 </tr>
                 <tr>
@@ -217,166 +137,16 @@
                     Oylik chap
                   </td>
                   <td>
-                    <label class="badge  badge-warning w-100 p-2">3 000 ball</label>
+                    <label class="badge  badge-warning w-100 p-2">{{user.ballOfMonth}} ball</label>
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <i class="icon-star mr-2"></i>
-                    Oylik o'ng
-                  </td>
-                  <td>
-                    <label class="badge  badge-warning w-100 p-2">3 000 ball</label>
-                  </td>
-                </tr>
+
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-
-
-
   </div>
-
 </div>
 
-
-
-
-
-
-  <div class="row">
-    <div class="col-md-12 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-sm-flex align-items-center mb-4">
-            <h4 class="card-title mb-sm-0">Products Inventory</h4>
-            <button (click) = 'test()'>Time</button>
-            <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Products</a>
-          </div>
-          <div class="table-responsive border rounded p-1">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="font-weight-bold">User ID</th>
-                  <th class="font-weight-bold">F.I.O</th>
-                  <th class="font-weight-bold">Maqomi</th>
-                  <th class="font-weight-bold">Azolar</th>
-                  <th class="font-weight-bold">Chap qo'l</th>
-                  <th class="font-weight-bold">O'ng qo'l</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor = 'let user of users'>
-                  <td>
-                    <img class="img-sm rounded-circle" src="{{user.image}}" alt="profile image"> {{user.login}}</td>
-                  <td>{{user.fullName}}</td>
-                  <td>  Lider</td>
-                  <td>33</td>
-                  <td> <div  class="badge badge-success p-2">Chap qo'l</div></td>
-                  <td>
-                    <div class="badge badge-danger p-2">O'ng qo'l</div>
-                  </td>
-                </tr>
-                <!-- <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                  <td>Axmadov Dilmurod Akmal o'gli</td>
-                  <td>  Lider</td>
-                  <td>33</td>
-                  <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                  <td>
-                    <div class="badge badge-danger p-2">O'ng qo'l</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                  <td>Axmadov Dilmurod Akmal o'gli</td>
-                  <td>  Lider</td>
-                  <td>33</td>
-                  <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                  <td>
-                    <div class="badge badge-danger p-2">O'ng qo'l</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                  <td>Axmadov Dilmurod Akmal o'gli</td>
-                  <td>  Lider</td>
-                  <td>33</td>
-                  <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                  <td>
-                    <div class="badge badge-danger p-2">O'ng qo'l</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                  <td>Axmadov Dilmurod Akmal o'gli</td>
-                  <td>  Lider</td>
-                  <td>33</td>
-                  <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                  <td>
-                    <div class="badge badge-danger p-2">O'ng qo'l</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                  <td>Axmadov Dilmurod Akmal o'gli</td>
-                  <td>  Lider</td>
-                  <td>33</td>
-                  <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                  <td>
-                    <div class="badge badge-danger p-2">O'ng qo'l</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                  <td>Axmadov Dilmurod Akmal o'gli</td>
-                  <td>  Lider</td>
-                  <td>33</td>
-                  <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                  <td>
-                    <div class="badge badge-danger p-2">O'ng qo'l</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> UZ101010101</td>
-                  <td>Axmadov Dilmurod Akmal o'gli</td>
-                  <td>  Lider</td>
-                  <td>33</td>
-                  <td> <div class="badge badge-success p-2">Chap qo'l</div></td>
-                  <td>
-                    <div class="badge badge-danger p-2">O'ng qo'l</div>
-                  </td>
-                </tr> -->
-
-
-
-              </tbody>
-            </table>
-          </div>
-          <div class="d-flex mt-4 flex-wrap">
-            <p class="text-muted">Showing 1 to 10 of 57 entries</p>
-            <nav class="ml-auto">
-              <ul class="pagination separated pagination-info">
-                <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-left"></i></a></li>
-                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-right"></i></a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
