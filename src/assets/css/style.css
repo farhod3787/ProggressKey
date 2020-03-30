@@ -1324,6 +1324,15 @@ footer {
      color: #023F53;
  
  }
+ .registr-box-client{
+    width: 100%;
+    border-radius: 10px;
+    background-color: #CEE8CA;
+    padding: 15px;
+    height: auto;
+    color: #023F53;
+
+ }
  .registr-box h3{
     color: #023F53;
  }
@@ -1408,4 +1417,9 @@ footer {
         width: 30px;height: 30px;border-radius: 50%;
         background-color: #FF9077;position: relative; 
         display: inline-block;
+      }
+      .card-title-border{
+        border-left: 2px solid #FF9077;
+        padding-left: 10px;
+        color: #FF9077;
       }

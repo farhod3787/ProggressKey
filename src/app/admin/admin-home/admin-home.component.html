@@ -1,18 +1,16 @@
  
 <div class="page-header">
   <h3 class="page-title"> Admin   </h3>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">UI Elements</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Typography</li>
-    </ol>
-  </nav>
+  <div class="form-group"> 
+    <button type="button" class="btn btn-info btn-fw m-3" data-toggle="modal" data-target="#exampleModal">So'ralgan mahsulot</button>
+    <button type="button" class="btn btn-dark btn-fw m-3" data-toggle="modal" data-target="#exampleModall">Jo'natilgan mahsulot</button>
+  </div>
 </div>
 <div class="row">
   <div class="col-3 mb-3">
     <div   class="card">
       <div  class="card-body p-3">
-        <h4  class="card-title">Paketlar</h4>
+        <h4  class="card-title card-title-border">Paketlar</h4>
         <table  class="table">
           <tbody >
             <tr >
@@ -31,7 +29,7 @@
   <div class="col-3 mb-3">
     <div   class="card">
       <div  class="card-body p-3">
-        <h4  class="card-title">Bonuslar</h4>
+        <h4  class="card-title card-title-border">Bonuslar</h4>
         <table  class="table">
           <tbody >
             <tr >
@@ -50,7 +48,7 @@
   <div class="col-3 mb-3">
     <div   class="card">
       <div  class="card-body p-3">
-        <h4  class="card-title">Omborlar</h4>
+        <h4  class="card-title card-title-border">Omborlar</h4>
         <table  class="table">
           <tbody >
             <tr >
@@ -69,7 +67,7 @@
   <div class="col-3 mb-3">
     <div   class="card">
       <div  class="card-body p-3">
-        <h4  class="card-title">So'ralgan</h4>
+        <h4  class="card-title card-title-border">So'ralgan</h4>
         <table  class="table">
           <tbody >
             <tr >
@@ -565,99 +563,153 @@
             </ul>
           </nav>
         </div>
-      </div> 
+      </div>
+      
+      
     </div>
   </div>
  
 </div>
 
+ 
+
+<!-- modal -->
 
 
+ 
 
-
-
-  <div class="row">
-    <div class="col-md-12 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <div class="d-sm-flex align-items-center mb-4">
-            <h4 class="card-title mb-sm-0">Products Inventory</h4>
-            <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> View all Products</a>
-          </div>
-          <div class="table-responsive border rounded p-1">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="font-weight-bold">Store ID</th>
-                  <th class="font-weight-bold">Amount</th>
-                  <th class="font-weight-bold">Gateway</th>
-                  <th class="font-weight-bold">Created at</th>
-                  <th class="font-weight-bold">Paid at</th>
-                  <th class="font-weight-bold">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> Katie Holmes </td>
-                  <td>$3621</td>
-                  <td><img src="../../../assets/user/images/dashboard/alipay.png" alt="alipay" class="gateway-icon mr-2"> alipay</td>
-                  <td>04 Jun 2019</td>
-                  <td>18 Jul 2019</td>
-                  <td>
-                    <div class="badge badge-success p-2">Paid</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face2.jpg" alt="profile image"> Minnie Copeland </td>
-                  <td>$6245</td>
-                  <td><img src="../../../assets/user/images/dashboard/paypal.png" alt="alipay" class="gateway-icon mr-2"> Paypal</td>
-                  <td>25 Sep 2019</td>
-                  <td>07 Oct 2019</td>
-                  <td>
-                    <div class="badge badge-danger p-2">Pending</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face3.jpg" alt="profile image"> Rodney Sims </td>
-                  <td>$9265</td>
-                  <td><img src="../../../assets/user/images/dashboard/alipay.png" alt="alipay" class="gateway-icon mr-2"> alipay</td>
-                  <td>12 dec 2019</td>
-                  <td>26 Aug 2019</td>
-                  <td>
-                    <div class="badge badge-warning p-2">Failed</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face4.jpg" alt="profile image"> Carolyn Barker </td>
-                  <td>$2263</td>
-                  <td><img src="../../../assets/user/images/dashboard/alipay.png" alt="alipay" class="gateway-icon mr-2"> alipay</td>
-                  <td>30 Sep 2019</td>
-                  <td>20 Oct 2019</td>
-                  <td>
-                    <div class="badge badge-success p-2">Paid</div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="d-flex mt-4 flex-wrap">
-            <p class="text-muted">Showing 1 to 10 of 57 entries</p>
-            <nav class="ml-auto">
-              <ul class="pagination separated pagination-info">
-                <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-left"></i></a></li>
-                <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item"><a href="#" class="page-link">4</a></li>
-                <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-right"></i></a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+<!-- Modal -->
+<div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog bg-white" role="document">
+    <div class="modal-content bg-white">
+      <div class="modal-header">
+        <h4  class="card-title    text-uppercase text-center font-weight-bold  " style="margin: 0 auto;">So'ralgan mahsulotlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body pb-2">  
+                  <div class="form-group   mb-2">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Ism</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div>
+                    <div class="form-group  mb-2 ">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Familya</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div>  
+                    <div class="form-group   mb-2">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Hudud</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div> 
+                    <div class="form-group   mb-2">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Maqom</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div> 
+                    <div class="form-group   mb-2">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Mahsulot nomi</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div> 
+                    <div class="form-group  mb-2 ">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Mahsulot soni</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div> 
+                      <div class="form-group"> 
+                      <button type="button" class="btn btn-info btn-fw m-3">Jo'natish</button>
+                      <button type="button" class="btn btn-dark btn-fw m-3">O'chirish</button>
+                    </div>    
+      </div> 
     </div>
   </div>
+</div>
+
+
+<div class="modal fade  " id="exampleModall" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog bg-white" role="document">
+    <div class="modal-content bg-white">
+      <div class="modal-header">
+        <h4  class="card-title    text-uppercase text-center font-weight-bold  " style="margin: 0 auto;">So'ralgan mahsulotlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body pb-2">  
+                  <div class="form-group mb-2  ">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Ism</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div>
+                    <div class="form-group   mb-2">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Familya</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div>  
+                    <div class="form-group  mb-2  ">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Hudud</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div> 
+                    <div class="form-group  mb-2 ">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Maqom</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div> 
+                    <div class="form-group  mb-2 ">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Mahsulot nomi</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div> 
+                    <div class="form-group   mb-2">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Mahsulot soni</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                      </div>
+                    </div> 
+                      <div class="form-group"> 
+                      <button type="button" class="btn btn-info btn-fw m-3">Jo'natish</button>
+                      <button type="button" class="btn btn-dark btn-fw m-3">O'chirish</button>
+                    </div>    
+      </div> 
+    </div>
+  </div>
+</div>
