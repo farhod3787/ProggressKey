@@ -58,6 +58,8 @@ import { ClientAddComponent } from './admin/client-add/client-add.component';
 import { RegistratorAddComponent } from './admin/registrator-add/registrator-add.component';
 import { SiteManagementComponent } from './admin/site-management/site-management.component';
 import { AdminSittingComponent } from './admin/admin-sitting/admin-sitting.component';
+import { WarehouseComponent } from './admin/warehouse/warehouse.component';
+import { RegistratorHomeComponent } from './admin/registrator-home/registrator-home.component';
 
 @NgModule({
   declarations: [
@@ -107,7 +109,9 @@ import { AdminSittingComponent } from './admin/admin-sitting/admin-sitting.compo
     ClientAddComponent,
     RegistratorAddComponent,
     SiteManagementComponent,
-    AdminSittingComponent
+    AdminSittingComponent,
+    WarehouseComponent,
+    RegistratorHomeComponent
   ],
   imports: [
     BrowserModule,

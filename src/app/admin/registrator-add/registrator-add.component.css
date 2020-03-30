@@ -1,0 +1,40 @@
+.input-group-text{
+    min-width: 120px;
+    background-color: #88B0FF;
+    color: #fff;
+    font-size: 17px;
+    text-transform: uppercase;
+    /* height: 44px; */
+}
+.custom-file-label::after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 120px;
+    /* right: 0; */
+    bottom: 0;
+    z-index: 3;
+    font-size: 17px;
+    display: block; 
+    height: 44px;
+ 
+    line-height: 1.9;
+  color: #fff;
+    content: "RASM";
+    background-color:  #88B0FF;
+    border-left: inherit;
+    border-radius:0;}
+    .custom-file-label {
+        border-radius: 0;
+        padding: 22px 0;
+     
+    }
+    .input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control, .input-group>.form-control-plaintext {
+        position: relative;
+        flex: 1 1 0%;
+        min-width: 0;
+        top: 1;
+        top: 1px;
+        height: 47px;
+        margin-bottom: 0;
+    }

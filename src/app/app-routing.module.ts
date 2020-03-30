@@ -44,6 +44,9 @@ import { RegistratorComponent } from './admin/registrator/registrator.component'
 import { ClientAddComponent } from './admin/client-add/client-add.component';
 import { ClientComponent } from './admin/client/client.component';
 import { SiteManagementComponent } from './admin/site-management/site-management.component';
+import { AdminSittingComponent } from './admin/admin-sitting/admin-sitting.component';
+import { WarehouseComponent } from './admin/warehouse/warehouse.component';
+import { RegistratorHomeComponent } from './admin/registrator-home/registrator-home.component';
 
 
 const routes: Routes = [
@@ -108,9 +111,19 @@ const routes: Routes = [
     { path: 'manager-blog', component: AdminBlogComponent},
     { path: 'client', component: ClientComponent},
     { path: 'client-add', component: ClientAddComponent},
-    { path: 'registrator', component: RegistratorComponent},
-    { path: 'register-add', component: RegistratorAddComponent},
+    
+    { path: 'registrator', component: RegistratorHomeComponent , children:[
+      { path: '',  component: RegistratorComponent } ,
+      { path: 'register-add', component: RegistratorAddComponent},
+    ]
+  
+  },
+
+     
     { path: 'site-manager', component: SiteManagementComponent},
+    { path: 'admin-sitting', component: AdminSittingComponent},
+    // { path: 'warehouse', component: WarehouseComponent},
+    
 
   ]
 },
