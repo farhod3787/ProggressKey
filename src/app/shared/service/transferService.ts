@@ -21,7 +21,7 @@ export class TransferService {
     return this.http.delete(this.api + id + '/' + localStorage.getItem('token'));
   }
 
-  post(to, howMuch ) {
+  post(to, howMuch: Number ) {
     const body = {
       to,
       howMuch
@@ -36,4 +36,9 @@ export class TransferService {
   getHisTransfers() {
     return this.http.get(this.api + 'getHisTransfers/' + localStorage.getItem('token'));
   }
+
+  getHimTransfers() {
+    return this.http.get(this.api + 'getHimTransfers/' + localStorage.getItem('token'));
+  }
+
 }

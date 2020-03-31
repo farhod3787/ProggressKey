@@ -20,6 +20,10 @@ export class UserInformationComponent implements OnInit {
       this.user = result.json();
     });
   }
+
+  updateInformation(fullName, newPassword) {
+    console.log(fullName, newPassword);
+  }
   ngOnInit() {
   }
 

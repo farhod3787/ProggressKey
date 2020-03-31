@@ -9,16 +9,23 @@ import { TransferService } from 'src/app/shared/service/transferService';
 export class TransferHistoryComponent implements OnInit {
 
   transfers: any = [];
+  himTransfers: any = [];
   constructor(
     private transferService: TransferService
   ) {
     this.getHisTransfer();
+    this.getHimTransfer();
    }
 
    getHisTransfer() {
     this.transferService.getHisTransfers().subscribe( result => {
       this.transfers = result.json();
-      console.log(this.transfers);
+    });
+   }
+
+   getHimTransfer() {
+    this.transferService.getHimTransfers().subscribe( result => {
+      this.himTransfers = result.json();
     });
    }
 

@@ -13,6 +13,7 @@ export class UserHomeComponent implements OnInit {
   testTime: any;
   testTime2: any;
   status: any;
+  generalBal: any;
   constructor(
     private userService: UserService
   ) {
@@ -23,14 +24,14 @@ export class UserHomeComponent implements OnInit {
   getUsers() {
     this.userService.getTeam().subscribe( result => {
       this.users = result.json();
-      this.testTime = new Date();
-      console.log(this.testTime);
     });
   }
 
   getInformation() {
     this.userService.getInformation().subscribe( result => {
       this.user = result.json();
+      // this.generalBal = this.user.ballOfBinar + this.user.ballOfInvite +
+      //                   this.user.ballOfCheck + this.user.ballOfWeek + this.user.ballOfMonth;
       if (this.user.firstBalance >= 500 && this.user.firstBalance <= 1000 && this.user.firstBalance <= 3000) {
         this.status = 'Oddiy';
       }
