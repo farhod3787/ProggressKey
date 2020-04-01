@@ -49,6 +49,7 @@ import { RegistratorHomeComponent } from './admin/registrator-home/registrator-h
 import { ClientHomeComponent } from './admin/client-home/client-home.component';
 import { WarehouseHomeComponent } from './admin/warehouse-home/warehouse-home.component';
 import { WarehouseAddComponent } from './admin/warehouse-add/warehouse-add.component';
+import { PurchasedProductComponent } from './user/purchased-product/purchased-product.component';
 
 
 const routes: Routes = [
@@ -93,6 +94,7 @@ const routes: Routes = [
     ]
   } ,
     { path: 'binar', component: BinarComponent} ,
+    {path: 'purchased-product' , component: PurchasedProductComponent},
 
   ]
 },
