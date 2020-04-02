@@ -1,0 +1,40 @@
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper d-flex align-items-center auth">
+      <div class="row flex-grow">
+        <div class="col-lg-4 mx-auto">
+
+          <div class="auth-form-light text-left p-5">
+            <div class="brand-logo">
+             <h2 class="text-center">Tizimga kirish !</h2>
+            </div>
+            <form  >
+                <div class="row row10">
+                    <div  class="col-12 mb-3">
+                        <div  class="group">
+                            <input  type="text" #login name="name" placeholder="Login*" required="">
+                          </div>
+                      </div>
+                      <div  class="col-12  mb-3">
+                          <div  class="group">
+                              <input   type="text" #password name="phone" placeholder="Password*" required="">
+                          </div>
+                      </div>
+                      <div   class="col-12">
+                          <div  class="group text-center">
+                              <button class="myBtn default br" (click) = 'sign(login.value, password.value)'>Sign
+                                  <i   class="fa fa-telegram"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

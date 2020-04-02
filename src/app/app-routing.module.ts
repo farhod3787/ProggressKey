@@ -50,6 +50,7 @@ import { ClientHomeComponent } from './admin/client-home/client-home.component';
 import { WarehouseHomeComponent } from './admin/warehouse-home/warehouse-home.component';
 import { WarehouseAddComponent } from './admin/warehouse-add/warehouse-add.component';
 import { PurchasedProductComponent } from './user/purchased-product/purchased-product.component';
+import { AdminSignComponent } from './admin/admin-sign/admin-sign.component';
 
 
 const routes: Routes = [
@@ -76,6 +77,7 @@ const routes: Routes = [
 
   },
   { path: 'sign', component: SignComponent} ,
+  { path: 'admin-sign', component: AdminSignComponent} ,
   { path: 'login', component: LoginComponent} ,
   { path: 'error', component: ErrorComponent} ,
   // User
