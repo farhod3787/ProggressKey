@@ -18,7 +18,6 @@ export class SignComponent implements OnInit {
 
   ) {
     this.verifyOfUser();
-    // this.verifyOfAdmin();
    }
 
    verifyOfUser() {
@@ -32,16 +31,7 @@ export class SignComponent implements OnInit {
      });
    }
 
-   verifyOfAdmin() {
-    this.adminService.verify().subscribe( result => {
-      const object = result.json();
-      if ( object.isAdmin ) {
-        this.router.navigate(['admin']);
-      } else {
-        this.router.navigate(['sign']);
-      }
-   });
-   }
+
 
    sign(login, password) {
       this.userService.sign(login, password).subscribe( result => {

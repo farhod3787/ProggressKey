@@ -13,7 +13,7 @@ export class AdminComponent implements OnInit {
     private adminService: AdminService,
     private route: Router
   ) {
-    // this.verifyOfAdmin();
+    this.verifyOfAdmin();
   }
 
   verifyOfAdmin() {
@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
       if ( object.isAdmin ) {
         this.route.navigate(['admin']);
       } else {
-        this.route.navigate(['sign']);
+        this.route.navigate(['admin-sign']);
       }
     });
   }
