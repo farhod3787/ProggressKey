@@ -51,6 +51,8 @@ import { WarehouseHomeComponent } from './admin/warehouse-home/warehouse-home.co
 import { WarehouseAddComponent } from './admin/warehouse-add/warehouse-add.component';
 import { PurchasedProductComponent } from './user/purchased-product/purchased-product.component';
 import { AdminSignComponent } from './admin/admin-sign/admin-sign.component';
+import { RequestedProductsComponent } from './admin/requested-products/requested-products.component';
+import { ShippedProductsComponent } from './admin/shipped-products/shipped-products.component';
 
 
 const routes: Routes = [
@@ -136,9 +138,12 @@ const routes: Routes = [
     { path: 'warehouse', component: WarehouseHomeComponent , children: [
       { path: '',  component: WarehouseComponent } ,
       {path: 'warehosue-add' , component: WarehouseAddComponent},
+ 
 
     ]
   },
+  {path: 'requested-products' , component: RequestedProductsComponent},
+  {path: 'shipped-product' , component: ShippedProductsComponent},
 
 
   ]
