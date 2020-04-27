@@ -1,14 +1,14 @@
 .input-group-text{
-    /* min-width: 120px; */
+    min-width: 120px;
     background-color: #FF9077;
     color: #fff;
-    display: inline-block;
     font-size: 17px;
-    cursor: pointer;
     text-transform: uppercase;
     /* height: 44px; */
 }
- 
+.input-group-text-color{
+    background-color: #88B0FF;
+}
 .custom-file-label::after {
     position: absolute;
     top: 0px;
