@@ -1,0 +1,14 @@
+.leder-boxa{
+    font-size: 15px;
+    font-weight: 400;
+    padding-left: 10px ;
+ 
+}
+.border-bottom{
+    border-bottom: 3px solid #EBF2F7;
+}
+.card-title-border{
+    border-left: 2px solid #FF9077;
+    padding-left: 10px;
+    color: #FF9077;
+  }

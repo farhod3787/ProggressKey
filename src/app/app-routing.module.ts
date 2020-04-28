@@ -53,6 +53,11 @@ import { PurchasedProductComponent } from './user/purchased-product/purchased-pr
 import { AdminSignComponent } from './admin/admin-sign/admin-sign.component';
 import { RequestedProductsComponent } from './admin/requested-products/requested-products.component';
 import { ShippedProductsComponent } from './admin/shipped-products/shipped-products.component';
+import { RegisterSettingComponent } from './register/register-setting/register-setting.component';
+import { RegisterWarehouseComponent } from './register/register-warehouse/register-warehouse.component';
+import { RegisterClientComponent } from './register/register-client/register-client.component';
+import { RegisterClienthomeComponent } from './register/register-clienthome/register-clienthome.component';
+import { RegisterClientAddComponent } from './register/register-client-add/register-client-add.component';
 
 
 const routes: Routes = [
@@ -149,11 +154,21 @@ const routes: Routes = [
   ]
 },
 
-// manager
+// register
 {
   path : 'register', component : RegisterComponent , children: [
     { path: '', component: RegisterHomeComponent} ,
-    { path: 'manager-blog', component: RegisterBlogComponent}
+    { path: 'register-blog', component: RegisterBlogComponent},
+    { path: 'register-setting', component: RegisterSettingComponent},
+    { path: 'register-warehouse', component: RegisterWarehouseComponent},
+    { path: 'register-client', component: RegisterClienthomeComponent , children: [
+      { path: '', component: ClientComponent},
+      { path: 'register-client-add', component: RegisterClientAddComponent},
+    ]
+  
+  }
+
+
 
   ]
 },

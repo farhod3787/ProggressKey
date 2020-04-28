@@ -66,6 +66,11 @@ import { PurchasedProductComponent } from './user/purchased-product/purchased-pr
 import { AdminSignComponent } from './admin/admin-sign/admin-sign.component';
 import { RequestedProductsComponent } from './admin/requested-products/requested-products.component';
 import { ShippedProductsComponent } from './admin/shipped-products/shipped-products.component';
+import { RegisterSettingComponent } from './register/register-setting/register-setting.component';
+import { RegisterWarehouseComponent } from './register/register-warehouse/register-warehouse.component';
+import { RegisterClientComponent } from './register/register-client/register-client.component';
+import { RegisterClienthomeComponent } from './register/register-clienthome/register-clienthome.component';
+import { RegisterClientAddComponent } from './register/register-client-add/register-client-add.component';
 
 @NgModule({
   declarations: [
@@ -123,7 +128,12 @@ import { ShippedProductsComponent } from './admin/shipped-products/shipped-produ
     PurchasedProductComponent,
     AdminSignComponent,
     RequestedProductsComponent,
-    ShippedProductsComponent
+    ShippedProductsComponent,
+    RegisterSettingComponent,
+    RegisterWarehouseComponent,
+    RegisterClientComponent,
+    RegisterClienthomeComponent,
+    RegisterClientAddComponent
   ],
   imports: [
     BrowserModule,
