@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/shared/service/adminService';
 import { Router } from '@angular/router';
-
+declare var $: any;
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -29,6 +29,13 @@ export class AdminComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+        // tslint:disable-next-line: only-arrow-functions
+        $( function () {
+          $('[data-toggle="offcanvas"]').on('click', function () {
+            $('.sidebar-offcanvas').toggleClass('active');
+          });
+        });
   }
 
 }

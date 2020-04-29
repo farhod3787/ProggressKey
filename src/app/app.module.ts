@@ -71,6 +71,11 @@ import { RegisterWarehouseComponent } from './register/register-warehouse/regist
 import { RegisterClientComponent } from './register/register-client/register-client.component';
 import { RegisterClienthomeComponent } from './register/register-clienthome/register-clienthome.component';
 import { RegisterClientAddComponent } from './register/register-client-add/register-client-add.component';
+import { ManagerNewsAddComponent } from './manager/manager-news-add/manager-news-add.component';
+import { ManagerGalleryAddComponent } from './manager/manager-gallery-add/manager-gallery-add.component';
+import { ManagerCustomersComponent } from './manager/manager-customers/manager-customers.component';
+import { ManagerSettingsComponent } from './manager/manager-settings/manager-settings.component';
+ 
 
 @NgModule({
   declarations: [
@@ -133,7 +138,11 @@ import { RegisterClientAddComponent } from './register/register-client-add/regis
     RegisterWarehouseComponent,
     RegisterClientComponent,
     RegisterClienthomeComponent,
-    RegisterClientAddComponent
+    RegisterClientAddComponent,
+    ManagerNewsAddComponent,
+    ManagerGalleryAddComponent,
+    ManagerCustomersComponent,
+    ManagerSettingsComponent, 
   ],
   imports: [
     BrowserModule,

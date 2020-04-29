@@ -58,6 +58,12 @@ import { RegisterWarehouseComponent } from './register/register-warehouse/regist
 import { RegisterClientComponent } from './register/register-client/register-client.component';
 import { RegisterClienthomeComponent } from './register/register-clienthome/register-clienthome.component';
 import { RegisterClientAddComponent } from './register/register-client-add/register-client-add.component';
+import { ManagerProductAddComponent } from './manager/manager-product-add/manager-product-add.component';
+import { ManagerSettingsComponent } from './manager/manager-settings/manager-settings.component';
+import { ManagerNewsAddComponent } from './manager/manager-news-add/manager-news-add.component';
+import { ManagerCustomersComponent } from './manager/manager-customers/manager-customers.component';
+import { ManagerGalleryAddComponent } from './manager/manager-gallery-add/manager-gallery-add.component';
+// import { ManagerProductAddComponent } from './manager-product-add/manager-product-add.component';
 
 
 const routes: Routes = [
@@ -112,7 +118,16 @@ const routes: Routes = [
 {
   path : 'manager', component : ManagerComponent , children: [
     { path: '', component: ManagerHomeComponent} ,
-    { path: 'manager-blog', component: ManagerBlogComponent}
+    { path: 'manager-blog', component: ManagerBlogComponent},
+    { path: 'manager-product-add', component: ManagerProductAddComponent},
+    { path: 'manager-news-add', component: ManagerNewsAddComponent},
+    { path: 'manager-sittings', component: ManagerSettingsComponent},
+    { path: 'manager-customers', component: ManagerCustomersComponent},
+    { path: 'manager-gallery', component: ManagerGalleryAddComponent}
+
+
+
+
 
   ]
 },
