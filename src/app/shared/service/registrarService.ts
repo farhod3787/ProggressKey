@@ -8,7 +8,7 @@ import {url} from '../../url/url';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class ResgistrarService {
 
   constructor(private http: Http) { }
 
@@ -21,21 +21,28 @@ export class AuthService {
     login: string,
     image: File,
     password: string,
-    registerUserId: string[], // aslida array
+    // registerUserId: string[], // aslida array
     fullName: string,
     warehouseId: string
 ) {
-  const body = {
-    'filialId ': filialId,
-    'image ' : image,
-    'login ': login,
-    'password ': password,
-    'fullName ': fullName,
-    'registerUserId ': registerUserId,
-    'warehouseId ': warehouseId
-  };
+  const Registrar = new FormData();
+  Registrar.append('filialId', filialId);
+  Registrar.append('image', image);
+  Registrar.append('login', login);
+  Registrar.append('password', password);
+  Registrar.append('fullName', fullName);
+  Registrar.append('warehouseId', warehouseId);
+  // const body = {
+  //   'filialId ': filialId,
+  //   'image ' : image,
+  //   'login ': login,
+  //   'password ': password,
+  //   'fullName ': fullName,
+  //   // 'registerUserId ': registerUserId,
+  //   'warehouseId ': warehouseId
+  // };
 
-  return this.http.post(this.api + localStorage.getItem('token'), body);
+  return this.http.post(this.api + localStorage.getItem('token'), Registrar);
 }
 
   getAll() {

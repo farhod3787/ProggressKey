@@ -84,18 +84,15 @@ const routes: Routes = [
         {path: 'popular' , component: PopularProductComponent} ,
         {path: 'many' , component: ManyProductComponent}
       ]}
-
       ]
-
-
   },
   { path: 'sign', component: SignComponent} ,
   { path: 'admin-sign', component: AdminSignComponent} ,
   { path: 'login', component: LoginComponent} ,
   { path: 'error', component: ErrorComponent} ,
+
   // User
-{
-  path : 'user', component : UserComponent, children: [
+{  path : 'user', component : UserComponent, children: [
     { path: '', component: UserHomeComponent} ,
     { path: 'user-team', component: UserTeamComponent} ,
     { path: 'user-information', component: UserInformationComponent} ,
@@ -110,13 +107,11 @@ const routes: Routes = [
   } ,
     { path: 'binar', component: BinarComponent} ,
     {path: 'purchased-product' , component: PurchasedProductComponent},
-
   ]
 },
 
 // manager
-{
-  path : 'manager', component : ManagerComponent , children: [
+{  path : 'manager', component : ManagerComponent , children: [
     { path: '', component: ManagerHomeComponent} ,
     { path: 'manager-blog', component: ManagerBlogComponent},
     { path: 'manager-product-add', component: ManagerProductAddComponent},
@@ -124,54 +119,34 @@ const routes: Routes = [
     { path: 'manager-sittings', component: ManagerSettingsComponent},
     { path: 'manager-customers', component: ManagerCustomersComponent},
     { path: 'manager-gallery', component: ManagerGalleryAddComponent}
-
-
-
-
-
   ]
 },
 
 // admin
-{
-  path : 'admin', component : AdminComponent , children: [
+{  path : 'admin', component : AdminComponent , children: [
     { path: '', component: AdminHomeComponent} ,
     { path: 'manager-blog', component: AdminBlogComponent},
-
     { path: 'client', component: ClientHomeComponent , children: [
       { path: '', component: ClientComponent},
       { path: 'client-add', component: ClientAddComponent},
     ]
-  },
-
-
-    { path: 'registrator', component: RegistratorHomeComponent , children:[
+    },
+    { path: 'registrator', component: RegistratorHomeComponent , children: [
       { path: '',  component: RegistratorComponent } ,
       { path: 'register-add', component: RegistratorAddComponent},
-
-    ]
-
-  },
-
-
+     ]},
     { path: 'site-manager', component: SiteManagementComponent},
     { path: 'warehouse', component: WarehouseHomeComponent , children: [
       { path: '',  component: WarehouseComponent } ,
       {path: 'warehosue-add' , component: WarehouseAddComponent},
- 
-
-    ]
-  },
-  {path: 'requested-products' , component: RequestedProductsComponent},
-  {path: 'shipped-product' , component: ShippedProductsComponent},
-
-
+    ]},
+    {path: 'requested-products' , component: RequestedProductsComponent},
+    {path: 'shipped-product' , component: ShippedProductsComponent},
   ]
 },
 
 // register
-{
-  path : 'register', component : RegisterComponent , children: [
+{  path : 'register', component : RegisterComponent , children: [
     { path: '', component: RegisterHomeComponent} ,
     { path: 'register-blog', component: RegisterBlogComponent},
     { path: 'register-setting', component: RegisterSettingComponent},
@@ -179,14 +154,8 @@ const routes: Routes = [
     { path: 'register-client', component: RegisterClienthomeComponent , children: [
       { path: '', component: ClientComponent},
       { path: 'register-client-add', component: RegisterClientAddComponent},
-    ]
-  
-  }
-
-
-
-  ]
-},
+    ]}
+    ] },
 ];
 
 

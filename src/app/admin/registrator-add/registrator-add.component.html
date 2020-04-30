@@ -1,16 +1,16 @@
- 
-  
- 
-  <div class="row">
-    <div class="col-md-12 grid-margin stretch-card">  
+<form [formGroup]='form' (submit)="save()">
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
-          <div class="card-body row"> 
+
+          <div class="card-body row">
             <div class="form-group col-md-4">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Hududi</span>
                 </div>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select formControlName='filialId' class="form-control" id="exampleFormControlSelect1">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -21,9 +21,9 @@
             <div class="form-group col-md-4">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">Tuman</span>
+                  <span class="input-group-text">Ombor</span>
                 </div>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <select formControlName='warehouseId' class="form-control" id="exampleFormControlSelect1">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -35,45 +35,45 @@
             <div class="form-group col-md-4">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">Telefon</span>
+                  <span class="input-group-text">Login</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" formControlName='login' class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
               </div>
             </div>
             <div class="form-group col-md-4">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">Email</span>
+                  <span class="input-group-text">Full Name</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" formControlName='fullName' class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
               </div>
             </div>
             <div class="form-group col-md-4">
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text">Paroll</span>
+                  <span class="input-group-text">Password</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" formControlName='password' placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
               </div>
             </div>
- 
             <div class="form-group col-md-4">
                 <div class="input-group">
- 
                   <div class="custom-file">
                     <label class="custom-file-label " for="customFile">Choose file</label>
-                    <input type="file" class="custom-file-input" id="customFile">
-                  
-                  </div> </div>
-              </div> 
-              <div class="form-group"> 
-                <button type="button" class="btn btn-info btn-fw m-3">Saqlash</button>
-                <button type="button" class="btn btn-dark btn-fw m-3">O'chirish</button>
+                    <input type="file" formControlName='image'  class="custom-file-input" id="customFile">
+                  </div>
+               </div>
               </div>
-          </div>
-        </div> 
-    </div> 
-  </div> 
+              <div class="form-group">
+                <button type="submit" class="btn btn-info btn-fw m-3">Saqlash</button>
+              </div>
 
-   
- 
+          </div>
+
+
+        </div>
+    </div>
+  </div>
+
+
+</form>

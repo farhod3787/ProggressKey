@@ -36,8 +36,8 @@ const upload = multer({ storage: storage })
  //                                                               R e g i  s t r a t s i o n
 router.post('/:token',  upload.single('image'), async function (request, response, next) {
    var body = request.body;
-    var file = request.file.filename;
-    var token = req.params.token;
+    // var file = request.file.filename;
+    var token = request.params.token;
     var admin = await Admin.find();
 
     var obj = Admin.verifyOfAdmin(admin, token);
@@ -45,7 +45,8 @@ router.post('/:token',  upload.single('image'), async function (request, respons
     let registrar = {
         filialId : body.filialId,
         login : body.login,
-        image: file,
+        // image: file,
+        image: body.image,
         password: await Registrar.hashofPassword(body.password),
         registerUserId :  body.registerUserId,
         fullName :  body.fullName,
@@ -120,27 +121,27 @@ router.delete('/:id/:token', async function (request, response, next ){
 
     if (obj.isAdmin) {
         success = true
-            await Registrar.findById(id).then( (res) =>{
-                if(res) {
-                  var image= res.image;
-                  fs.unlink('backend/images/' + image, function (err) {
-                      if (err) {
-                      console.log(err.message);}
-                      else {
-                          console.log('File deleted!');
-                      }
-                  });
-                    return res
-                }
-                else {
-                    success = false
-                    data.message = "This User not found";
-                    return null;
-                }
-            }).catch( err =>{
-                success = false
-                response.status(400).json({message: "User not found"});
-            })
+            // await Registrar.findById(id).then( (res) =>{
+            //     if(res) {
+            //       var image= res.image;
+            //       fs.unlink('backend/images/' + image, function (err) {
+            //           if (err) {
+            //           console.log(err.message);}
+            //           else {
+            //               console.log('File deleted!');
+            //           }
+            //       });
+            //         return res
+            //     }
+            //     else {
+            //         success = false
+            //         data.message = "This User not found";
+            //         return null;
+            //     }
+            // }).catch( err =>{
+            //     success = false
+            //     response.status(400).json({message: "User not found"});
+            // });
                 await Registrar.findByIdAndRemove(id).catch( err => {
                     success = false;
                 })
