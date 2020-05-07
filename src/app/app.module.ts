@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './website/navbar/navbar.component';
@@ -75,6 +76,8 @@ import { ManagerNewsAddComponent } from './manager/manager-news-add/manager-news
 import { ManagerGalleryAddComponent } from './manager/manager-gallery-add/manager-gallery-add.component';
 import { ManagerCustomersComponent } from './manager/manager-customers/manager-customers.component';
 import { ManagerSettingsComponent } from './manager/manager-settings/manager-settings.component';
+import { AdminSettingComponent } from './admin/admin-setting/admin-setting.component';
+import { RegisterSignComponent } from './register/register-sign/register-sign.component';
 
 
 @NgModule({
@@ -143,6 +146,8 @@ import { ManagerSettingsComponent } from './manager/manager-settings/manager-set
     ManagerGalleryAddComponent,
     ManagerCustomersComponent,
     ManagerSettingsComponent,
+    AdminSettingComponent,
+    RegisterSignComponent,
   ],
   imports: [
     BrowserModule,
@@ -153,6 +158,7 @@ import { ManagerSettingsComponent } from './manager/manager-settings/manager-set
     MatButtonModule,
     HttpClientModule,
     MatSelectModule,
+    MatCheckboxModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule

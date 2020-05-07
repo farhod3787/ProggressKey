@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ResgistrarService } from 'src/app/shared/service/registrarService';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/service/userService';
 declare var $: any;
 @Component({
   selector: 'app-register',
@@ -7,7 +10,29 @@ declare var $: any;
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  register: any = {};
+  constructor(
+    private registrarService: ResgistrarService,
+    private route: Router,
+  ) {
+    this.verifyOfRegistrar();
+  }
+
+  verifyOfRegistrar() {
+    this.registrarService.verify().subscribe( result => {
+      const obj = result.json();
+      if (obj.isRegistrar) {
+        this.registrarService.getId(obj.userId).subscribe( res => {
+            this.register = res.json();
+        });
+        this.route.navigate(['register']);
+      } else {
+        this.route.navigate(['register-sign']);
+      }
+    });
+  }
+
+
 
   ngOnInit(): void {
             // tslint:disable-next-line: only-arrow-functions
@@ -18,4 +43,9 @@ export class RegisterComponent implements OnInit {
             });
   }
 
+  logOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('_id');
+    this.verifyOfRegistrar();
+  }
 }

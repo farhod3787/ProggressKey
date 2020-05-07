@@ -65,6 +65,15 @@ router.get('/getall', async(request, response, next) => {
     }
 });
 
+router.get('/getSuccess', async(request, response, next) => {
+  let requests = await ReqProduct.find({status: true});
+  if (requests.length > 0) {
+    response.status(200).json(requests)
+  } else {
+    response.status(404).json(false)
+  }
+});
+
 router.get('/:id', async function(request, response, next) {
     var id = request.params.id;
       ReqProduct.findById(id).then((res) => {

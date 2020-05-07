@@ -63,6 +63,8 @@ import { ManagerSettingsComponent } from './manager/manager-settings/manager-set
 import { ManagerNewsAddComponent } from './manager/manager-news-add/manager-news-add.component';
 import { ManagerCustomersComponent } from './manager/manager-customers/manager-customers.component';
 import { ManagerGalleryAddComponent } from './manager/manager-gallery-add/manager-gallery-add.component';
+import { AdminSettingComponent } from './admin/admin-setting/admin-setting.component';
+import { RegisterSignComponent } from './register/register-sign/register-sign.component';
 // import { ManagerProductAddComponent } from './manager-product-add/manager-product-add.component';
 
 
@@ -88,6 +90,7 @@ const routes: Routes = [
   },
   { path: 'sign', component: SignComponent} ,
   { path: 'admin-sign', component: AdminSignComponent} ,
+  { path: 'register-sign', component: RegisterSignComponent} ,
   { path: 'login', component: LoginComponent} ,
   { path: 'error', component: ErrorComponent} ,
 
@@ -136,6 +139,7 @@ const routes: Routes = [
       { path: 'register-add', component: RegistratorAddComponent},
      ]},
     { path: 'site-manager', component: SiteManagementComponent},
+    { path: 'settings', component: AdminSettingComponent},
     { path: 'warehouse', component: WarehouseHomeComponent , children: [
       { path: '',  component: WarehouseComponent } ,
       {path: 'warehosue-add' , component: WarehouseAddComponent},
@@ -152,7 +156,7 @@ const routes: Routes = [
     { path: 'register-setting', component: RegisterSettingComponent},
     { path: 'register-warehouse', component: RegisterWarehouseComponent},
     { path: 'register-client', component: RegisterClienthomeComponent , children: [
-      { path: '', component: ClientComponent},
+      { path: '', component: RegisterClientComponent},
       { path: 'register-client-add', component: RegisterClientAddComponent},
     ]}
     ] },

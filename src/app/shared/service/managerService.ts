@@ -8,30 +8,25 @@ import {url} from '../../url/url';
 @Injectable({
   providedIn: 'root'
 })
-export class ResgistrarService {
+export class ManagerService {
 
   constructor(private http: Http) { }
 
   url = url.url;
-  api = this.url + '/api/registrar/';
+  api = this.url + '/api/manager/';
 
 
   post(
-    filialId: string,
     login: string,
     image: File,
     password: string,
-    // registerUserId: string[], // aslida array
     fullName: string,
-    warehouseId: string
 ) {
-  const Registrar = new FormData();
-  Registrar.append('filialId', filialId);
-  Registrar.append('image', image);
-  Registrar.append('login', login);
-  Registrar.append('password', password);
-  Registrar.append('fullName', fullName);
-  Registrar.append('warehouseId', warehouseId);
+  const Manager = new FormData();
+  Manager.append('image', image);
+  Manager.append('login', login);
+  Manager.append('password', password);
+  Manager.append('fullName', fullName);
   // const body = {
   //   'filialId ': filialId,
   //   'image ' : image,
@@ -42,7 +37,7 @@ export class ResgistrarService {
   //   'warehouseId ': warehouseId
   // };
 
-  return this.http.post(this.api + localStorage.getItem('token'), Registrar);
+  return this.http.post(this.api + localStorage.getItem('token'), Manager);
 }
 
   getAll() {
@@ -53,12 +48,8 @@ export class ResgistrarService {
     return this.http.get(this.api + id);
   }
 
-  sign(login, password) {
-    const body = {
-      login,
-      password
-    };
-    return this.http.post( this.api, body);
+  sign(body) {
+    return this.http.post( this.api + 'sign', body);
   }
 
   delete(id) {
@@ -67,29 +58,23 @@ export class ResgistrarService {
 
   update(
     id: string,
-    filialId: string,
     login: string,
     image: File,
     password: string,
-    registerUserId: string, // Array
-    fullName: string,
-    warehouseId: string
+    fullName: string
     ) {
     const body = {
-        'filialId ': filialId,
         'image ' : image,
         'login ': login,
         'password ': password,
         'fullName ': fullName,
-        'registerUserId ': registerUserId,
-        'warehouseId ': warehouseId
     };
 
-    return this.http.patch(this.api + id, body);
+    return this.http.patch(this.api + 'updateManager/' + id + localStorage.getItem('token'), body);
   }
 
   verify() {
-    return this.http.get(this.api + 'verifyRegistrar/' +  localStorage.getItem('token'));
+    return this.http.get(this.api + 'verifyManager/' +  localStorage.getItem('token'));
   }
 
 }

@@ -17,6 +17,10 @@ export class ReqProdService {
     return this.http.get(this.api + 'getall');
   }
 
+  getSuccess() {
+    return this.http.get(this.api + 'getSuccess');
+  }
+
   post(
     products: any,
     quantity: any,

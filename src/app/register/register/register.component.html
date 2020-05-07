@@ -1,8 +1,8 @@
- 
-  
+
+
  <!-- <router-outlet></router-outlet> -->
 
- <div class="container-scroller"> 
+ <div class="container-scroller">
 
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex align-items-center">
@@ -77,7 +77,7 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle ml-2" src="../../../assets/user/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal"> Shakhzodbek </span></a>
+              <img class="img-xs rounded-circle ml-2" src="../../../assets/user/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal">{{register.fullName}}</span></a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <!-- <img class="img-md rounded-circle" src="../../../assets/user/images/faces/face8.jpg" alt="Profile image"> -->
@@ -85,11 +85,11 @@
                 <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
               </div>
               <a class="dropdown-item">
-                <i class="dropdown-item-icon icon-user text-primary"></i> My Profile 
+                <i class="dropdown-item-icon icon-user text-primary"></i> My Profile
                 <span class="badge badge-pill badge-danger">1</span>
               </a>
               <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a> 
+              <a class="dropdown-item" (click)='logOut()'><i class="dropdown-item-icon icon-energy text-primary"></i> Log Out</a>
             </div>
           </li>
         </ul>
@@ -97,11 +97,11 @@
           <span class="icon-menu"></span>
         </button>
       </div>
-    </nav> 
-  
-  
-    
-    <div class="container-fluid page-body-wrapper"> 
+    </nav>
+
+
+
+    <div class="container-fluid page-body-wrapper">
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item nav-profile">
@@ -111,7 +111,7 @@
                 <div class="dot-indicator bg-success"></div>
               </div>
               <div class="text-wrapper">
-                <p class="profile-name">Shahzodbek</p>
+                <p class="profile-name">{{register.fullName}}</p>
                 <p class="designation">User</p>
               </div>
               <div class="icon-container">
@@ -120,12 +120,12 @@
               </div>
             </a>
           </li>
- 
+
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" routerLink="/register" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title">Asosiy</span>
               <i class="icon-layers menu-icon"></i>
-            </a> 
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="register-client">
@@ -145,8 +145,8 @@
               <i class=" icon-settings menu-icon"></i>
             </a>
           </li>
- 
-   
+
+
           <li class="nav-item pro-upgrade">
             <span class="nav-link">
               <a class="btn btn-block px-0 btn-rounded btn-upgrade" href="#" target="_blank"> <i class="icon-badge mx-2"></i>Progresskey.uz</a>
@@ -155,17 +155,17 @@
         </ul>
       </nav>
       <!-- partial -->
-      
+
       <div class="main-panel">
-   
+
         <div class="content-wrapper">
           <router-outlet></router-outlet>
-   
+
         </div>
- 
-   
+
+
       </div>
-   
+
     </div>
-   
-  </div> 
+
+  </div>

@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 
 import {url} from '../../url/url';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -18,42 +19,50 @@ export class UserService {
 
   post(
     image: File,
-    typeId: string,
+    type: string,
     login: string,
     password: string,
     fullName: string,
+    telNumber: string,
+    filialId: string,
     firstBalance: string,
     whoAdd: string,
     whoBottom: string
 ) {
-  const body = {
-    'image ': image,
-    'typeId ' : typeId,
-    'login ': login,
-    'password ': password,
-    'fullName ': fullName,
-    'firstBalance ': firstBalance,
-    'whoAdd ': whoAdd,
-    'whoBottom ' : whoBottom
-  };
+  const User: any = new FormData();
+  User.append('image', image);
+  User.append('type', type);
+  User.append('login', login);
+  User.append('password', password);
+  User.append('fullName', fullName);
+  User.append('telNumber', telNumber);
+  User.append('filialId', filialId);
+  User.append('firstBalance', firstBalance);
+  User.append('whoAdd', whoAdd);
+  User.append('whoBottom', whoBottom);
 
-  return this.http.post(this.api + 'create/' + localStorage.getItem('token'), body);
+  return this.http.post(this.api + localStorage.getItem('_id') , User);
 }
 
   getAll() {
+    return this.http.get(this.api + localStorage.getItem('_id'));
+  }
+
+  getAllUsers() {
     return this.http.get(this.api);
   }
 
   getId(id) {
-    return this.http.get(this.api + id);
+    return this.http.get(this.api + 'me/' + id);
   }
 
   getTeam() {
     return this.http.get(this.api + 'team/' + localStorage.getItem('token'))
   }
 
+
   getInformation() {
-    return this.http.get(this.api + 'userInformation/' + localStorage.getItem('token'));
+    return this.http.get(this.api + 'user/Information/' + localStorage.getItem('token'));
   }
 
   sign(login, password) {
@@ -61,7 +70,7 @@ export class UserService {
        login,
        password
     };
-    return this.http.post( this.api + 'sign', body);
+    return this.http.post( this.api + 'sign/home', body);
   }
 
   delete(id) {
@@ -71,20 +80,24 @@ export class UserService {
   update(
     id: string,
     image: File,
-    typeId: string,
+    type: string,
     login: string,
     password: string,
     fullName: string,
+    telNumber: string,
+    filialId: string,
     firstBalance: string,
     whoAdd: string,
     whoBottom: string
     ) {
     const body = {
       'image ': image,
-      'typeId ' : typeId,
+      'type ' : type,
       'login ': login,
       'password ': password,
       'fullName ': fullName,
+      'telNumber ': telNumber,
+      'filialId ': filialId,
       'firstBalance ': firstBalance,
       'whoAdd ': whoAdd,
       'whoBottom ' : whoBottom
@@ -94,7 +107,11 @@ export class UserService {
   }
 
   verify() {
-    return this.http.get(this.api + 'verifyUser/' +  localStorage.getItem('token'));
+    return this.http.get(this.api + 'verify/User/' +  localStorage.getItem('token'));
+  }
+
+  verifyLogin(login) {
+    return this.http.get(this.api + 'verifyLogin/' + login);
   }
 
 }

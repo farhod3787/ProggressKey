@@ -16,7 +16,7 @@ const contactRouter = require('./routes/contact');
 const newsRouter = require('./routes/news');
 const transferRouter = require('./routes/transfer');
 const reqProductsRouter = require('./routes/reqProduct');
-
+const managerRouter = require('./routes/site-manager');
 const cors = require("cors");
 const app = express();
 
@@ -72,6 +72,7 @@ app.use('/api/category/', categoryRouter);
 app.use('/api/contact/', contactRouter);
 app.use('/api/transfers/', transferRouter);
 app.use('/api/reqProducts/', reqProductsRouter);
+app.use('/api/manager/', managerRouter);
 // app.get('/*', (req, res) => {
 //     res.sendFile(path.join(__dirname, '../dist/online-pharmacy', 'index.html'))
 // })

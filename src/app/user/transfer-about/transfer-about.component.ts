@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransferService } from 'src/app/shared/service/transferService';
+import { UserService } from 'src/app/shared/service/userService';
 
 @Component({
   selector: 'app-transfer-about',
@@ -8,9 +9,18 @@ import { TransferService } from 'src/app/shared/service/transferService';
 })
 export class TransferAboutComponent implements OnInit {
 
+  users = [];
   constructor(
-    private transferService: TransferService
+    private transferService: TransferService,
+    private userService: UserService
   ) {
+    this.getUsers();
+   }
+
+   getUsers() {
+      this.userService.getAllUsers().subscribe( result => {
+        this.users = result.json();
+      });
    }
 
    sendTransfer(to, howMuch) {

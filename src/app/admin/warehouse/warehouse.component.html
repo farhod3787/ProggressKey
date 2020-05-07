@@ -1,64 +1,64 @@
- 
+
   <div class="row">
     <div class="col-lg-3 mb-3">
         <div class="registr-box-client bg-white">
-          <div class="row">  
-            <div class="col-12  ">  
+          <div class="row">
+            <div class="col-12  ">
                     <img src="assets/img/lider.png" alt="">
-                    <span class="leder-boxa">Ombordagi mahsulotlar</span> 
-            </div> 
-          </div>    
+                    <span class="leder-boxa">Ombordagi mahsulotlar</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-3 mb-3">
         <div class="registr-box-client bg-white">
-          <div class="row">  
-            <div class="col-12  "> 
+          <div class="row">
+            <div class="col-12  ">
                     <img src="assets/img/lider.png" alt="">
                     <span class="leder-boxa">So'ralgan mahsulotlar</span>
-            </div> 
-          </div>    
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-3 mb-3">
         <div class="registr-box-client bg-white">
-          <div class="row">  
-            <div class="col-12  "> 
+          <div class="row">
+            <div class="col-12  ">
                     <img src="assets/img/lider.png" alt="">
                     <span class="leder-boxa">Tugagan mahsulotlar</span>
-            </div> 
-          </div>    
+            </div>
+          </div>
         </div>
       </div>
       <div class="col-lg-3 mb-3">
         <div class="registr-box-client bg-white">
-          <div class="row">  
-            <div class="col-12  "> 
+          <div class="row">
+            <div class="col-12  ">
                     <img src="assets/img/lider.png" alt="">
                     <span class="leder-boxa">Transferlar tarixini ko'rish</span>
-            </div> 
-          </div>    
+            </div>
+          </div>
         </div>
       </div>
- 
- 
- 
-   
+
+
+
+
   </div>
-  
-  
-  
-  
-  
-  
- 
-  
+
+
+
+
+
+
+
+
   <div class="row">
- 
+
     <div class="col-md-12 grid-margin">
- 
+
       <div class="card mb-3">
-        <div class="card-body">  
+        <div class="card-body">
             <div class="row border-bottom ">
                 <div class="col-md-4">
                     <h4 class="card-title card-title-border"  >MAHSULOT TURLARI <button type="button" class="btn btn-success  px-2 py-1 d-inline-block">111 ta</button></h4>
@@ -69,7 +69,7 @@
                 <div class="col-md-4">
                     <h4 class="card-title card-title-border">SO'RALGAN TOVARLAR <button type="button" class="btn btn-success px-2 py-1 d-inline-block">111 ta</button></h4>
                 </div>
-            
+
               </div>
             <h4 class="card-title font-weight-bold pt-3">Mahsulotlar</h4>
           <div class="table-responsive border rounded p-1">
@@ -77,65 +77,21 @@
               <thead>
                 <tr>
                   <th class="font-weight-bold"><Fieldset>N</Fieldset></th>
-                  <th class="font-weight-bold">Mahsulot nomi</th> 
-                  <th class="font-weight-bold">Mahsulot narxi</th>
-                  <th class="font-weight-bold">Mahsulot soni</th>
-                  <th class="font-weight-bold">So'ralgan mahsulotlar</th>
-               
+                  <th class="font-weight-bold">Ombor nomi</th>
+                  <th class="font-weight-bold">Filial</th>
+                  <th class="font-weight-bold">About</th>
+                  <th class="font-weight-bold">Delete</th>
+
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>  1 </td> 
-                    <td>Progresskey Sirop</td> 
-                    <td>75 000</td>
-                    <td>22 000  </td>
-                    <td>Progresskey Sirop</td> 
+                <tr *ngFor = 'let ware of wares, let i = index'>
+                  <td>{{i+1}}</td>
+                    <td>{{ware.name}}</td>
+                    <td>{{ware.filialId}}</td>
+                    <td><button>About</button></td>
+                    <td><button>Delete</button></td>
                 </tr>
-                <tr>
-                    <td>  2 </td> 
-                      <td>Progresskey Sirop</td> 
-                      <td>75 000</td>
-                      <td>22 000  </td>
-                      <td>Progresskey Sirop</td> 
-                  </tr>
-                  <tr>
-                    <td>  3 </td> 
-                      <td>Progresskey Sirop</td> 
-                      <td>75 000</td>
-                      <td>22 000  </td>
-                      <td>Progresskey Sirop</td> 
-                  </tr>
-                  <tr>
-                    <td>  4 </td> 
-                      <td>Progresskey Sirop</td> 
-                      <td>75 000</td>
-                      <td>22 000  </td>
-                      <td>Progresskey Sirop</td> 
-                  </tr>
-                  <tr>
-                    <td>  5 </td> 
-                      <td>Progresskey Sirop</td> 
-                      <td>75 000</td>
-                      <td>22 000  </td>
-                      <td>Progresskey Sirop , Progresskey Sirop</td> 
-                  </tr>
-                  <tr>
-                    <td>  6 </td> 
-                      <td>Progresskey Sirop ,Progresskey Sirop</td> 
-                      <td>75 000</td>
-                      <td>22 000  </td>
-                      <td>Progresskey Sirop ,Progresskey Sirop</td> 
-                  </tr>
-                  <tr>
-                    <td>  7 </td> 
-                      <td>Progresskey Sirop</td> 
-                      <td>75 000</td>
-                      <td>22 000  </td>
-                      <td>Progresskey Sirop , Progresskey Sirop</td> 
-                  </tr>
- 
-  
               </tbody>
             </table>
           </div>
@@ -152,8 +108,8 @@
               </ul>
             </nav>
           </div>
-        </div> 
+        </div>
       </div>
- 
+
     </div>
   </div>

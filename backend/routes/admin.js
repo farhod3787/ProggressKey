@@ -1,5 +1,6 @@
 const express = require('express');
 const Admin = require('../models/admin');
+var jwt = require('jsonwebtoken');
 
 const router = express.Router();
 
@@ -36,39 +37,19 @@ router.get('/', (request, response, next) =>{
 });
 
 
-router.get('/:id', async function(request, response) {
-    var data = {};
-    var success = false;
-    var id = request.params.id;
-    var body = request.body;
+router.get('/:token', async function(request, response) {
+    var admin = {};
+    var token = request.params.token;
     var admins = await Admin.find();
-
-    var obj = Admin.verifyAdmin(admins, body);
-
+    var obj = Admin.verifyOfAdmin(admins, token);
     if(obj.isAdmin) {
-        success = true;
-        data = await Admin.findById(id).then( (res)=>{
-            if(!res) {
-                success = false;
-                data.message = "User not found"
-                return null;
-            }
-            else {
-                return res;
-            }
-        })
-        .catch( (err) =>{
-            console.log(err);
-            success = false;
-        });
-        if(success) {
-            response.status(200).json(data);
-        }
-        else {
-            response.status(400).json()
-        }
+        admin = await Admin.findById(obj.adminId);
+        admin.password = jwt.verify(admin.password, 'pro').password;
+        response.status(200).json(admin);
+    } else {
+      response.status(400).json(false);
     }
-})
+});
 
 router.delete('/:id/:token', async function (request, response, next ){
     var data = {};

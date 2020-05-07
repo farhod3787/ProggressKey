@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReqProdService } from 'src/app/shared/service/reqProdService';
 import Swal from 'sweetalert2';
+import { ResgistrarService } from 'src/app/shared/service/registrarService';
 
 @Component({
   selector: 'app-requested-products',
@@ -10,17 +11,18 @@ import Swal from 'sweetalert2';
 export class RequestedProductsComponent implements OnInit {
 
   reqProds: any = [];
+  registrar = [];
   status = false;
   constructor(
-    private ReqProdService: ReqProdService
+    private reqProdService: ReqProdService,
+    private RegistrarService: ResgistrarService
   ) {
     this.getReqs();
   }
 
   getReqs() {
-    this.ReqProdService.getAll().subscribe( result => {
+    this.reqProdService.getAll().subscribe( result => {
       this.reqProds = result.json();
-      console.log( this.reqProds );
       if (this.reqProds.length === 0) {
         this.status = true;
         Swal.fire({
@@ -30,6 +32,11 @@ export class RequestedProductsComponent implements OnInit {
           timer: 3000
         });
       }
+      for (let i = 0; i <= this.reqProds.length - 1; i++) {
+      this.RegistrarService.getId(this.reqProds[i].registrarId).subscribe( res => {
+        this.registrar[i] = res.json();
+      });
+    }
     });
   }
   ngOnInit(): void {

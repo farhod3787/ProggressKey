@@ -1,48 +1,33 @@
 const mongoose = require('mongoose');
 var jwt = require('jsonwebtoken');
 
-const userSchema = mongoose.Schema({
-    image: {type: String},
-    type: {type: String},
+const managerSchema = mongoose.Schema({
     login: {type: String},
     password: {type: String},
+    image: { type: String},
     fullName: {type: String},
-    telNumber: {type: String},
-    filialId: {type: String},
-    firstBalance: {type: String},
-    leftHand: {type: String},
-    rightHand: {type: String},
-    whoAdd: {type: String},
-    whoBottom: {type: String},
-    addUsers: {type: Array},
-    ballOfBinar: {type: Number},
-    ballOfInvite: {type: Number},
-    ballOfCheck: {type: Number},
-    ballOfWeek: {type: Number},
-    ballOfMonth: {type: Number},
     date: {type: String}
 });
 
-userSchema.statics.hashofPassword = function(pass) {
+managerSchema.statics.hashofPassword = function(pass) {
     let password = {password: pass};
     let hashpass = jwt.sign(password, 'pro');
     return hashpass;
 }
 
-userSchema.statics.generateToken = function(login, password) {
+managerSchema.statics.generateToken = function(login, password) {
     var value = {
         login: login,
         password: password
     }
-
     var token = jwt.sign(value, 'pro');
     return token;
 }
 
 //                                                               K i r i  sh
 
-userSchema.statics.verifyUser = function(users, body) {
-    var object = {isUser : false};
+managerSchema.statics.verifyUser = function(users, body) {
+    var object = {isManager : false};
     var distoken = undefined;
 
     users.forEach((user) => {
@@ -54,7 +39,7 @@ userSchema.statics.verifyUser = function(users, body) {
         }
         if (distoken) {
             if(user.login == body.login && distoken.password == body.password ) {
-                    object.isUser = true;
+                    object.isManager = true;
                     object.token = jwt.sign({login: user.login, password: user.password}, 'pro')
             }
         }
@@ -69,10 +54,9 @@ userSchema.statics.verifyUser = function(users, body) {
 
 //                                                      T e k s  h i r i  s h
 
-userSchema.statics.verifyOfUser = function(users, token) {
-    var object = {isUser : false,  userId: undefined};
+managerSchema.statics.verifyOfUser = function(users, token) {
+    var object = {isManager : false,  userId: undefined};
     var distoken = undefined;
-
     users.forEach((user) => {
         try{
             distoken = jwt.verify(token, 'pro');
@@ -82,7 +66,7 @@ userSchema.statics.verifyOfUser = function(users, token) {
         }
         if (distoken) {
             if(user.login == distoken.login && user.password == distoken.password ) {
-                    object.isUser = true;
+                    object.isManager = true;
                     object.token = jwt.sign({login: user.login, password: user.password}, 'pro');
                     object.userId = user._id;
                     object.userName = user.login;
@@ -99,4 +83,4 @@ userSchema.statics.verifyOfUser = function(users, token) {
 
 
 
-module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model('manager', managerSchema);

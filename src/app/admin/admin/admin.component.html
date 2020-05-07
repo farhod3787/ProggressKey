@@ -1,8 +1,8 @@
- 
-  
+
+
  <!-- <router-outlet></router-outlet> -->
 
- <div class="container-scroller"> 
+ <div class="container-scroller">
 
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex align-items-center">
@@ -68,7 +68,7 @@
               <a class="dropdown-item">
                 <i class="flag-icon flag-icon-us"></i> English </a>
               <a class="dropdown-item">
-                <i class="flag-icon flag-icon-uz"></i> Uzbek </a> 
+                <i class="flag-icon flag-icon-uz"></i> Uzbek </a>
               <a class="dropdown-item">
                 <i class="flag-icon flag-icon-ru"></i> Russian </a>
             </div>
@@ -83,11 +83,11 @@
                 <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
               </div>
               <a class="dropdown-item">
-                <i class="dropdown-item-icon icon-user text-primary"></i> My Profile 
+                <i class="dropdown-item-icon icon-user text-primary"></i> My Profile
                 <span class="badge badge-pill badge-danger">1</span>
               </a>
               <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a> 
+              <a class="dropdown-item" (click)='logOut()' ><i class="dropdown-item-icon icon-energy text-primary"></i> LogOut</a>
             </div>
           </li>
         </ul>
@@ -97,9 +97,9 @@
       </div>
     </nav>
     <!-- partial -->
-  
-  
-    
+
+
+
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -123,7 +123,7 @@
           <!-- <li class="nav-item nav-category">
             <span class="nav-link">Progresskey.uz</span>
           </li> -->
-   
+
           <!-- <li class="nav-item nav-category"><span class="nav-link">UI Elements</span></li> -->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" routerLink="/admin" aria-expanded="false" aria-controls="ui-basic">
@@ -161,15 +161,21 @@
               <i class="icon-book-open menu-icon"></i>
             </a>
           </li>
- 
+
           <li class="nav-item">
             <a class="nav-link" routerLink="warehouse">
               <span class="menu-title">Omborlar</span>
               <i class="icon-screen-desktop menu-icon"></i>
             </a>
-          </li> 
+          </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="site-manager">
+              <span class="menu-title">Site-manager</span>
+              <i class=" icon-settings menu-icon"></i>
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" routerLink="settings">
               <span class="menu-title">Sozlamalar</span>
               <i class=" icon-settings menu-icon"></i>
             </a>
@@ -182,18 +188,18 @@
         </ul>
       </nav>
       <!-- partial -->
-      
+
       <div class="main-panel">
-   
+
         <div class="content-wrapper">
           <router-outlet></router-outlet>
-   
+
         </div>
-   
- 
-   
+
+
+
       </div>
-   
+
     </div>
-   
-  </div> 
+
+  </div>

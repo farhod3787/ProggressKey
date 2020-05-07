@@ -1,128 +1,151 @@
+<form [formGroup]='form' (submit)="save()">
 <div class="row">
-    <div class="col-md-12 grid-margin">
-        <div class="card mb-3">
-          <div class="card-body row">
-              <div class="col-12">
-                <h4 class="card-title card-title-border mb-4">AUTENTIFIKATSIYA</h4>
-              </div>
-             
-            <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-color">ID</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-color">Paroll</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-color">Maqomi</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-
-              <div class="col-12">
-                <h4 class="card-title card-title-border my-4">MA'LUMOTLAR</h4>
-              </div>
-             
-            <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend  ">
-                    <span class="input-group-text bg-success">Ism</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-success">Familya</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-success">Sharif</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-success">Tug'ulgan sana</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text bg-success">Jinsi</span>
-                  </div>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select> </div>
-              </div>
-              <div class="col-12">
-                <h4 class="card-title card-title-border my-4">KONTAKT MA'LUMOTLAR</h4>
-              </div>
-             
-            <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Telefon</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Email</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
- 
-                  <div class="custom-file">
-                    <label class="custom-file-label " for="customFile">Choose file</label>
-                    <input type="file" class="custom-file-input" id="customFile">
-                  
-                  </div> </div>
-              </div> 
-                            <div class="form-group"> 
-                <button type="button" class="btn btn-info btn-fw m-3">Saqlash</button>
-                <button type="button" class="btn btn-dark btn-fw m-3">O'chirish</button>
-              </div>
-
-          </div> 
+  <div class="col-md-12 grid-margin">
+    <div class="card mb-3">
+      <div class="card-body row">
+        <div class="col-12">
+          <h4 class="card-title card-title-border mb-4">AUTENTIFIKATSIYA</h4>
         </div>
-      </div> 
-      
-  </div> 
-   
-   
-  
- 
 
-   
- 
+        <div class="form-group col-md-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text input-group-text-color">Login</span>
+            </div>
+            <input type="text" formControlName='login' class="form-control" placeholder="Username" aria-label="Username"
+              aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text input-group-text-color">Verify</span>
+            </div>
+            <button (click)='verify()'>Verify</button>
+            <!-- <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> -->
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text input-group-text-color">Full Name</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" formControlName='fullName' aria-label="Username"
+              aria-describedby="basic-addon1">
+          </div>
+        </div>
+
+        <div class="col-12">
+          <h4 class="card-title card-title-border my-4">MA'LUMOTLAR</h4>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend  ">
+              <span class="input-group-text bg-success">Password</span>
+            </div>
+            <input type="text" class="form-control" formControlName='password' placeholder="Username" aria-label="Username"
+              aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-success">First Balance</span>
+            </div>
+            <input type="number" class="form-control" formControlName='firstBalance' placeholder="Username" aria-label="Username"
+              aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <!-- <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-success">Who Add</span>
+            </div>
+            <input type="text" class="form-control" formControlName='whoAdd' placeholder="Username" aria-label="Username"
+              aria-describedby="basic-addon1">
+          </div>
+        </div> -->
+        <!-- <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-success">Who Bottom</span>
+            </div>
+            <input type="text" class="form-control" formControlName='whoBottom'  placeholder="Username" aria-label="Username"
+              aria-describedby="basic-addon1">
+          </div>
+        </div> -->
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-success">Jinsi</span>
+            </div>
+            <select class="form-control" formControlName='whoAdd' id="exampleFormControlSelect1">
+              <option  *ngFor = 'let user of users' value='{{user._id}}'>{{user.login}}</option>
+              <option value='NULL'>NULL</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-success">Jinsi</span>
+            </div>
+            <select class="form-control" formControlName='whoBottom' id="exampleFormControlSelect1">
+              <option *ngFor = 'let user of users'  value='{{user._id}}'>{{user.login}}</option>
+              <option value='NULL'>NULL</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <h4 class="card-title card-title-border my-4">KONTAKT MA'LUMOTLAR</h4>
+        </div>
+
+        <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Telefon</span>
+            </div>
+            <input type="text" class="form-control" formControlName='telNumber' placeholder="Username" aria-label="Username"
+              aria-describedby="basic-addon1">
+          </div>
+        </div>
+        <!-- <div class="custom-file">
+          <label class="custom-file-label " for="customFile">Choose file</label>
+          <input type="file" name='image' formControlName='image' class="custom-file-input" id="customFile">
+        </div> -->
+
+        <input type="file" name='image' (change)="onInputChange($event)"> <br>
+        <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+          <br><br><img width="300px" [src]="imagePreview" [alt]="form.value.image"> <br><br><br>
+        </div>
+
+
+
+        <!-- <div class="form-group col-md-4">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Email</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+              aria-describedby="basic-addon1">
+          </div>
+        </div> -->
+        <!-- <div class="form-group col-md-4">
+          <div class="input-group">
+
+
+          </div>
+        </div> -->
+
+        <!--  -->
+        <div class="form-group" *ngIf='disable'>
+          <button type="submit" class="btn btn-info btn-fw m-3">Saqlash</button>
+          <!-- <button type="button" class="btn btn-dark btn-fw m-3">O'chirish</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>

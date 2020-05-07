@@ -13,10 +13,12 @@ router.post('/:token', async function (request, response, next) {
     var obj = await Admin.verifyOfAdmin(admins, token);
 
     let wareHouse = {
-        nameUz : body.nameUz,
-        nameRu : body.nameRu,
-        nameEn : body.nameEn,
-        products : body.products
+        name : body.name,
+        filialId: body.fifialId,
+        // nameRu : body.nameRu,
+        // nameEn : body.nameEn,
+        products : body.products,
+        quantity: body.quantity
     }
     const ware = new Warehouse(wareHouse);
 
@@ -29,14 +31,27 @@ router.post('/:token', async function (request, response, next) {
     })
 }
 else {
-    response.status(404).json({message: "This is not Moderator"})
+    response.status(404).json({message: "This is not Admin"})
 }
 });
 
 router.get('/getall', async(request, response, next) => {
     let warehouse = await Warehouse.find();
     response.status(200).json(warehouse)
-})
+});
+
+router.get('/:filialId', async (request, response) => {
+  var date = {};
+  var id = request.params.filialId;
+  var result = await Warehouse.find({filialId: id});
+  if (result.length === 0) {
+    response.status(400).json(false)
+  } else {
+    date = result[0];
+    response.status(200).json(date);
+  }
+});
+
 
 router.get('/:id', async function(request, response, next) {
     var id = request.params.id;

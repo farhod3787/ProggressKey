@@ -19,8 +19,8 @@ export class AdminService {
     return this.http.get(this.api);
   }
 
-  getId(id) {
-    return this.http.get(this.api + id);
+  getId() {
+    return this.http.get(this.api + localStorage.getItem('token'));
   }
 
   sign(login, password) {

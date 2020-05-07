@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('../models/users');
 const Admin = require('../models/admin');
+const Regsiter = require('../models/registrar');
 const multer = require('multer');
 var fs = require('fs');
 
@@ -8,15 +9,11 @@ var fs = require('fs');
 
 const router = express.Router();
 
-
-
 const MIME_TYPE_MAP = {
   'image/png': 'png',
   'image/jpg': 'jpg',
   'image/jpeg': 'jpg'
 }
-
-const url = 'http://localhost:5000';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -36,15 +33,18 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
  //                                                               R e g i  s t r a t s i o n
-router.post('/', upload.single('image'), async function (request, response, next) {
+router.post('/:regId', upload.single('image'), async function (request, response, next) {
+    var id = request.params.regId;
     var body = request.body;
-    var file = request.file.filename;
+    var file = request.file;
     let user = {
-        typeId : body.typeId,
+        type : body.type,
         login : body.login,
         password: await User.hashofPassword(body.password),
         fullName :  body.fullName,
-        image: file,
+        telNumber: body.telNumber,
+        filialId: body.filialId,
+        image: file.filename,
         firstBalance :  body.firstBalance,
         leftHand : body.leftHand,
         rightHand : body.rightHand,
@@ -61,16 +61,25 @@ router.post('/', upload.single('image'), async function (request, response, next
                           replace(/\..+/, '')
     }
     const use = new User(user);
-        let token = await User.generateToken(use.login, use.password);
-    console.log(use);
     use.save().then( (res) =>{
-        response.status(200).json({token: token})
+        var userId = res._id;
+        Regsiter.findById(id).then(res => {
+          res.registerUserId.push(userId);
+        Regsiter.findByIdAndUpdate(id, { $set: res }, { new: true }).then( result => {
+          if (result) {
+            response.status(200).json(true)
+          }
+        }).catch( error => {
+          response.status(404).json(error)
+        })
+        }).catch( err => {
+          response.status(404).json(err)
+        });
     }).catch( err =>{
         console.log(err);
         response.status(404).json({message: "Error in Saved user"})
     })
 });
-
 
 router.get('/', (request, response, next) =>{
     var users = [];
@@ -87,8 +96,29 @@ router.get('/', (request, response, next) =>{
     })
 });
 
+router.get('/:filialId', async (request, response) => {
+  var filialId = request.params.filialId;
+  var users = await User.find({filialId: filialId});
+  for (let i=users.length-1; i>=0; i--) {
+    users[i].image = 'http://localhost:5000/images/' + users[i].image;
+  }
+  response.status(200).json(users);
+})
 
-router.get('/:id', async function(request, response) {
+router.get('/verifyLogin/:login', async (request, response) => {
+  var login = request.params.login;
+  let result = false;
+  let users = await User.find();
+    for (let i = 0; i <= users.length - 1; i++) {
+        if (users[i].login === login) {
+          result = true;
+          break;
+        }
+    }
+    response.status(200).json(result);
+})
+
+router.get('/me/:id', async function(request, response) {
     var data = {};
     var id = request.params.id;
 
@@ -223,7 +253,7 @@ router.patch('/updateUser/:id/:token', multer({ storage: storage }).single('imag
 })
 
 
-router.get('/verifyUser/:token', async function(request, response) {
+router.get('/verify/User/:token', async function(request, response) {
      var token = request.params.token;
         var users = await User.find();
 
@@ -233,7 +263,7 @@ router.get('/verifyUser/:token', async function(request, response) {
 })
  //                                                                K i r  i  sh
 
-router.post('/sign', async function(request, response) {
+router.post('/sign/home', async function(request, response) {
     var body = request.body;
     console.log(body.login);
 
@@ -278,7 +308,7 @@ router.get('/team/:id', async function(request, response) {
   // }
 })
 
-router.get('/userInformation/:token', async function( request, response) {
+router.get('/user/Information/:token', async function( request, response) {
     var token = request.params.token;
     var users = await User.find();
 

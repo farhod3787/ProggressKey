@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResgistrarService } from 'src/app/shared/service/registrarService';
 
 @Component({
   selector: 'app-register-setting',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterSettingComponent implements OnInit {
 
-  constructor() { }
+  inform: any = {};
+  constructor(
+    private registerService: ResgistrarService
+  ) {
+    this.getInform();
+  }
+
+  getInform() {
+      this.registerService.getId(localStorage.getItem('_id')).subscribe( result => {
+        this.inform = result.json();
+      });
+  }
 
   ngOnInit(): void {
   }

@@ -5,7 +5,7 @@
 <h3 *ngIf='status'>Requested Products not yet</h3>
 
 <div class="row" *ngIf='!status'>
-  <div class="col-md-12 grid-margin" *ngFor='let req of reqProds'>
+  <div class="col-md-12 grid-margin" *ngFor='let req of reqProds, let j = index'>
     <div class="card mb-3">
       <div class="card-body">
         <div class="table-responsive border rounded p-1">
@@ -22,10 +22,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Sirob Progresskey</td>
-                <td>20</td>
+              <tr *ngFor = 'let product of req.products, let i = index'>
+                <td>{{i+1}}</td>
+                <td>{{product}}</td>
+                <td>{{req.quantity[i]}}</td>
                 <td>300 b </td>
                 <td>300 000 so'm </td>
                 <td> <button type="button" class="btn btn-inverse-success btn-fw" data-toggle="modal"
@@ -52,10 +52,10 @@
         <div class="row">
           <div class="col-md-4  ">
             <h4 class="card-title card-title-border my-3"> So'rovchi ma'lumotlari</h4>
-            <h4>Hudud: <span> Surxondaryo</span></h4>
-            <h4>Ombor: <span> Surxondaryo</span></h4>
-            <h4>Hududiy boshqaruvchi: <span> Surxondaryo</span></h4>
-            <h4>Yetkazib berish muddati: <span> Surxondaryo</span></h4>
+            <h4>Hudud: <span>{{registrar[j].fullName}}</span></h4>
+            <h4>Ombor: <span> {{registrar[j].warehouseId}}</span></h4>
+            <h4>Hududiy boshqaruvchi: <span> {{registrar[j].filialId}}</span></h4>
+            <h4>So'rov kelgan vaqt: <span>{{registrar[j].date}}</span></h4>
           </div>
           <div class="col-md-4  ">
             <h4 class="card-title card-title-border my-3"> Jo'natuvchi ma'lumotlari</h4>

@@ -38,14 +38,15 @@ registrarSchema.statics.verifyUser = function(users, body) {
     users.forEach((user) => {
         try{
             distoken = jwt.verify(user.password, 'pro');
-        console.log(distoken);
+        // console.log(distoken);
         }
         catch {
         }
         if (distoken) {
             if(user.login == body.login && distoken.password == body.password ) {
                     object.isRegistrar = true;
-                    object.token = jwt.sign({login: user.login, password: user.password}, 'pro')
+                    object.token = jwt.sign({login: user.login, password: user.password}, 'pro');
+                    object.id = user._id;
             }
         }
         else {
@@ -65,6 +66,8 @@ registrarSchema.statics.verifyOfUser = function(users, token) {
     users.forEach((user) => {
         try{
             distoken = jwt.verify(token, 'pro');
+            // console.log(distoken);
+
         }
         catch {
 

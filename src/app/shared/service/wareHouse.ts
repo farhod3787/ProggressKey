@@ -6,7 +6,7 @@ import { url } from '../../url/url';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class WarehouseService {
 
   constructor(private http: Http) { }
 
@@ -21,17 +21,23 @@ export class CategoryService {
     return this.http.delete(this.api + id + '/' + localStorage.getItem('token'));
   }
 
+  getFilial() {
+    return this.http.get(this.api + localStorage.getItem('_id'));
+  }
+
   post(
-    nameUz: string,
-    nameRu: string,
-    nameEn: string,
-    products: string[]
+    name: string,
+    // nameRu: string,
+    // nameEn: string,
+    products: string[],
+    quantity: string[]
   ) {
     const body = {
-      'nameUz ': nameUz,
-      'nameRu ': nameRu,
-      'nameEn ': nameEn,
-      'products ': products
+      'name ': name,
+      // 'nameRu ': nameRu,
+      // 'nameEn ': nameEn,
+      'products ': products,
+      'quantity ': quantity
     };
     return this.http.post(this.api + localStorage.getItem('token'), body);
   }

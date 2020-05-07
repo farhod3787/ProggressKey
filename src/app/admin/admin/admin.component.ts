@@ -28,6 +28,11 @@ export class AdminComponent implements OnInit {
   }
 
 
+  logOut() {
+    localStorage.removeItem('token');
+    this.verifyOfAdmin();
+  }
+
   ngOnInit(): void {
 
         // tslint:disable-next-line: only-arrow-functions

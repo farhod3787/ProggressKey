@@ -1,8 +1,8 @@
 const express = require('express');
 const multer = require('multer');
-const User = require('../models/users');
 const Registrar = require('../models/registrar');
 const Admin = require('../models/admin');
+const Manager = require('../models/site-manager');
 // const jwt = require('jsonwebtoken');
 const router = express.Router();
 
@@ -42,29 +42,24 @@ router.post('/:token',  upload.single('image'), async function (request, respons
 
     var obj = Admin.verifyOfAdmin(admin, token);
 
-    let registrar = {
-        filialId : body.filialId,
+    let manager = {
         login : body.login,
         // image: file,
         image: body.image,
-        password: await Registrar.hashofPassword(body.password),
-        registerUserId :  body.registerUserId,
+        password: await Manager.hashofPassword(body.password),
         fullName :  body.fullName,
-        generalBalance : body.generalBalance,
-        warehouseId : body.warehouseId,
         date: new Date().toISOString().
                           replace(/T/, ' ').
                           replace(/\..+/, '')
     }
     if (obj.isAdmin) {
-
-    const reg = new Registrar(registrar);
-        let token = await Registrar.generateToken(reg.login, reg.password);
-        reg.save().then( (res) =>{
+    const man = new Manager(manager);
+        let token = await Manager.generateToken(manager.login, manager.password);
+        man.save().then( (res) =>{
         response.status(200).json({token: token})
     }).catch( err =>{
         console.log(err);
-        response.status(404).json({message: "Error in Saved user"})
+        response.status(404).json({message: "Error in Saved Manager"})
     })
   } else {
     response.status(404).json({message: "Not admin"})
@@ -76,7 +71,7 @@ router.post('/:token',  upload.single('image'), async function (request, respons
 
 router.get('/', (request, response, next) =>{
     var users = [];
-    Registrar.find().then( (all) =>{
+    Manager.find().then( (all) =>{
         for (let i=all.length-1; i>=0; i--) {
             users.push(all[i]);
         }
@@ -93,7 +88,7 @@ router.get('/:id', async function(request, response) {
     var data = {};
     var id = request.params.id;
 
-    await Registrar.findById(id).then( (res)=>{
+    await Manager.findById(id).then( (res)=>{
             if(!res) {
                 success = false;
                 data = "User not found"
@@ -142,7 +137,7 @@ router.delete('/:id/:token', async function (request, response, next ){
             //     success = false
             //     response.status(400).json({message: "User not found"});
             // });
-                await Registrar.findByIdAndRemove(id).catch( err => {
+                await Manager.findByIdAndRemove(id).catch( err => {
                     success = false;
                 })
                 if(success) {
@@ -159,13 +154,13 @@ router.delete('/:id/:token', async function (request, response, next ){
 })
 
 
-router.patch('/updateRegistrar/:id/:token', multer({ storage: storage }).single('image'), async function(request, response, next) {
+router.patch('/updateManager/:id/:token', multer({ storage: storage }).single('image'), async function(request, response, next) {
   var id = request.params.id;
   var token = request.params.token;
-  var admin = await Registrar.find();
-  var obj = Registrar.verifyOfUser(admin, token);
-  if (obj.isRegistrar) {
-    await Registrar.findById(id).then( (res) =>{
+  var admin = await Manager.find();
+  var obj = Manager.verifyOfUser(admin, token);
+  if (obj.isManager) {
+    await Manager.findById(id).then( (res) =>{
       var image= res.image;
        fs.unlink('backend/images/' + image, function (err) {
            if (err) {
@@ -177,7 +172,7 @@ router.patch('/updateRegistrar/:id/:token', multer({ storage: storage }).single(
    });
   var body = request.body;
   body.image = request.file.filename;
-      await Registrar.findByIdAndUpdate(id, { $set: body }, { new: true }).then((res) => {
+      await Manager.findByIdAndUpdate(id, { $set: body }, { new: true }).then((res) => {
           if (res) {
               response.status(200).json(true);
           } else {
@@ -193,29 +188,30 @@ router.patch('/updateRegistrar/:id/:token', multer({ storage: storage }).single(
   }
 })
 
-router.get('/verifyRegistrar/:token', async function(request, response) {
+router.get('/verifyManager/:token', async function(request, response) {
      var token = request.params.token;
-        var users = await Registrar.find();
+        var users = await Manager.find();
 
-    var obj = Registrar.verifyOfUser(users, token);
+    var obj = Manager.verifyOfUser(users, token);
     response.status(200).json(obj);
 
 })
  //                                                                K i r  i  sh
 
-router.post('/', async function(request, response) {
+router.post('/sign', async function(request, response) {
     var body = request.body;
-    var users = await Registrar.find();
-    var obj = Registrar.verifyUser(users, body);
-    response.status(200).json(obj)
-    // if(obj.isRegistrar) {
-    //     data.token = obj.token;
-    //     data.isRegistrar = obj.isRegistrar;
-    //     response.status(200).json(data)
-    // }
-    // else {
-    //     response.status(404).json({message: "User Not found!"})
-    // }
+    var data = {}
+    var users = await Manager.find();
+    var obj = Manager.verifyUser(users, body);
+
+    if(obj.isManager) {
+        data.token = obj.token;
+        data.isManager = obj.isManager;
+        response.status(200).json(data)
+    }
+    else {
+        response.status(404).json({message: "User Not found!"})
+    }
 });
 
 module.exports = router

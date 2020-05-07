@@ -10,7 +10,10 @@
               <div class="input-group-prepend">
                 <div class="input-group-text bg-danger text-white font-weight-semibold">Kimga ? </div>
               </div>
-              <input type="text" class="form-control" #to id="inlineFormInputGroupUsername2" placeholder="UZ00000001">
+              <select class="form-control" name="" id="" #to>
+                <option *ngFor = 'let user of users' value="{{user.login}}" >{{user.login}}</option>
+              </select>
+              <!-- <input type="text" class="form-control" #to id="inlineFormInputGroupUsername2" placeholder="UZ00000001"> -->
             </div>
             <div class="input-group mb-2 mr-sm-2">
               <div class="input-group-prepend">
