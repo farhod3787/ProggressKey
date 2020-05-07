@@ -36,7 +36,7 @@ const upload = multer({ storage: storage })
  //                                                               R e g i  s t r a t s i o n
 router.post('/:token',  upload.single('image'), async function (request, response, next) {
    var body = request.body;
-    // var file = request.file.filename;
+    var file = request.file;
     var token = request.params.token;
     var admin = await Admin.find();
 
@@ -45,8 +45,8 @@ router.post('/:token',  upload.single('image'), async function (request, respons
     let registrar = {
         filialId : body.filialId,
         login : body.login,
-        // image: file,
-        image: body.image,
+        image: file.filename,
+        // image: body.image,
         password: await Registrar.hashofPassword(body.password),
         registerUserId :  body.registerUserId,
         fullName :  body.fullName,

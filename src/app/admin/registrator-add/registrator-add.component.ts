@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ResgistrarService } from 'src/app/shared/service/registrarService';
 import Swal from 'sweetalert2';
+import { FilialService } from 'src/app/shared/service/filialService';
+import { WarehouseService } from 'src/app/shared/service/wareHouse';
 
 @Component({
   selector: 'app-registrator-add',
@@ -10,9 +12,31 @@ import Swal from 'sweetalert2';
 })
 export class RegistratorAddComponent implements OnInit {
 
+
+  imagePreview: any;
+  imageview = true;
+  filials = [];
+  wareHouses = [];
   constructor(
-    private registrarService: ResgistrarService
-  ) { }
+    private registrarService: ResgistrarService,
+    private filialService: FilialService,
+    private wareHouseService: WarehouseService
+  ) {
+    this.getFilials();
+    this.getWareHouses();
+  }
+  getFilials() {
+    this.filialService.getAll().subscribe( result => {
+      this.filials = result.json();
+    });
+  }
+
+  getWareHouses() {
+    this.wareHouseService.getAll().subscribe( result => {
+      this.wareHouses = result.json();
+    });
+  }
+
 
   form: FormGroup;
 
@@ -56,6 +80,18 @@ export class RegistratorAddComponent implements OnInit {
     console.log(this.form.value.filialId);
     console.log(this.form.value.login);
     console.log(this.form.value.password);
+  }
+
+  onInputChange(event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    this.form.patchValue({image: file});
+    this.form.get('image').updateValueAndValidity();
+    const reader = new FileReader()  ;
+    reader.onload = () => {
+    this.imagePreview = reader.result;                   // rasm tanlanganda ko'rsatish
+    this.imageview = true;
+    };
+    reader.readAsDataURL(file);
   }
 
 

@@ -32,15 +32,6 @@ export class ResgistrarService {
   Registrar.append('password', password);
   Registrar.append('fullName', fullName);
   Registrar.append('warehouseId', warehouseId);
-  // const body = {
-  //   'filialId ': filialId,
-  //   'image ' : image,
-  //   'login ': login,
-  //   'password ': password,
-  //   'fullName ': fullName,
-  //   // 'registerUserId ': registerUserId,
-  //   'warehouseId ': warehouseId
-  // };
 
   return this.http.post(this.api + localStorage.getItem('token'), Registrar);
 }

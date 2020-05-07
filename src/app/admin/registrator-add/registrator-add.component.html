@@ -11,12 +11,9 @@
                   <span class="input-group-text">Hududi</span>
                 </div>
                 <select formControlName='filialId' class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select> </div>
+                    <option *ngFor = 'let filial of filials' value='{{filial._id}}'>{{filial.name}}</option>
+                  </select>
+                </div>
             </div>
             <div class="form-group col-md-4">
               <div class="input-group">
@@ -24,12 +21,8 @@
                   <span class="input-group-text">Ombor</span>
                 </div>
                 <select formControlName='warehouseId' class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
+                    <option *ngFor = 'let house of wareHouses' value='{{house._id}}'>{{house.name}}</option>
+                </select>
               </div>
             </div>
             <div class="form-group col-md-4">
@@ -58,10 +51,16 @@
             </div>
             <div class="form-group col-md-4">
                 <div class="input-group">
-                  <div class="custom-file">
+
+                  <input type="file" name='image' (change)="onInputChange($event)"> <br>
+                  <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+                    <br><br><img width="300px" [src]="imagePreview" [alt]="form.value.image"> <br><br><br>
+                  </div>
+
+                  <!-- <div class="custom-file">
                     <label class="custom-file-label " for="customFile">Choose file</label>
                     <input type="file" formControlName='image'  class="custom-file-input" id="customFile">
-                  </div>
+                  </div> -->
                </div>
               </div>
               <div class="form-group">
