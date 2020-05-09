@@ -78,6 +78,7 @@ import { ManagerCustomersComponent } from './manager/manager-customers/manager-c
 import { ManagerSettingsComponent } from './manager/manager-settings/manager-settings.component';
 import { AdminSettingComponent } from './admin/admin-setting/admin-setting.component';
 import { RegisterSignComponent } from './register/register-sign/register-sign.component';
+import { RegisterOrderComponent } from './register/register-order/register-order.component';
 
 
 @NgModule({
@@ -148,6 +149,7 @@ import { RegisterSignComponent } from './register/register-sign/register-sign.co
     ManagerSettingsComponent,
     AdminSettingComponent,
     RegisterSignComponent,
+    RegisterOrderComponent,
   ],
   imports: [
     BrowserModule,

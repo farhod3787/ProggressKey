@@ -65,6 +65,7 @@ import { ManagerCustomersComponent } from './manager/manager-customers/manager-c
 import { ManagerGalleryAddComponent } from './manager/manager-gallery-add/manager-gallery-add.component';
 import { AdminSettingComponent } from './admin/admin-setting/admin-setting.component';
 import { RegisterSignComponent } from './register/register-sign/register-sign.component';
+import { RegisterOrderComponent } from './register/register-order/register-order.component';
 // import { ManagerProductAddComponent } from './manager-product-add/manager-product-add.component';
 
 
@@ -154,6 +155,7 @@ const routes: Routes = [
     { path: '', component: RegisterHomeComponent} ,
     { path: 'register-blog', component: RegisterBlogComponent},
     { path: 'register-setting', component: RegisterSettingComponent},
+    { path: 'register-order', component: RegisterOrderComponent},
     { path: 'register-warehouse', component: RegisterWarehouseComponent},
     { path: 'register-client', component: RegisterClienthomeComponent , children: [
       { path: '', component: RegisterClientComponent},
