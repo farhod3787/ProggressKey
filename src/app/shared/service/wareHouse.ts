@@ -22,7 +22,7 @@ export class WarehouseService {
   }
 
   getFilial() {
-    return this.http.get(this.api + localStorage.getItem('_id'));
+    return this.http.get(this.api + 'filial/' + localStorage.getItem('_id'));
   }
 
   post(

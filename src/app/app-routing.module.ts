@@ -66,6 +66,9 @@ import { ManagerGalleryAddComponent } from './manager/manager-gallery-add/manage
 import { AdminSettingComponent } from './admin/admin-setting/admin-setting.component';
 import { RegisterSignComponent } from './register/register-sign/register-sign.component';
 import { RegisterOrderComponent } from './register/register-order/register-order.component';
+import { RegisterSendProductComponent } from './register/register-send-product/register-send-product.component';
+import { NotFoundComponent } from './website/not-found/not-found.component';
+import { RegisterAcceptedProdComponent } from './register/register-accepted-prod/register-accepted-prod.component';
 // import { ManagerProductAddComponent } from './manager-product-add/manager-product-add.component';
 
 
@@ -157,11 +160,14 @@ const routes: Routes = [
     { path: 'register-setting', component: RegisterSettingComponent},
     { path: 'register-order', component: RegisterOrderComponent},
     { path: 'register-warehouse', component: RegisterWarehouseComponent},
+    { path: 'register-accept', component: RegisterAcceptedProdComponent},
     { path: 'register-client', component: RegisterClienthomeComponent , children: [
       { path: '', component: RegisterClientComponent},
       { path: 'register-client-add', component: RegisterClientAddComponent},
-    ]}
+    ]},
+    { path: 'send-Products', component: RegisterSendProductComponent}
     ] },
+    { path: '**', component: NotFoundComponent}
 ];
 
 

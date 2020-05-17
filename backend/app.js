@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+var cron = require('node-cron');
 
 const adminRouter = require('./routes/admin');
 const userRouter = require('./routes/users');
@@ -17,6 +18,10 @@ const newsRouter = require('./routes/news');
 const transferRouter = require('./routes/transfer');
 const reqProductsRouter = require('./routes/reqProduct');
 const managerRouter = require('./routes/site-manager');
+const sendProductRouter = require('./routes/sendProduct');
+
+const test = require('./routes/ball');
+
 const cors = require("cors");
 const app = express();
 
@@ -73,8 +78,15 @@ app.use('/api/contact/', contactRouter);
 app.use('/api/transfers/', transferRouter);
 app.use('/api/reqProducts/', reqProductsRouter);
 app.use('/api/manager/', managerRouter);
+app.use('/api/sendProduct/', sendProductRouter);
 // app.get('/*', (req, res) => {
 //     res.sendFile(path.join(__dirname, '../dist/online-pharmacy', 'index.html'))
 // })
+
+
+cron.schedule('* * * * * *', () => {
+  var id = '5eba380af269c4319880521e';
+  // test.test(id);
+});
 
 module.exports = app;

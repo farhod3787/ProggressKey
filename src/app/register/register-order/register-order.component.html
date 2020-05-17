@@ -1,7 +1,7 @@
-<div class="row">
+  <!-- <div class="row">
     <div class="col-md-12 grid-margin">
       <div class="card mb-3">
-        <div class="card-body">  
+        <div class="card-body">
                     <div class="d-sm-flex align-items-center mb-3">
                       <h4 class="card-title   card-title-border">Mahsulot so'rash</h4>
                       <a href="#" class="text-dark ml-auto mb-3 mb-sm-0"> </a>
@@ -82,20 +82,20 @@
                               <p>Hudud: <span>Surxondaryo</span></p>
                               <p>Ombor: <span>Surxondaryo</span></p>
                               <p>Hududiy boshqaruvchi: <span>Surxondaryo</span></p>
-                              <p>Yetkazib berish muddati: <span>Surxondaryo</span></p> 
+                              <p>Yetkazib berish muddati: <span>Surxondaryo</span></p>
                                </div>
                         </div>
                         <div class="col-md-4">
                           <div class=" my-3 "  >
                             <h4 class="card-title  card-title-border">Jo'natuvchi ma'lumotlar</h4>
- 
+
                             <p>Hudud: <span>Surxondaryo</span></p>
                             <p>Ombor: <span>Surxondaryo</span></p>
                             <p>Hududiy boshqaruvchi: <span>Surxondaryo</span></p>
                             <p>Yetkazib berish muddati: <span>Surxondaryo</span></p> </div>
-                        </div>                        
+                        </div>
                         <div class="col-md-4">
-                          <div class=" my-3 "  >  
+                          <div class=" my-3 "  >
                               <button  type="button"  class="btn mr-3 btn-primary w-100  mb-3">Jami: 85 ming so'm</button>
                               <button  type="button"   class="btn mr-3  btn-info w-100 mb-3">Tozalash</button>
                               <button  type="button"   class="btn mr-3  btn-success w-100 mb-3">Jo'natish</button>
@@ -105,4 +105,22 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+
+  <div>
+    <table class="table table-hover">
+      <tr>
+        <td>Kimga</td>
+        <td>Maxsulotlar</td>
+        <td>Soni</td>
+        <td>Date</td>
+      </tr>
+      <tr *ngFor = 'let product of products'>
+        <td>{{product.userId}}</td>
+        <td><p *ngFor = 'let prod of product.products'>{{prod}}</p></td>
+        <td><p *ngFor = 'let quant of product.quantity'>{{quant.number}}</p></td>
+        <td>{{product.date}}</td>
+      </tr>
+    </table>
   </div>

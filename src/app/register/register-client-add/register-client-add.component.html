@@ -78,7 +78,7 @@
         <div class="form-group col-md-4">
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-success">Jinsi</span>
+              <span class="input-group-text bg-success">Kim qo'shdi</span>
             </div>
             <select class="form-control" formControlName='whoAdd' id="exampleFormControlSelect1">
               <option  *ngFor = 'let user of users' value='{{user._id}}'>{{user.login}}</option>
@@ -89,10 +89,10 @@
         <div class="form-group col-md-4">
           <div class="input-group">
             <div class="input-group-prepend">
-              <span class="input-group-text bg-success">Jinsi</span>
+              <span class="input-group-text bg-success">Kimni tagida</span>
             </div>
             <select class="form-control" formControlName='whoBottom' id="exampleFormControlSelect1">
-              <option *ngFor = 'let user of users'  value='{{user._id}}'>{{user.login}}</option>
+              <option *ngFor = 'let user of emptyUsers'  value='{{user._id}}'>{{user.login}}</option>
               <option value='NULL'>NULL</option>
             </select>
           </div>

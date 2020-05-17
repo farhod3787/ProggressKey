@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const reqProductSchema = mongoose.Schema({
     products: {type: Array},
     quantity: {type: Array},
-    registrarId: {type: String},
-    status: {type: Boolean},
+    adminId: {type: String},
+    registerId: {type: String},
     date: {type: String}
 });
 

@@ -17,8 +17,12 @@ export class ReqProdService {
     return this.http.get(this.api + 'getall');
   }
 
-  getSuccess() {
-    return this.http.get(this.api + 'getSuccess');
+  getAdmin() {
+    return this.http.get(this.api + 'getAdmin/' + localStorage.getItem('token'));
+  }
+
+  getReg() {
+    return this.http.get(this.api + 'getReg/' + localStorage.getItem('_id'));
   }
 
   post(
@@ -31,6 +35,7 @@ export class ReqProdService {
       quantity,
       registrarId
     };
+    console.log(body);
 
     return this.http.post(this.api +  localStorage.getItem('token'), body);
   }
@@ -39,8 +44,5 @@ export class ReqProdService {
     return this.http.get(this.api + id );
   }
 
- updateStatus(id) {
-     return this.http.get(this.api + 'updateStatus/' + id + '/' + localStorage.getItem('token'));
- }
 
 }

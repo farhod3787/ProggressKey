@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/service/userService';
 import Swal from 'sweetalert2';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-client-add',
@@ -16,10 +17,13 @@ export class RegisterClientAddComponent implements OnInit {
   imagePreview: any;
   imageview = true;
   users = [];
+  emptyUsers = [];
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {
     this.getUsers();
+    this.getEmptyUsers();
    }
 
   ngOnInit(): void {
@@ -38,11 +42,13 @@ export class RegisterClientAddComponent implements OnInit {
   getUsers() {
     this.userService.getAll().subscribe( result => {
       this.users = result.json();
-      if (this.users.length === 0) {
-        this.users[0] = {
-          login:  'Null'
-        };
-      }
+    });
+  }
+
+  getEmptyUsers() {
+    this.userService.getEmptyUsers().subscribe( result => {
+        this.emptyUsers = result.json();
+        // console.log(this.emptyUsers);
     });
   }
 
@@ -68,9 +74,10 @@ export class RegisterClientAddComponent implements OnInit {
 
   save() {
     let type = '';
-    if (this.form.value.firstBalance >= 500000 && this.form.value.firstBalance <= 1000000 ) { type = 'Iste\'molchi'; }
-    if (this.form.value.firstBalance > 1000000 && this.form.value.firstBalance < 3000000 ) { type = 'Console'; }
-    if (this.form.value.firstBalance >= 3000000 ) { type = 'Leader'; }
+    let ball = 0;
+    if (this.form.value.firstBalance >= 500000 && this.form.value.firstBalance <= 1000000 ) { type = 'Iste\'molchi'; ball = 500; }
+    if (this.form.value.firstBalance > 1000000 && this.form.value.firstBalance < 3000000 ) { type = 'Console'; ball = 1000; }
+    if (this.form.value.firstBalance >= 3000000 ) { type = 'Leader'; ball = 3000; }
     this.userService.post(
       this.form.value.image,
       type,
@@ -81,15 +88,18 @@ export class RegisterClientAddComponent implements OnInit {
       localStorage.getItem('_id'),
       this.form.value.firstBalance,
       this.form.value.whoAdd,
-      this.form.value.whoBottom
+      this.form.value.whoBottom,
+      ball
     ).subscribe( result => {
+      console.log(result);
       if ( result.ok) {
         Swal.fire({
           icon: 'success',
           title: 'Done',
           text: 'User saqlandi'
         });
-        this.form.reset();
+        // this.form.reset();
+        this.router.navigate(['/register/register-client']);
       } else {
         Swal.fire({
           icon: 'error',

@@ -9,27 +9,20 @@ import Swal from 'sweetalert2';
 })
 export class ShippedProductsComponent implements OnInit {
 
-  requests = [];
+  products = [];
   status = false;
   constructor(
-    private reqProdService: ReqProdService
+    private reqProdService: ReqProdService,
+
   ) {
-    this.getSuccess();
+    this.get();
   }
 
-  getSuccess() {
-    this.reqProdService.getSuccess().subscribe( result => {
-      this.requests = result.json();
-      if (this.requests.length === 0) {
-        this.status = true;
-        Swal.fire({
-          icon: 'success',
-          title: 'Done',
-          text: 'Requested Products not yet',
-          timer: 3000
-        });
-      }
-    })
+  get() {
+    this.reqProdService.getAdmin().subscribe( result => {
+      this.products = result.json();
+      console.log(this.products);
+    });
   }
 
   ngOnInit(): void {

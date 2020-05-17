@@ -1,0 +1,16 @@
+<div>
+  <table class="table table-hover">
+    <tr>
+      <td>№</td>
+      <td>Maxsulotlar</td>
+      <td>Soni</td>
+      <td>Date</td>
+    </tr>
+    <tr *ngFor = 'let product of products, let i=index'>
+      <td>{{i+1}}</td>
+      <td><p *ngFor = 'let prod of product.products'>{{prod}}</p></td>
+      <td><p *ngFor = 'let quant of product.quantity'>{{quant.number}}</p></td>
+      <td>{{product.date}}</td>
+    </tr>
+  </table>
+</div>

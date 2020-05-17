@@ -16,10 +16,12 @@ const userSchema = mongoose.Schema({
     whoBottom: {type: String},
     addUsers: {type: Array},
     ballOfBinar: {type: Number},
-    ballOfInvite: {type: Number},
+    ballOfInvite: {type: Number},       // taklif
     ballOfCheck: {type: Number},
     ballOfWeek: {type: Number},
     ballOfMonth: {type: Number},
+    ball: {type: Number},             // 1-kirishdagi ball
+    genaralBall: {type: Number},
     date: {type: String}
 });
 

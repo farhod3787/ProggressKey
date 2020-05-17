@@ -1,4 +1,4 @@
- 
+
 <div class="page-header m-0">
   <h3 class="page-title"> Admin   </h3>
 </div>
@@ -10,17 +10,17 @@
         <table  class="table">
           <tbody >
             <tr >
-              <td > 
+              <td >
                 Sotilgan paketlar
                 </td>
                 <td >
                <label  class="badge badge-warning w-100 p-2">3 000 ball</label>
               </td>
-            </tr> 
+            </tr>
           </tbody>
         </table>
       </div>
-    </div> 
+    </div>
   </div>
   <div class="col-md-3  mb-3">
     <div   class="card">
@@ -29,17 +29,17 @@
         <table  class="table">
           <tbody >
             <tr >
-              <td > 
+              <td >
                 Sotilgan paketlar
                 </td>
                 <td >
                <label  class="badge badge-warning w-100 p-2">3 000 ball</label>
               </td>
-            </tr> 
+            </tr>
           </tbody>
         </table>
       </div>
-    </div> 
+    </div>
   </div>
   <div class="col-md-3  mb-3">
     <div   class="card">
@@ -48,17 +48,17 @@
         <table  class="table">
           <tbody >
             <tr >
-              <td > 
+              <td >
                 Sotilgan paketlar
                 </td>
                 <td >
                <label  class="badge badge-warning w-100 p-2">3 000 ball</label>
               </td>
-            </tr> 
+            </tr>
           </tbody>
         </table>
       </div>
-    </div> 
+    </div>
   </div>
   <div class="col-md-3  mb-3">
     <div   class="card">
@@ -67,20 +67,20 @@
         <table  class="table">
           <tbody >
             <tr >
-              <td > 
+              <td >
                 Sotilgan paketlar
                 </td>
                 <td >
                <label  class="badge badge-warning w-100 p-2">3 000 ball</label>
               </td>
-            </tr> 
+            </tr>
           </tbody>
         </table>
       </div>
-    </div> 
+    </div>
   </div>
   <div class="col-md-12 grid-margin">
- 
+
     <div class="card mb-3">
       <div class="card-body">
         <h4 class="card-title">Registratorlar</h4>
@@ -89,21 +89,24 @@
             <div class="registr-box   ">
               <div class="w-100  registr-box-add ">
                 <div class="reg-add">
-                  <p>+</p> 
+                  <p>+</p>
                 </div>
-              </div> 
-              <h2 class="w-100 text-center p-2">Yangi qo'shish</h2> 
+              </div>
+              <h2 class="w-100 text-center p-2">Yangi qo'shish</h2>
             </div>
           </div>
-          <div class="col-lg-3 mb-3">
+
+
+
+          <div class="col-lg-3 mb-3" *ngFor = 'let reg of regs'>
             <div class="registr-box">
               <div class="row">
                 <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
+                  <img src="{{reg.image}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
+                  <h3 class="m-0">{{reg.fullName}}</h3>
+                  <p class="m-0"> ID: {{reg.login}}</p>
                 </div>
                 <div class="col-12 py-3">
                     <p class="m-0 pb-2 reg-temcolor">Qo'shgan profillari</p>
@@ -114,437 +117,18 @@
                         <img src="assets/img/team.jpg" alt="">
                         <img src="assets/img/team.jpg" alt="">
                         <img src="assets/img/team.jpg" alt="">
-                      </div> 
+                      </div>
                     </div>
                     <p class="m-0 pb-2 pt-2 reg-temcolor">Faolligi <span class="  float-right">90%</span></p>
                     <div class="slider-routing">
                       <div class="skills routing-reg"> </div>
                     </div>
                 </div>
-               
-              </div>    
+
+              </div>
             </div>
           </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 reg-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 reg-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-reg"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 reg-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 reg-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-reg"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 reg-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 reg-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-reg"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 reg-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 reg-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-reg"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 reg-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 reg-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-reg"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 reg-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 reg-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-reg"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div> 
-        </div>
-        <div class="d-flex mt-4 flex-wrap">
-          <p class="text-muted">Showing 1 to 10 of 57 entries</p>
-          <nav class="ml-auto">
-            <ul class="pagination separated pagination-info">
-              <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-left"></i></a></li>
-              <li class="page-item active"><a href="#" class="page-link">1</a></li>
-              <li class="page-item"><a href="#" class="page-link">2</a></li>
-              <li class="page-item"><a href="#" class="page-link">3</a></li>
-              <li class="page-item"><a href="#" class="page-link">4</a></li>
-              <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-right"></i></a></li>
-            </ul>
-          </nav>
-        </div>
-      </div> 
-    </div>
-    <div class="card mb-3">
-      <div class="card-body">
-        <h4 class="card-title">Xaridorlar</h4>
-        <div class="row">
-          <div class="col-lg-3  mb-3">
-            <div class="registr-box shopping-box-color  "  >
-              <div class="w-100  registr-box-add ">
-                <div class="reg-add">
-                  <p>+</p> 
-                </div>
-              </div> 
-              <h2 class="w-100 text-center p-2">Yangi qo'shish</h2> 
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box shopping-box-color ">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 shop-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 shop-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-shop"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box  shopping-box-color ">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 shop-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 shop-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-shop"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box  shopping-box-color ">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 shop-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 shop-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-shop"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box  shopping-box-color ">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 shop-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 shop-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-shop"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box  shopping-box-color ">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 shop-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 shop-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-shop"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box  shopping-box-color ">
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 shop-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 shop-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-shop"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div>
-          <div class="col-lg-3 mb-3">
-            <div class="registr-box  shopping-box-color " >
-              <div class="row">
-                <div class="col-4">
-                  <img src="assets/img/team.jpg" class="img-fluid" alt="">
-                </div>
-                <div class="col-8 p-0">
-                  <h3 class="m-0">Ismatov Xurshid</h3>
-                  <p class="m-0"> ID: UZ110121255</p> 
-                </div>
-                <div class="col-12 py-3">
-                    <p class="m-0 pb-2 shop-temcolor">Qo'shgan profillari</p>
-                    <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                      </div> 
-                    </div>
-                    <p class="m-0 pb-2 pt-2 shop-temcolor">Faolligi <span class="  float-right">90%</span></p>
-                    <div class="slider-routing">
-                      <div class="skills routing-shop"> </div>
-                    </div>
-                </div>
-               
-              </div>    
-            </div>
-          </div> 
+
         </div>
         <div class="d-flex mt-4 flex-wrap">
           <p class="text-muted">Showing 1 to 10 of 57 entries</p>
@@ -560,19 +144,81 @@
           </nav>
         </div>
       </div>
-      
-      
+    </div>
+
+    <div class="card mb-3">
+      <div class="card-body">
+        <h4 class="card-title">Xaridorlar</h4>
+        <div class="row">
+          <div class="col-lg-3  mb-3">
+            <div class="registr-box shopping-box-color  "  >
+              <div class="w-100  registr-box-add ">
+                <div class="reg-add">
+                  <p>+</p>
+                </div>
+              </div>
+              <h2 class="w-100 text-center p-2">Yangi qo'shish</h2>
+            </div>
+          </div>
+
+          <div class="col-lg-3 mb-3" *ngFor = 'let user of users'>
+            <div class="registr-box shopping-box-color ">
+              <div class="row">
+                <div class="col-4">
+                  <img src="{{user.image}}" class="img-fluid" alt="">
+                </div>
+                <div class="col-8 p-0">
+                  <h3 class="m-0">{{user.fullName}}</h3>
+                  <p class="m-0"> ID: {{user.login}}</p>
+                </div>
+                <div class="col-12 py-3">
+                    <p class="m-0 pb-2 shop-temcolor">Qo'shgan profillari</p>
+                    <div class="team-regadd">
+                      <div>
+                        <img src="assets/img/team.jpg" alt="">
+                        <img src="assets/img/team.jpg" alt="">
+                        <img src="assets/img/team.jpg" alt="">
+                        <img src="assets/img/team.jpg" alt="">
+                        <img src="assets/img/team.jpg" alt="">
+                      </div>
+                    </div>
+                    <p class="m-0 pb-2 pt-2 shop-temcolor">Faolligi <span class="  float-right">90%</span></p>
+                    <div class="slider-routing">
+                      <div class="skills routing-shop"> </div>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex mt-4 flex-wrap">
+          <p class="text-muted">Showing 1 to 10 of 57 entries</p>
+          <nav class="ml-auto">
+            <ul class="pagination separated pagination-info">
+              <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-left"></i></a></li>
+              <li class="page-item active"><a href="#" class="page-link">1</a></li>
+              <li class="page-item"><a href="#" class="page-link">2</a></li>
+              <li class="page-item"><a href="#" class="page-link">3</a></li>
+              <li class="page-item"><a href="#" class="page-link">4</a></li>
+              <li class="page-item"><a href="#" class="page-link"><i class="icon-arrow-right"></i></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+
     </div>
   </div>
- 
+
 </div>
 
- 
+
 
 <!-- modal -->
 
 
- 
+
 
 <!-- Modal -->
 <div class="modal fade  " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -584,7 +230,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body pb-2">  
+      <div class="modal-body pb-2">
                   <div class="form-group   mb-2">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -600,7 +246,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                    </div>  
+                    </div>
                     <div class="form-group   mb-2">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -608,7 +254,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                    </div> 
+                    </div>
                     <div class="form-group   mb-2">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -616,7 +262,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                    </div> 
+                    </div>
                     <div class="form-group   mb-2">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -624,7 +270,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                    </div> 
+                    </div>
                     <div class="form-group  mb-2 ">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -632,12 +278,12 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                    </div> 
-                      <div class="form-group"> 
+                    </div>
+                      <div class="form-group">
                       <button type="button" class="btn btn-info btn-fw m-3">Jo'natish</button>
                       <button type="button" class="btn btn-dark btn-fw m-3">O'chirish</button>
-                    </div>    
-      </div> 
+                    </div>
+      </div>
     </div>
   </div>
 </div>
@@ -652,7 +298,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body pb-2">  
+      <div class="modal-body pb-2">
                   <div class="form-group mb-2  ">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -668,7 +314,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                    </div>  
+                    </div>
                     <div class="form-group  mb-2  ">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -676,7 +322,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                    </div> 
+                    </div>
                     <div class="form-group  mb-2 ">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -684,7 +330,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                    </div> 
+                    </div>
                     <div class="form-group  mb-2 ">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -692,7 +338,7 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                    </div> 
+                    </div>
                     <div class="form-group   mb-2">
                       <div class="input-group">
                         <div class="input-group-prepend">
@@ -700,12 +346,12 @@
                         </div>
                         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
                       </div>
-                    </div> 
-                      <div class="form-group"> 
+                    </div>
+                      <div class="form-group">
                       <button type="button" class="btn btn-info btn-fw m-3">Jo'natish</button>
                       <button type="button" class="btn btn-dark btn-fw m-3">O'chirish</button>
-                    </div>    
-      </div> 
+                    </div>
+      </div>
     </div>
   </div>
 </div>

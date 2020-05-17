@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/shared/service/adminService';
 import { Router } from '@angular/router';
+import { ResgistrarService } from 'src/app/shared/service/registrarService';
 declare var $: any;
 @Component({
   selector: 'app-admin',
@@ -9,9 +10,10 @@ declare var $: any;
 })
 export class AdminComponent implements OnInit {
 
+
   constructor(
     private adminService: AdminService,
-    private route: Router
+    private route: Router,
   ) {
     this.verifyOfAdmin();
   }
@@ -42,5 +44,8 @@ export class AdminComponent implements OnInit {
           });
         });
   }
+
+
+
 
 }

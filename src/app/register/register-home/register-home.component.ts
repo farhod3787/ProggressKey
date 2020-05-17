@@ -33,7 +33,7 @@ export class RegisterHomeComponent implements OnInit {
       } else {
         console.log('Error');
       }
-      console.log(this.users);
+      // console.log(this.users);
     });
   }
 

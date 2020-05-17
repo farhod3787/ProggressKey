@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ResgistrarService } from 'src/app/shared/service/registrarService';
+import { UserService } from 'src/app/shared/service/userService';
 
 @Component({
   selector: 'app-admin-home',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
-  constructor() { }
+  regs = [];
+  users = [];
+  constructor(
+    private registerService: ResgistrarService,
+    private userService: UserService
+
+  ) {
+    this.getRegs();
+    this.getUsers();
+   }
 
   ngOnInit(): void {
+  }
+
+  getRegs() {
+    this.registerService.getAll().subscribe( result => {
+        this.regs = result.json();
+    });
+  }
+
+  getUsers() {
+    this.userService.getAllUsers().subscribe( result => {
+      this.users = result.json();
+    });
   }
 
 }

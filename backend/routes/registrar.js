@@ -78,6 +78,7 @@ router.get('/', (request, response, next) =>{
     var users = [];
     Registrar.find().then( (all) =>{
         for (let i=all.length-1; i>=0; i--) {
+            all[i].image = 'http://localhost:5000/images/' + all[i].image;
             users.push(all[i]);
         }
         response.status(200).json(users);

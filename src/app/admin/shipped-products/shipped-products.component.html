@@ -14,23 +14,23 @@
                   <th class="font-weight-bold">Kimga</th>
                   <th class="font-weight-bold">Mahsulotlar nomi</th>
                   <th class="font-weight-bold">Mahsulotlar soni</th>
-                  <th class="font-weight-bold">O'chirish</th>
+                  <th class="font-weight-bold">Date</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor = 'let request of requests, let i =index'>
+                <tr *ngFor = 'let request of products, let i =index'>
                     <td>{{i+1}}</td>
                   <td>
-                    {{request.registrarId}}
+                    {{request.registerId}}
                     <!-- <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image"> -->
                 </td>
                     <td>
                       <p *ngFor = 'let prod of request.products'>{{prod}}</p>
                     </td>
                     <td>
-                      <p *ngFor = 'let price of request.quantity'>{{price}}</p>
+                      <p *ngFor = 'let price of request.quantity'>{{price.number}}</p>
                     </td>
-                    <td><button type="button" class="btn btn-dark btn-fw" data-toggle="modal" data-target="#exampleModal-2">O'chirish</button></td>
+                    <td>{{request.date}}</td>
                 </tr>
               </tbody>
             </table>

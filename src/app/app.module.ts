@@ -79,6 +79,9 @@ import { ManagerSettingsComponent } from './manager/manager-settings/manager-set
 import { AdminSettingComponent } from './admin/admin-setting/admin-setting.component';
 import { RegisterSignComponent } from './register/register-sign/register-sign.component';
 import { RegisterOrderComponent } from './register/register-order/register-order.component';
+import { RegisterSendProductComponent } from './register/register-send-product/register-send-product.component';
+import { NotFoundComponent } from './website/not-found/not-found.component';
+import { RegisterAcceptedProdComponent } from './register/register-accepted-prod/register-accepted-prod.component';
 
 
 @NgModule({
@@ -150,6 +153,9 @@ import { RegisterOrderComponent } from './register/register-order/register-order
     AdminSettingComponent,
     RegisterSignComponent,
     RegisterOrderComponent,
+    RegisterSendProductComponent,
+    NotFoundComponent,
+    RegisterAcceptedProdComponent,
   ],
   imports: [
     BrowserModule,

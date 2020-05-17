@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SendProdService } from 'src/app/shared/service/sendProductService';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-purchased-product',
@@ -7,8 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchasedProductComponent implements OnInit {
 
-  constructor() { }
+  products = [];
+  constructor(
+    private sendProdService: SendProdService
+  ) {
+    this.getProds();
+  }
 
+  getProds() {
+    this.sendProdService.getWithUser().subscribe( result => {
+        if (result.json()) {
+          this.products = result.json();
+          console.log(this.products);
+
+        } else  {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Products not found'
+          });
+        }
+      });
+  }
   ngOnInit(): void {
   }
 

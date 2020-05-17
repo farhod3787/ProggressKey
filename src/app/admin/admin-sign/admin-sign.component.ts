@@ -40,6 +40,7 @@ export class AdminSignComponent implements OnInit {
         );
         this.router.navigate(['admin']);
         localStorage.setItem('token', object.token);
+        localStorage.setItem('_id', object.adminId);
       } else  {
         Swal.fire({
           icon: 'error',

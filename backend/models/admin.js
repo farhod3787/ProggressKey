@@ -35,6 +35,7 @@ adminSchema.statics.verifyAdmin = function(users, body) {
       if (distoken) {
           if(user.login == body.login && distoken.password == body.password ) {
                   object.isAdmin = true;
+                  object.adminId = user._id;
                   object.token = jwt.sign({login: user.login, password: user.password}, 'pro')
           }
       }

@@ -56,6 +56,8 @@ router.post('/:regId', upload.single('image'), async function (request, response
         ballOfCheck : body.ballOfCheck,
         ballOfWeek : body.ballOfWeek,
         ballOfMonth : body.ballOfMonth,
+        ball : body.ball,
+        genaralBall: body.ball,
         date: new Date().toISOString().         //new Date() ni o'zi bo'lishi kerak
                           replace(/T/, ' ').
                           replace(/\..+/, '')
@@ -63,18 +65,58 @@ router.post('/:regId', upload.single('image'), async function (request, response
     const use = new User(user);
     use.save().then( (res) =>{
         var userId = res._id;
+
         Regsiter.findById(id).then(res => {
           res.registerUserId.push(userId);
         Regsiter.findByIdAndUpdate(id, { $set: res }, { new: true }).then( result => {
-          if (result) {
-            response.status(200).json(true)
-          }
+
         }).catch( error => {
           response.status(404).json(error)
         })
         }).catch( err => {
           response.status(404).json(err)
         });
+
+        User.findById(body.whoBottom).then( res => {
+          var update = res
+            if (res.leftHand) {
+              update.rightHand = userId;
+            } else {
+              update.leftHand = userId;
+            }
+            User.findByIdAndUpdate(body.whoBottom, {$set: update}, {new: true}).then( res => {
+
+            }).catch( err => {
+              console.log(err);
+              response.status(404).json(err)
+            })
+        }).catch( err => {
+          console.log(err);
+          response.status(404).json(err)
+        });
+
+        User.findById(body.whoAdd).then( res => {
+           res.addUsers.push(userId);
+           var update = res;
+           if (res.ballOfInvite) {
+            update.ballOfInvite = res.ballOfInvite + body.ball * 0.15;
+            update.genaralBall = res.genaralBall + body.ball * 0.15;
+           } else {
+            update.ballOfInvite = body.ball * 0.15;
+           }
+          User.findByIdAndUpdate(body.whoAdd, {$set: update}, {new: true}).then( res => {
+
+            }).catch( err => {
+              console.log(err);
+              response.status(404).json(err)
+            })
+        }).catch( err => {
+          console.log(err);
+          response.status(404).json(err)
+        });
+
+
+          response.status(200).json(true);
     }).catch( err =>{
         console.log(err);
         response.status(404).json({message: "Error in Saved user"})
@@ -95,6 +137,24 @@ router.get('/', (request, response, next) =>{
 
     })
 });
+
+router.get('/emptyUsers', (request, response, next) =>{
+  var users = [];
+  User.find().then( (all) =>{
+      for (let i=all.length-1; i>=0; i--) {
+        if (!all[i].leftHand || !all[i].rightHand) {
+        all[i].image = 'http://localhost:5000/images/' + all[i].image;
+          users.push(all[i]);
+        }
+      }
+      response.status(200).json(users);
+  }).catch(  (err)=>{
+      console.log(err)
+      response.status(400).json({message: "Error in Get All Users"});
+
+  })
+});
+
 
 router.get('/:filialId', async (request, response) => {
   var filialId = request.params.filialId;
@@ -320,5 +380,8 @@ router.get('/user/Information/:token', async function( request, response) {
       response.status(400).json(false)
     }
 });
+
+
+
 
 module.exports = router

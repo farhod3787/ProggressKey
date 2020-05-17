@@ -1,6 +1,7 @@
 const express = require('express');
 const Warehouse = require('../models/warehouse');
 const Admin = require('../models/admin');
+const Register = require('../models/registrar');
 
 const router = express.Router();
 
@@ -40,16 +41,11 @@ router.get('/getall', async(request, response, next) => {
     response.status(200).json(warehouse)
 });
 
-router.get('/:filialId', async (request, response) => {
+router.get('/filial/:filialId', async (request, response) => {
   var date = {};
   var id = request.params.filialId;
-  var result = await Warehouse.find({filialId: id});
-  if (result.length === 0) {
-    response.status(400).json(false)
-  } else {
-    date = result[0];
-    response.status(200).json(date);
-  }
+        var ware = await Warehouse.find({'filialId': id});
+        response.status(200).json(ware);
 });
 
 

@@ -20,23 +20,52 @@ router.post('/:token', async function (request, response, next) {
         date : new Date()
     }
     const trans = new Transfer(transfer);
-    trans.save().then( (res) =>{
+    trans.save().then( async (res) =>{
 
-        User.find({'login': transfer.to}).then( result => {
-        const user = result[0];
-        const ball = transfer.howMuch*1.0;
-        user.ballOfInvite = user.ballOfInvite + ball;
-        User.findByIdAndUpdate(user._id, { $set: user }, { new: true }).then( res => {
-        });
-      }) ;
+      // let user = await User.find({'login': obj.userName});
+      // let userFrom = user[0];
+      // let oldBall = userFrom.genaralBall;
+      // let newBall = oldBall +  body.howMuch*1.0;
+      // userFrom.generalBall = newBall;
+      // console.log(userFrom.generalBall);
+      // User.findByIdAndUpdate(userFrom._id, { $set: {"generalBall": 550} }, { new: true }).then( resul =>{
+      //   console.log(resul);
+      // }).catch( err =>{
+      //   console.log(err);
+      // })
+      // let updateFrom = await User.findByIdAndUpdate(userFrom._id, { $set: userFrom }, { new: true });
+      // console.log(updateFrom);
 
-      User.find({'login': transfer.from}).then( result2 => {
-        const user2 = result2[0];
-        const ball2 = transfer.howMuch*1.0;
-        user2.ballOfInvite = user2.ballOfInvite - ball2;
-        User.findByIdAndUpdate(user2._id, { $set: user2 }, { new: true }).then( res => {
-        });
-      });
+      // let user2 = await User.find({'login': body.to});
+      // let userTo = user2[0];
+      // let oldBall2 = userTo.genaralBall;
+      // let newBall2 = oldBall2 +  body.howMuch*1.0;
+      // userTo.generalBall = newBall2;
+      // let updateFrom2 = await User.findByIdAndUpdate(userTo._id, { $set: userTo }, { new: true });
+
+      // let user = await User.find({'login': body.to});
+      // let userTo = user[0];
+      // userTo.generalBall = userTo.generalBall + body.howMuch;
+      // let updateTo = await User.findByIdAndUpdate(userTo._id, { $set: userTo }, { new: true });
+      // console.log(updateTo);
+
+
+
+      //   User.find({'login': transfer.to}).then( result => {
+      //   const user = result[0];
+      //   const ball = transfer.howMuch*1.0;
+      //   user.generalBall = user.generalBall + ball;
+      //   User.findByIdAndUpdate(user._id, { $set: user }, { new: true }).then( res => {
+      //   });
+      // }) ;
+
+      // User.find({'login': transfer.from}).then( result2 => {
+      //   const user2 = result2[0];
+      //   const ball2 = transfer.howMuch*1.0;
+      //   user2.generalBall = user2.generalBall - ball2;
+      //   User.findByIdAndUpdate(user2._id, { $set: user2 }, { new: true }).then( res => {
+      //   });
+      // });
 
       response.status(200).json(true)
 

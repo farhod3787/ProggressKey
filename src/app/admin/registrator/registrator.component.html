@@ -83,7 +83,7 @@
               <tbody>
                 <tr *ngFor = 'let registrar of registrars'>
                   <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image">
+                    <img class="img-sm rounded-circle" src="{{registrar.image}}" alt="profile image">
                     {{registrar.fullName}}
                 </td>
                     <td>{{registrar.login}}</td>

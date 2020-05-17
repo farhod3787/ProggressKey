@@ -27,7 +27,8 @@ export class UserService {
     filialId: string,
     firstBalance: string,
     whoAdd: string,
-    whoBottom: string
+    whoBottom: string,
+    ball: any
 ) {
   const User: any = new FormData();
   User.append('image', image);
@@ -40,6 +41,7 @@ export class UserService {
   User.append('firstBalance', firstBalance);
   User.append('whoAdd', whoAdd);
   User.append('whoBottom', whoBottom);
+  User.append('ball', ball);
 
   return this.http.post(this.api + localStorage.getItem('_id') , User);
 }
@@ -60,6 +62,9 @@ export class UserService {
     return this.http.get(this.api + 'team/' + localStorage.getItem('token'))
   }
 
+  getEmptyUsers() {
+    return this.http.get(this.api + 'emptyUsers');
+  }
 
   getInformation() {
     return this.http.get(this.api + 'user/Information/' + localStorage.getItem('token'));
