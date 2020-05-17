@@ -42,9 +42,9 @@ export class RequestedProductsComponent implements OnInit {
 
     getProducts() {
       this.wareHouseService.getFilial().subscribe( result => {
-        const resu = result.json();
-        const res = resu[0];
-        console.log(result.json());
+        const res = result.json();
+        // const res = resu[0];
+        // console.log(result.json());
 
         this.quant = res.quantity;
         // tslint:disable-next-line: prefer-for-of

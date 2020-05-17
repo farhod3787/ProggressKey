@@ -18,6 +18,7 @@ export class RegisterSendProductComponent implements OnInit {
   products = [];
   users = [];
   quant = [];
+  ball = 0;
   constructor(
     private formBuilder: FormBuilder,
     private productService: ProductService,
@@ -25,7 +26,7 @@ export class RegisterSendProductComponent implements OnInit {
     private sendProdService: SendProdService,
     private userService: UserService
     ) {
-      // this.getProducts();
+      this.getProducts();
       this.getUsers();
     }
 
@@ -48,6 +49,12 @@ export class RegisterSendProductComponent implements OnInit {
       });
     }
 
+    onEditClick(event) {
+      this.userService.getId(event).subscribe( result => {
+        const use = result.json();
+        this.ball = use.genaralBall;
+      });
+    }
 
   ngOnInit(): void {
     this.dynamicForm = this.formBuilder.group({

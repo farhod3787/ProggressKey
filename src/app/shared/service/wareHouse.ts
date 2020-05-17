@@ -48,16 +48,12 @@ export class WarehouseService {
 
   update(
     id: string,
-    nameUz: string,
-    nameRu: string,
-    nameEn: string,
-    products: string[]
+    products: [],
+    quantity: []
   ) {
     const body = {
-      'nameUz ': nameUz,
-      'nameRu ': nameRu,
-      'nameEn ': nameEn,
-      'products ': products
+       products,
+       quantity,
     };
 
     return this.http.patch(this.api + id + '/' + localStorage.getItem('token'), body);

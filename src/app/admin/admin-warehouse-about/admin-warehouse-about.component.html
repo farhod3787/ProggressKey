@@ -1,0 +1,15 @@
+<h4>{{ware.name}}</h4>
+
+<table class="table">
+  <tr>
+    <td>Filial</td>
+    <td>Maxsulot nomi</td>
+    <td>Maxsulot Soni</td>
+  </tr>
+  <tr>
+    <td>{{ware.filialId}}</td>
+    <td><p *ngFor = 'let prod of ware.products'>{{prod}}</p></td>
+    <td><p *ngFor = 'let quan of ware.quantity'>{{quan}}</p></td>
+    <!-- <td>Maxsulot Soni</td> -->
+  </tr>
+</table>

@@ -82,6 +82,8 @@ import { RegisterOrderComponent } from './register/register-order/register-order
 import { RegisterSendProductComponent } from './register/register-send-product/register-send-product.component';
 import { NotFoundComponent } from './website/not-found/not-found.component';
 import { RegisterAcceptedProdComponent } from './register/register-accepted-prod/register-accepted-prod.component';
+import { AdminWarehouseAboutComponent } from './admin/admin-warehouse-about/admin-warehouse-about.component';
+import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-product.component';
 
 
 @NgModule({
@@ -156,6 +158,8 @@ import { RegisterAcceptedProdComponent } from './register/register-accepted-prod
     RegisterSendProductComponent,
     NotFoundComponent,
     RegisterAcceptedProdComponent,
+    AdminWarehouseAboutComponent,
+    AdminAddProductComponent,
   ],
   imports: [
     BrowserModule,

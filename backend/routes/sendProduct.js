@@ -40,7 +40,24 @@ router.post('/:token', async function (request, response, next) {
           }
         }
         const update = await WareHouse.findByIdAndUpdate(warehouse._id, { $set: warehouse }, { new: true });
-          response.status(200).json(update)
+
+        let prods = body.products;
+        let num = body.quantity
+        let price = 0;
+        for (let i =0; i< prods.length; i++) {
+          let numb = num[i].number
+          let id = prods[i].product;
+          let prod = await Product.findById(id);
+          price = price + prod.price*numb;
+        }
+        let ball = price / 1000;
+
+        const user = await User.findById(body.userId);
+        let old = user.genaralBall;
+        user.genaralBall = old - ball;
+        // user.save();
+         const upd = await User.findByIdAndUpdate(user._id, {$set: user}, {new: true});
+        response.status(200).json(true)
       } catch (error) {
             console.log(error);
          }

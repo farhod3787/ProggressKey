@@ -2,7 +2,7 @@ const express = require('express');
 const Warehouse = require('../models/warehouse');
 const Admin = require('../models/admin');
 const Register = require('../models/registrar');
-
+const Product = require('../models/products')
 const router = express.Router();
 
  //                                                               R e g i  s t r a t s i o n
@@ -45,17 +45,29 @@ router.get('/filial/:filialId', async (request, response) => {
   var date = {};
   var id = request.params.filialId;
         var ware = await Warehouse.find({'filialId': id});
-        response.status(200).json(ware);
+        if (ware.length > 0) {
+          response.status(200).json(ware[0]);
+        } else {
+          response.status(200).json(false);
+        }
 });
 
 
 router.get('/:id', async function(request, response, next) {
     var id = request.params.id;
-      await Warehouse.findById(id).then((res) => {
+        Warehouse.findById(id).then( async (res) => {
         if (!res) {
             response.status(400).json({ message: "WareHouse Not found" });
         } else {
-            response.status(200).json(res);
+            const ware = res;
+            for (let i=0; i< ware.products.length; i++) {
+              let id = ware.products[i];
+              let prod = await Product.findById(id);
+              ware.products[i] = prod.nameUz;
+            }
+            const reg = await Register.findById(ware.filialId);
+            ware.filialId = reg.fullName
+            response.status(200).json(ware);
         }
     }).catch((err) => {
         console.log(err);
@@ -86,25 +98,35 @@ router.delete('/:id/:token', async function(request, response, next) {
 
 router.patch('/:id/:token' , async function(request, response, next) {
     var id = request.params.id;
-    var body = request.body;
-
-    // body.logo = request.file.filename;
-
+    var products = request.body.products;
+    var quantity = request.body.quantity;
+    const ware = await Warehouse.findById(id)
+    var long = ware.products;
+    for (let i = 0; i< long.length; i++) {
+      let old = ware.quantity[i]
+      for ( let j = 0; j < products.length; j++) {
+        if (long[i] == products[j].product){
+          ware.quantity[i] = old + quantity[j].number
+        }
+      }
+    }
     var token = request.params.token;
     var admin = await Admin.find();
 
     var obj = Admin.verifyOfAdmin(admin, token);
     if (obj.isAdmin) {
-        await Warehouse.findByIdAndUpdate(id, { $set: body }, { new: true }).then((res) => {
+        await Warehouse.findByIdAndUpdate(id, { $set: ware }, { new: true }).then((res) => {
             if (res) {
-                response.status(200).json({ message: "WareHouse Update Successfully" });
+                response.status(200).json(true);
             } else {
                 response.status(400).json({ message: "Error in Update WareHouse" })
             }
         }).catch(err => {
             console.log(err);
-            response.status(400).json({ message: "This is Not Admin" });
+            response.status(400).json(false);
         })
+    } else {
+      response.status(400).json(false);
     }
 })
 

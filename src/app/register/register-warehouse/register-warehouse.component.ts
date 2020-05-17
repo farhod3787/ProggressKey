@@ -22,8 +22,8 @@ export class RegisterWarehouseComponent implements OnInit {
 
    get() {
       this.wareHouseService.getFilial().subscribe( result => {
-        console.log(result.json());
-        if (result.json().length === 0) {
+        const wareh = result.json();
+        if (!wareh) {
           this.status = false;
           Swal.fire({
             icon: 'success',

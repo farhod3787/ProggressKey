@@ -40,23 +40,27 @@
           </div>
         </div>
       </div>
-
-
-
-
   </div>
 
 
+  <h4>Mening omborim</h4> <button routerLink='add-product/{{ware._id}}'>Maxsulot qo'shish</button>
 
-
-
-
-
+<table  class="table">
+  <tr>
+    <td>Maxsulot nomi</td>
+    <td>Maxsulot Narxi</td>
+    <td>Maxsulot Soni</td>
+  </tr>
+  <tr>
+    <td><p *ngFor = 'let prod of products'>{{prod.nameUz}}</p></td>
+    <td><p *ngFor = 'let prod of products'>{{prod.price}}</p></td>
+    <td><p *ngFor = 'let quan of ware.quantity'>{{quan}}</p></td>
+    <!-- <td>Maxsulot Soni</td> -->
+  </tr>
+</table>
 
   <div class="row">
-
     <div class="col-md-12 grid-margin">
-
       <div class="card mb-3">
         <div class="card-body">
             <div class="row border-bottom ">
@@ -78,7 +82,7 @@
                 <tr>
                   <th class="font-weight-bold"><Fieldset>N</Fieldset></th>
                   <th class="font-weight-bold">Ombor nomi</th>
-                  <th class="font-weight-bold">Filial</th>
+                  <!-- <th class="font-weight-bold">Filial</th> -->
                   <th class="font-weight-bold">About</th>
                   <th class="font-weight-bold">Delete</th>
 
@@ -88,8 +92,8 @@
                 <tr *ngFor = 'let ware of wares, let i = index'>
                   <td>{{i+1}}</td>
                     <td>{{ware.name}}</td>
-                    <td>{{ware.filialId}}</td>
-                    <td><button>About</button></td>
+                    <!-- <td>{{ware.filialId}}</td> -->
+                    <td><button routerLink = 'about/{{ware._id}}'>About</button></td>
                     <td><button>Delete</button></td>
                 </tr>
               </tbody>

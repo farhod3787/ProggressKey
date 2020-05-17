@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WarehouseService } from 'src/app/shared/service/wareHouse';
 import Swal from 'sweetalert2';
+import { ProductService } from 'src/app/shared/service/productsService';
 
 @Component({
   selector: 'app-warehouse',
@@ -10,8 +11,11 @@ import Swal from 'sweetalert2';
 export class WarehouseComponent implements OnInit {
 
   wares = [];
+  ware: any = [];
+  products: any = [];
   constructor(
-    private wareHouseService: WarehouseService
+    private wareHouseService: WarehouseService,
+    private productService: ProductService
   ) {
     this.getWare();
   }
@@ -26,8 +30,22 @@ export class WarehouseComponent implements OnInit {
             timer: 3000
           });
         } else {
-          this.wares = result.json();
+          const ware = result.json();
+          // tslint:disable-next-line: prefer-for-of
+          for (let i = 0; i < ware.length; i++) {
+              if (ware[i].filialId !== localStorage.getItem('_id')) {
+                  this.wares.push(ware[i]);
+              }
+          }
         }
+    });
+    this.wareHouseService.getFilial().subscribe( resu => {
+      this.ware = resu.json();
+      for (let i = 0; i <= this.ware.products.length - 1; i++) {
+        this.productService.getProduct(this.ware.products[i]).subscribe( res => {
+          this.products[i] = res.json();
+        });
+      }
     });
   }
 

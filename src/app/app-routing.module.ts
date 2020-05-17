@@ -69,6 +69,8 @@ import { RegisterOrderComponent } from './register/register-order/register-order
 import { RegisterSendProductComponent } from './register/register-send-product/register-send-product.component';
 import { NotFoundComponent } from './website/not-found/not-found.component';
 import { RegisterAcceptedProdComponent } from './register/register-accepted-prod/register-accepted-prod.component';
+import { AdminWarehouseAboutComponent } from './admin/admin-warehouse-about/admin-warehouse-about.component';
+import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-product.component';
 // import { ManagerProductAddComponent } from './manager-product-add/manager-product-add.component';
 
 
@@ -147,7 +149,10 @@ const routes: Routes = [
     { path: 'warehouse', component: WarehouseHomeComponent , children: [
       { path: '',  component: WarehouseComponent } ,
       {path: 'warehosue-add' , component: WarehouseAddComponent},
+      { path: 'about/:id', component: AdminWarehouseAboutComponent},
+      { path: 'add-product/:id', component: AdminAddProductComponent}
     ]},
+
     {path: 'requested-products' , component: RequestedProductsComponent},
     {path: 'shipped-product' , component: ShippedProductsComponent},
   ]

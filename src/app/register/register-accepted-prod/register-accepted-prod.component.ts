@@ -19,7 +19,6 @@ export class RegisterAcceptedProdComponent implements OnInit {
 
   getProds() {
     this.reqProdService.getReg().subscribe( result => {
-      console.log(result.json());
       if (result.json()) {
         this.products = result.json();
       } else {

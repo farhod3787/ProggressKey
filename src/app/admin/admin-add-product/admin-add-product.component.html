@@ -42,14 +42,6 @@
     </div>
 
 
-      <div>
-        <label >User</label>
-        <select class="form-control" formControlName="user" (change)="onEditClick($event.target.value)" >
-          <option *ngFor = 'let user of users' value="{{user._id}}">{{user.login}}</option>
-        </select>
-        <h4>General Ball his User: {{ball}}</h4>
-      <!-- <input type="text" placeholder="UserID" formControlName='user' class="form-control"> -->
-    </div>
       <div class="card-footer text-center">
           <button class="btn btn-primary mr-1">Buy Tickets</button>
           <button class="btn btn-secondary mr-1" type="reset" (click)="onReset()">Reset</button>
