@@ -1,59 +1,88 @@
+ 
+
+
 <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
-  <div class="card m-3">
-      <h5 class="card-header">Send Products</h5>
-      <div class="card-body">
-          <div class="form-row">
-              <div class="form-group">
-                  <label>Number of Tickets</label>
-                  <select formControlName="numberOfTickets" class="form-control" (change)="onChangeTickets($event)" [ngClass]="{ 'is-invalid': submitted && f.numberOfTickets.errors }">
-                      <option value=""></option>
-                      <option *ngFor="let i of [1, 2, 3, 4, 5, 6, 7]" >{{i}}</option>
-                  </select>
-                  <div *ngIf="submitted && f.numberOfTickets.errors" class="invalid-feedback">
-                      <div *ngIf="f.numberOfTickets.errors.required">Number of tickets is required</div>
-                  </div>
+    <div class="card m-3">
+        <h3 class="card-header bg-success text-white text-center">Send Products</h3>
+        <div class=" ">
+            <form action=" " method=" ">
+              <div class="list-group list-group-flush">
+                <div class="list-group-item ">
+                  <div class="row  "> 
+                      <div class="group col-12">
+                          <label>Number of Tickets</label>
+                          <select  formControlName="numberOfTickets" class="  " (change)="onChangeTickets($event)" [ngClass]="{ 'is-invalid': submitted && f.numberOfTickets.errors }">
+                                            <option value=""></option>
+                            <option *ngFor="let i of [1, 2, 3, 4, 5, 6, 7]" >{{i}}</option>
+                        </select>
+                        <div *ngIf="submitted && f.numberOfTickets.errors" class="invalid-feedback">
+                            <div *ngIf="f.numberOfTickets.errors.required">Number of tickets is required</div>
+                        </div>
+                       </div> 
+                 </div>
+                </div>
               </div>
-          </div>
-      </div>
-      <div *ngFor="let ticket of t.controls; let i = index" class="list-group list-group-flush">
+             </form>
+        </div>
+  
+        <div *ngFor="let ticket of t.controls; let i = index" class="list-group list-group-flush">
+            <div class="list-group-item">
+                <h5 class="card-title">Ticket {{i + 1}}</h5>
+                <div [formGroup]="ticket" class="row">
+                    <div class="group col-12 m-auto">
+                        <label>Name</label>
+                        <select class="" formControlName="product" >
+                          <option *ngFor = 'let prod of products' value="{{prod._id}}">{{prod.nameUz}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <div *ngFor="let ticket of t2.controls; let i = index" class="list-group list-group-flush">
           <div class="list-group-item">
               <h5 class="card-title">Ticket {{i + 1}}</h5>
-              <div [formGroup]="ticket" class="form-row">
-                  <div class="form-group col-6">
-                      <label>Name</label>
-                      <select class="form-control" formControlName="product" >
-                        <option *ngFor = 'let prod of products' value="{{prod._id}}">{{prod.nameUz}}</option>
-                      </select>
+              <div [formGroup]="ticket" class="row">
+                  <div [formGroup]="ticket" class="group col-12">
+                      <label>Number</label>
+                      <input type="number" formControlName="number" placeholder='{{quant[i]}}' class="form-control"  />
                   </div>
               </div>
           </div>
       </div>
-
-      <div *ngFor="let ticket of t2.controls; let i = index" class="list-group list-group-flush">
-        <div class="list-group-item">
-            <h5 class="card-title">Ticket {{i + 1}}</h5>
-            <div [formGroup]="ticket" class="form-row">
-                <div [formGroup]="ticket" class="form-group col-6">
-                    <label>Number</label>
-                    <input type="number" formControlName="number" placeholder='{{quant[i]}}' class="form-control"  />
+  
+      
+  
+      <div   class="list-group list-group-flush">
+        <div class="list-group-item"> 
+            <div  class="row">
+                <div class="group col-12 m-auto">
+                    <label>User</label>
+                    <select class="" formControlName="user" >
+                      <option *ngFor = 'let user of users' value="{{user._id}}">{{user.login}}</option>
+                    </select>
+                    <h4 class="my-3">General Ball his User: {{ball}}</h4>
+                       <!-- <input type="text" placeholder="UserID" formControlName='user' class="form-control"> -->
                 </div>
             </div>
         </div>
     </div>
-
-
-      <div>
-        <label >User</label>
-        <select class="form-control" formControlName="user" (change)="onEditClick($event.target.value)" >
-          <option *ngFor = 'let user of users' value="{{user._id}}">{{user.login}}</option>
-        </select>
-        <h4>General Ball his User: {{ball}}</h4>
-      <!-- <input type="text" placeholder="UserID" formControlName='user' class="form-control"> -->
-    </div>
-      <div class="card-footer text-center">
-          <button class="btn btn-primary mr-1">Buy Tickets</button>
-          <button class="btn btn-secondary mr-1" type="reset" (click)="onReset()">Reset</button>
-          <!-- <button class="btn btn-secondary" type="button" (click)="onClear()">Clear</button> -->
+  
+    <div   class="list-group list-group-flush">
+      <div class="list-group-item"> 
+          <div  class="row">
+            <div class="group col-md-6 text-center">
+              <button class="myBtn bg-info text-white default br ">Buy Tickets </button>
+           </div>
+           <div class="group col-md-6 text-center">
+            <button class="myBtn default br " type="reset" (click)="onReset()">Reset </button>
+         </div>
+         <!-- <div class="group col-md-6 text-center">
+          <button class="myBtn default br " type="button" (click)="onClear()">Clear </button>
+       </div> -->
+          </div>
       </div>
-      </div>
-</form>
+  </div>
+   </div>
+  </form>
+   

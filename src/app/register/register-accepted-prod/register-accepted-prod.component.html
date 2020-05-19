@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <table class="table table-hover">
     <tr>
       <td>№</td>
@@ -13,4 +13,37 @@
       <td>{{product.date}}</td>
     </tr>
   </table>
+</div> -->
+
+<div class="row">
+  <div class="col-md-12 grid-margin">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="table-responsive border rounded p-1">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="font-weight-bold">
+                  <Fieldset>№</Fieldset>
+                </th>
+                <th class="font-weight-bold">Maxsulotlar</th>
+                <th class="font-weight-bold">Soni</th>
+                <th class="font-weight-bold">Date</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = 'let product of products, let i=index'>
+                <td>{{i+1}}</td>
+                <td><p *ngFor = 'let prod of product.products'>{{prod}}</p></td>
+                <td><p *ngFor = 'let quant of product.quantity'>{{quant.number}}</p></td>
+                <td>{{product.date}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </div>

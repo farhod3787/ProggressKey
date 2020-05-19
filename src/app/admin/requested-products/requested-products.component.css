@@ -51,3 +51,8 @@
         padding-left: 10px;
         color: #FF9077;
       }
+
+
+      .form-select{
+        border-radius: 5px!important;
+      }

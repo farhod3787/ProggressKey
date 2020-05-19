@@ -1,5 +1,5 @@
 
-  <div class="row">
+  <div class="row mb-3">
     <div class="col-lg-3 mb-3">
         <div class="registr-box-client bg-white">
           <div class="row">
@@ -43,21 +43,52 @@
   </div>
 
 
-  <h4>Mening omborim</h4> <button routerLink='add-product/{{ware._id}}'>Maxsulot qo'shish</button>
 
-<table  class="table">
-  <tr>
-    <td>Maxsulot nomi</td>
-    <td>Maxsulot Narxi</td>
-    <td>Maxsulot Soni</td>
-  </tr>
-  <tr>
-    <td><p *ngFor = 'let prod of products'>{{prod.nameUz}}</p></td>
-    <td><p *ngFor = 'let prod of products'>{{prod.price}}</p></td>
-    <td><p *ngFor = 'let quan of ware.quantity'>{{quan}}</p></td>
-    <!-- <td>Maxsulot Soni</td> -->
-  </tr>
-</table>
+
+ 
+  <div class="row">
+    <div class="col-md-12 grid-margin">
+      <div class="card mb-3">
+        <div class="card-header bg-success">
+          <h4 class="card-title font-weight-bold m-0   text-center text-white">Mening omborim</h4>
+        </div>
+        <div class="card-body">
+ 
+            
+            <div class="group   col-12 text-center card-button-w"  >
+              <button class="myBtn default br " routerLink='add-product/{{ware._id}}'>Maxsulot qo'shish </button>
+           </div>
+          <div class="table-responsive border rounded p-1">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="font-weight-bold"><Fieldset>N</Fieldset></th>
+                  <th class="font-weight-bold">Maxsulot nomi</th> 
+                  <th class="font-weight-bold">Maxsulot Narxi</th>
+                  <th class="font-weight-bold">Maxsulot Soni</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td><p *ngFor = 'let prod of products'>{{prod.nameUz}}</p></td>
+                  <td><p *ngFor = 'let prod of products'>{{prod.price}}</p></td>
+                  <td><p *ngFor = 'let quan of ware.quantity'>{{quan}}</p></td>
+                   
+                </tr>
+              </tbody>
+            </table>
+          </div>
+ 
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
 
   <div class="row">
     <div class="col-md-12 grid-margin">
