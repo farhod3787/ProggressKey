@@ -1,4 +1,4 @@
-<form [formGroup]='form' (submit)="save()">
+<form  >
 
   <div class="row">
       <div class="col-md-12 grid-margin stretch-card">
@@ -10,8 +10,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Hududi</span>
                   </div>
-                  <select formControlName='filialId' class="form-control" id="exampleFormControlSelect1">
-                      <option *ngFor = 'let filial of filials' value='{{filial._id}}'>{{filial.name}}</option>
+                  <select   class="form-control"  >
+                      <option  > fghgfhg</option>
                     </select>
                   </div>
               </div>
@@ -20,8 +20,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Ombor</span>
                   </div>
-                  <select formControlName='warehouseId' class="form-control" id="exampleFormControlSelect1">
-                      <option *ngFor = 'let house of wareHouses' value='{{house._id}}'>{{house.name}}</option>
+                  <select   class="form-control"  >
+                      <option  >fddgd</option>
                   </select>
                 </div>
               </div>
@@ -30,7 +30,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Login</span>
                   </div>
-                  <input type="text" formControlName='login' class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text"   class="form-control" placeholder="Username"  >
                 </div>
               </div>
               <div class="form-group col-md-4">
@@ -38,7 +38,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Full Name</span>
                   </div>
-                  <input type="text" formControlName='fullName' class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text"  class="form-control" placeholder="Username"  >
                 </div>
               </div>
               <div class="form-group col-md-4">
@@ -46,21 +46,17 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Password</span>
                   </div>
-                  <input type="text" class="form-control" formControlName='password' placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" formControlName='password' placeholder="Username"  >
                 </div>
               </div>
               <div class="form-group col-md-4">
                   <div class="input-group">
   
-                    <input type="file" name='image' (change)="onInputChange($event)"> <br>
-                    <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
-                      <br><br><img width="300px" [src]="imagePreview" [alt]="form.value.image"> <br><br><br>
+                    <input type="file"  > <br>
+                    <div class="image-preview"  >
+                      <br><br><img width="300px"  > <br><br><br>
                     </div>
-  
-                    <!-- <div class="custom-file">
-                      <label class="custom-file-label " for="customFile">Choose file</label>
-                      <input type="file" formControlName='image'  class="custom-file-input" id="customFile">
-                    </div> -->
+   
                  </div>
                 </div>
                 <div class="form-group">
