@@ -1,83 +1,68 @@
 const User = require('../models/users');
 
-function test(id) {
-  User.findById(id).then( async user => {
-    var result = await User.find();
-    let q = result.length;
+
+var left = 0;
+var right = 0;
+ async function sizeHands(id) {
+  let user = await User.findById(id);
+  if (user.leftHand && user.rightHand) {
+    sizeHelperLeft(user.leftHand)
+    sizeHelperRight(user.rightHand);
+      console.log(user.login  +  " --  left");
+      console.log(left);
+      console.log(user.login  +  " --  right");
+      console.log(right);
+      left = 0;
+      right = 0;
+    } else {
+      console.log('bir nima kam');
+
+  }
 
 
-    // for (let i=0; i < q; i++) {
-      var leftUsers = [];
-      var rightUsers = [];
-      var left = user.leftHand;
-      var right;
-      var leftH
-      var rightH = user.rightHand;
+  // for (let i=0; i< users.length; i++) {
 
-      //  Left Hand uchun
-      for(let j=0; j< q; j++) {
+  //   if (users[i].leftHand && users[i].rightHand) {
+  //     let leftId = users[0].leftHand;
+  //     let rightId = users[0].rightHand;
+  //     // sizeHelperLeft(leftId);
+  //     sizeHelperRight(rightId);
+  //     // console.log("left");
+  //     // console.log(left);
+  //     console.log("right");
+  //     console.log(right);
+  //     left = 0;
+  //     right = 0;
+  //   } else {
+  //     console.log('Userni chap yoki o\'ng qo\'li yo\'q');
+  //   }
+  // }
+ }
+async function sizeHelperLeft(id) {
+  let node = await User.findById(id);
+  if (node) {
+    left = left +1;
+      return 1 + sizeHelperLeft(node.leftHand) + sizeHelperLeft(node.rightHand);
+  } else {
+    return 0;
 
-        if (left == result[j]._id) {
-            leftUsers.push(result[j].login);
-
-            if (result[j].leftHand) {
-              left = result[j].leftHand;
-            }
-
-            if (result[j].rightHand) {
-              right = result[j].rightHand;
-            }
-        }
-
-        if (right == result[j]._id) {
-          leftUsers.push(result[j].login);
-
-          if (result[j].leftHand) {
-            left = result[j].leftHand;
-          }
-
-          if (result[j].rightHand) {
-            right = result[j].rightHand;
-          }
-      }
-     }
-
-    //  Right Hand uchun
-     for(let j=0; j< q; j++) {
-
-      if (rightH == result[j]._id) {
-          rightUsers.push(result[j].login);
-
-          if (result[j].leftHand) {
-            leftH = result[j].leftHand;
-          }
-
-          if (result[j].rightHand) {
-            rightH = result[j].rightHand;
-          }
-      }
-
-      if (leftH == result[j]._id) {
-        rightUsers.push(result[j].login);
-
-        if (result[j].leftHand) {
-          leftH = result[j].leftHand;
-        }
-
-        if (result[j].rightHand) {
-          rightH = result[j].rightHand;
-        }
-    }
-   }
-
-   console.log('Left Hands');
-   console.log(leftUsers);
-
-   console.log('Right Hands');
-   console.log(rightUsers);
-
-    // }
-    })
+  }
 }
 
-module.exports.test = test;
+async function sizeHelperRight(id) {
+  let node = await User.findById(id);
+  if (node) {
+    right = right +1;
+      return 1 + sizeHelperRight(node.leftHand) + sizeHelperRight(node.rightHand);
+  } else {
+    return 0;
+
+  }
+}
+
+
+
+
+module.exports.sizeHands = sizeHands;
+module.exports.sizeHelperLeft = sizeHelperLeft;
+

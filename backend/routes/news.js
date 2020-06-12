@@ -3,7 +3,11 @@ const Product = require('../models/products');
 const News = require('../models/news');
 const Admin = require('../models/admin')
 const multer = require('multer');
+const config = require('../config/config');
 var fs = require('fs');
+
+var url = config.url;
+
 const router = express.Router();
 
 const MIME_TYPE_MAP = {
@@ -63,14 +67,13 @@ router.post('/create/:token', upload.single('image'), async (req, res) =>{
   }
 } );
 
-
 router.get('/getall', async(request, response, next) => {
     var news = [];
     var prod = {}
     News.find().then( (all)=>{
         for(let i=all.length-1; i>=0; i--){
                 prod = all[i];
-                prod.image = 'http://localhost:5000' + '/images/' + all[i].image;
+                prod.image = url + '/images/' + all[i].image;
                 news.push(prod);
         }
         response.status(200).json(news);
@@ -88,7 +91,7 @@ router.get('/getLimit', async(request, response, next) => {
       for(let i=all.length-1; i>=0; i--){
           q++;
               prod = all[i];
-              prod.image = 'http://localhost:5000' + '/images/' + all[i].image;
+              prod.image = url + '/images/' + all[i].image;
               news.push(prod);
               if (q == 8) { break};
       }
@@ -114,7 +117,7 @@ router.get('/getPopular', async(request, response, next) => {
         q++;
             News.find({rating: rating[i]}).then( res => {
               prod = res[0];
-              prod.image_original_name = 'http://localhost:5000' + '/images/' + res[0].image_original_name;
+              prod.image_original_name = url + '/images/' + res[0].image_original_name;
               news[q] = prod;
               // console.log(news[q]);
               // console.log('AAAAAAAAAAS');
@@ -142,7 +145,7 @@ router.get('/getNews/:id', async function(request, response, next) {
             response.status(400).json({ message: "Product Not found" });
         } else {
             prod = res;
-            prod.image_original_name = 'http://localhost:5000' + '/images/'  + res.image_original_name
+            prod.image_original_name = url + '/images/'  + res.image_original_name
               response.status(200).json(prod);
         }
     }).catch((err) => {

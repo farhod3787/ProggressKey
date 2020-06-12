@@ -45,7 +45,7 @@
 
 
 
- 
+
   <div class="row">
     <div class="col-md-12 grid-margin">
       <div class="card mb-3">
@@ -53,8 +53,8 @@
           <h4 class="card-title font-weight-bold m-0   text-center text-white">Mening omborim</h4>
         </div>
         <div class="card-body">
- 
-            
+
+
             <div class="group   col-12 text-center card-button-w"  >
               <button class="myBtn default br " routerLink='add-product/{{ware._id}}'>Maxsulot qo'shish </button>
            </div>
@@ -63,7 +63,7 @@
               <thead>
                 <tr>
                   <th class="font-weight-bold"><Fieldset>N</Fieldset></th>
-                  <th class="font-weight-bold">Maxsulot nomi</th> 
+                  <th class="font-weight-bold">Maxsulot nomi</th>
                   <th class="font-weight-bold">Maxsulot Narxi</th>
                   <th class="font-weight-bold">Maxsulot Soni</th>
 
@@ -75,12 +75,12 @@
                   <td><p *ngFor = 'let prod of products'>{{prod.nameUz}}</p></td>
                   <td><p *ngFor = 'let prod of products'>{{prod.price}}</p></td>
                   <td><p *ngFor = 'let quan of ware.quantity'>{{quan}}</p></td>
-                   
+
                 </tr>
               </tbody>
             </table>
           </div>
- 
+
         </div>
       </div>
 
@@ -124,8 +124,8 @@
                   <td>{{i+1}}</td>
                     <td>{{ware.name}}</td>
                     <!-- <td>{{ware.filialId}}</td> -->
-                    <td><button routerLink = 'about/{{ware._id}}'>About</button></td>
-                    <td><button>Delete</button></td>
+                    <td><button class="myBtn default br " routerLink = 'about/{{ware._id}}'>About</button></td>
+                    <td><button class="myBtn default br ">Delete</button></td>
                 </tr>
               </tbody>
             </table>

@@ -22,19 +22,31 @@ export class RegisterHomeComponent implements OnInit {
   }
 
   getUsers() {
-    this.registrarService.getId(localStorage.getItem('_id')).subscribe( result => {
-      if ( result) {
-        const id = result.json().registerUserId;
-        for (let i = 0; i <= id.length - 1; i++) {
-          this.userService.getId(id[i]).subscribe( res => {
-            this.users[i] = res.json();
-          });
+    this.registrarService.getTeam(localStorage.getItem('_id')).subscribe( result => {
+        if (result.ok) {
+          this.users = result.json();
+        } else {
+          console.log('Team topilmadi');
         }
-      } else {
-        console.log('Error');
-      }
-      // console.log(this.users);
     });
+    // this.registrarService.getId(localStorage.getItem('_id')).subscribe( result => {
+      // console.log(result.json());
+
+      // if ( result) {
+      //   const id = result.json().registerUserId;
+      //   for (let i = 0; i <= id.length - 1; i++) {
+      //     this.userService.getId(id[i]).subscribe( res => {
+      //       console.log(res.json());
+
+      //       this.users[i] = res.json();
+      //     });
+      //   }
+      //   console.log(this.users);
+      // } else {
+      //   console.log('Error');
+      // }
+      // console.log(this.users);
+    // });
   }
 
 }

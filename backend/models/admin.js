@@ -23,8 +23,6 @@ adminSchema.statics.generateToken = function(login, password) {
 }
 
 adminSchema.statics.verifyAdmin = function(users, body) {
-  console.log(body.login);
-
   var object = {isAdmin : false};
   var distoken = undefined;
 

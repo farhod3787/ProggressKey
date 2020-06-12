@@ -77,7 +77,7 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <img class="img-xs rounded-circle ml-2" src="../../../assets/user/images/faces/face8.jpg" alt="Profile image"> <span class="font-weight-normal">{{register.fullName}}</span></a>
+              <img class="img-xs rounded-circle ml-2" src={{register.image}} alt="Profile image"> <span class="font-weight-normal">{{register.fullName}}</span></a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
                 <!-- <img class="img-md rounded-circle" src="../../../assets/user/images/faces/face8.jpg" alt="Profile image"> -->
@@ -107,7 +107,7 @@
           <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
               <div class="profile-image">
-                <img class="img-xs rounded-circle" src="../../../assets/user/images/faces/face8.jpg" alt="profile image">
+                <img class="img-xs rounded-circle" src="{{register.image}}" alt="profile image">
                 <div class="dot-indicator bg-success"></div>
               </div>
               <div class="text-wrapper">

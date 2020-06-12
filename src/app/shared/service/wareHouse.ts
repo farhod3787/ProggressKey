@@ -27,17 +27,16 @@ export class WarehouseService {
 
   post(
     name: string,
-    // nameRu: string,
+    filialId: string,
     // nameEn: string,
     products: string[],
     quantity: string[]
   ) {
     const body = {
-      'name ': name,
-      // 'nameRu ': nameRu,
-      // 'nameEn ': nameEn,
-      'products ': products,
-      'quantity ': quantity
+       name,
+       filialId,
+       products,
+       quantity
     };
     return this.http.post(this.api + localStorage.getItem('token'), body);
   }

@@ -1,81 +1,103 @@
-<form  >
-
   <div class="row">
       <div class="col-md-12 grid-margin stretch-card">
           <div class="card">
-  
             <div class="card-body row">
+              <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+                <div class="card m-3">
+                    <h3 class="card-header bg-success text-white text-center">Send Products</h3>
+                    <div class=" ">
+                        <form action=" " method=" ">
+                          <div class="list-group list-group-flush">
+                            <div class="list-group-item ">
+                              <div class="row  ">
+                                  <div class="group col-12">
+                                      <label>Number of Tickets</label>
+                                      <select  formControlName="numberOfTickets" class="  " (change)="onChangeTickets($event)" [ngClass]="{ 'is-invalid': submitted && f.numberOfTickets.errors }">
+                                                        <option value=""></option>
+                                        <option *ngFor="let i of [1, 2, 3, 4, 5, 6, 7]" >{{i}}</option>
+                                    </select>
+                                    <div *ngIf="submitted && f.numberOfTickets.errors" class="invalid-feedback">
+                                        <div *ngIf="f.numberOfTickets.errors.required">Number of tickets is required</div>
+                                    </div>
+                                   </div>
+                             </div>
+                            </div>
+                          </div>
+                         </form>
+                    </div>
+
+                    <div *ngFor="let ticket of t.controls; let i = index" class="list-group list-group-flush">
+                        <div class="list-group-item">
+                            <h5 class="card-title">Ticket {{i + 1}}</h5>
+                            <div [formGroup]="ticket" class="row">
+                                <div class="group col-12 m-auto">
+                                    <label>Name</label>
+                                    <select class="" formControlName="product" >
+                                      <option *ngFor = 'let prod of products' value="{{prod._id}}">{{prod.nameUz}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngFor="let ticket of t2.controls; let i = index" class="list-group list-group-flush">
+                      <div class="list-group-item">
+                          <h5 class="card-title">Ticket {{i + 1}}</h5>
+                          <div [formGroup]="ticket" class="row">
+                              <div [formGroup]="ticket" class="group col-12">
+                                  <label>Number</label>
+                                  <input type="number" formControlName="number" placeholder='{{quant[i]}}' class="form-control"  />
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                <div   class="list-group list-group-flush">
+                  <div class="list-group-item">
+                      <div  class="row">
+                        <!-- <div class="group col-md-6 text-center">
+                          <button class="myBtn bg-info text-white default br ">Buy Tickets </button>
+                       </div> -->
+                       <div class="group col-md-6 text-center">
+                        <button class="myBtn default br " type="reset" (click)="onReset()">Reset </button>
+                     </div>
+                      </div>
+                  </div>
+              </div>
+               </div>
+
+
+
+
+
+
               <div class="form-group col-md-4">
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">Hududi</span>
+                    <span class="input-group-text">Name</span>
                   </div>
-                  <select   class="form-control"  >
-                      <option  > fghgfhg</option>
-                    </select>
-                  </div>
+                  <input type="text" formControlName='name'   class="form-control" placeholder="Name"  >
+                </div>
               </div>
               <div class="form-group col-md-4">
                 <div class="input-group">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">Ombor</span>
+                    <span class="input-group-text">filial</span>
                   </div>
-                  <select   class="form-control"  >
-                      <option  >fddgd</option>
+                  <select formControlName='filialId' >
+                    <option value="NULL">NULL</option>
+                    <option *ngFor = 'let reg of registers' value="{{reg._id}}">{{reg.fullName}}</option>
                   </select>
                 </div>
               </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Login</span>
-                  </div>
-                  <input type="text"   class="form-control" placeholder="Username"  >
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Full Name</span>
-                  </div>
-                  <input type="text"  class="form-control" placeholder="Username"  >
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Password</span>
-                  </div>
-                  <input type="text" class="form-control" formControlName='password' placeholder="Username"  >
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                  <div class="input-group">
-  
-                    <input type="file"  > <br>
-                    <div class="image-preview"  >
-                      <br><br><img width="300px"  > <br><br><br>
-                    </div>
-   
-                 </div>
-                </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-info btn-fw m-3">Saqlash</button>
+                  <button class="btn btn-info btn-fw m-3">Saqlash</button>
                 </div>
-  
+              </form>
             </div>
-  
-  
+
+
           </div>
       </div>
     </div>
-  
-  
-  </form>
-  
 
-<!--
-  <mat-checkbox color='primary' [(ngModel)]="first" (change)=test()>First</mat-checkbox> <br>
-  <mat-checkbox color='primary' [(ngModel)]="second" >Second</mat-checkbox> <br>
-  <mat-checkbox color='primary' [(ngModel)]="third" >Third</mat-checkbox> <br>
- -->
+

@@ -3,8 +3,12 @@ const multer = require('multer');
 const Registrar = require('../models/registrar');
 const Admin = require('../models/admin');
 const Manager = require('../models/site-manager');
+const config = require('../config/config')
 // const jwt = require('jsonwebtoken');
 const router = express.Router();
+
+var url = config.url;
+// var url = config.domen;
 
 
 const MIME_TYPE_MAP = {
@@ -13,7 +17,6 @@ const MIME_TYPE_MAP = {
   'image/jpeg': 'jpg'
 }
 
-const url = 'http://localhost:5000';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -116,27 +119,7 @@ router.delete('/:id/:token', async function (request, response, next ){
 
     if (obj.isAdmin) {
         success = true
-            // await Registrar.findById(id).then( (res) =>{
-            //     if(res) {
-            //       var image= res.image;
-            //       fs.unlink('backend/images/' + image, function (err) {
-            //           if (err) {
-            //           console.log(err.message);}
-            //           else {
-            //               console.log('File deleted!');
-            //           }
-            //       });
-            //         return res
-            //     }
-            //     else {
-            //         success = false
-            //         data.message = "This User not found";
-            //         return null;
-            //     }
-            // }).catch( err =>{
-            //     success = false
-            //     response.status(400).json({message: "User not found"});
-            // });
+
                 await Manager.findByIdAndRemove(id).catch( err => {
                     success = false;
                 })
@@ -198,20 +181,17 @@ router.get('/verifyManager/:token', async function(request, response) {
 })
  //                                                                K i r  i  sh
 
-router.post('/sign', async function(request, response) {
+
+router.post('', async function(request, response) {
     var body = request.body;
     var data = {}
     var users = await Manager.find();
     var obj = Manager.verifyUser(users, body);
-
-    if(obj.isManager) {
-        data.token = obj.token;
-        data.isManager = obj.isManager;
-        response.status(200).json(data)
-    }
-    else {
-        response.status(404).json({message: "User Not found!"})
-    }
+         if (obj) {
+          response.status(200).json(obj);
+         } else {
+          response.status(400).json(false);
+         }
 });
 
 module.exports = router

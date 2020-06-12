@@ -44,6 +44,10 @@ export class ResgistrarService {
     return this.http.get(this.api + id);
   }
 
+  getTeam(id) {
+    return this.http.get(this.api + '/team/' + id);
+  }
+
   sign(login, password) {
     const body = {
       login,

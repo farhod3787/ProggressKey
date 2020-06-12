@@ -21,9 +21,8 @@ router.post('/:token', async function (request, response, next) {
         quantity : body.quantity,
         registrarId : obj.userId,
         userId : body.userId,
-        date : new Date().toISOString().
-                          replace(/T/, ' ').
-                          replace(/\..+/, '')
+        generalSum: body.generalSum,
+        date : new Date()
     }
     const sendProduct = new SendProduct(sendProd);
     sendProduct.save().then( async (res) =>{
@@ -103,13 +102,15 @@ router.get('/getReg/:id', async function( request, response) {
     let requests = await SendProduct.find({'registrarId': id});
     if (requests.length > 0) {
       for (let i=0; i< requests.length; i++) {
-        let user = await User.findById(requests[i].userId);
+        var user = await User.findById(requests[i].userId);
+        if (user) {
+          requests[i].userId = user.login;
+        }
         for (let j=0; j< requests[i].products.length; j++) {
           let id = requests[i].products[j].product;
             let prod = await Product.findById(id);
             requests[i].products[j] = prod.nameUz;
           }
-        requests[i].userId = user.login;
       }
       response.status(200).json(requests);
     } else {

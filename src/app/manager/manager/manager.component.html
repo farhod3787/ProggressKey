@@ -1,8 +1,8 @@
- 
-  
+
+
  <!-- <router-outlet></router-outlet> -->
 
- <div class="container-scroller"> 
+ <div class="container-scroller">
 
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex align-items-center">
@@ -85,11 +85,11 @@
                 <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
               </div>
               <a class="dropdown-item">
-                <i class="dropdown-item-icon icon-user text-primary"></i> My Profile 
+                <i class="dropdown-item-icon icon-user text-primary"></i> My Profile
                 <span class="badge badge-pill badge-danger">1</span>
               </a>
               <a class="dropdown-item"><i class="dropdown-item-icon icon-speech text-primary"></i> Messages</a>
-              <a class="dropdown-item"><i class="dropdown-item-icon icon-energy text-primary"></i> Activity</a> 
+              <button class="dropdown-item" (click)='logOut()'><i class="dropdown-item-icon icon-energy text-primary"></i>  Log Out</button>
             </div>
           </li>
         </ul>
@@ -99,9 +99,9 @@
       </div>
     </nav>
     <!-- partial -->
-  
-  
-    
+
+
+
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -121,7 +121,7 @@
                 <div class="dot-indicator bg-danger"></div>
               </div>
             </a>
-          </li> 
+          </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" routerLink="/manager" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-title">Asosiy</span>
@@ -139,7 +139,7 @@
               <span class="menu-title">Mahsulotlar</span>
               <i class="icon-people menu-icon"></i>
             </a>
-          </li> 
+          </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="manager-news-add">
               <span class="menu-title">Yangiliklar</span>
@@ -164,20 +164,20 @@
               <i class=" icon-speech menu-icon"></i>
             </a>
           </li>
- 
+
         </ul>
-      </nav> 
-      
+      </nav>
+
       <div class="main-panel">
-   
+
         <div class="content-wrapper">
           <router-outlet></router-outlet>
-   
+
         </div>
-   
- 
+
+
       </div>
-   
+
     </div>
-   
-  </div> 
+
+  </div>

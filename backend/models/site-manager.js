@@ -29,17 +29,19 @@ managerSchema.statics.generateToken = function(login, password) {
 managerSchema.statics.verifyUser = function(users, body) {
     var object = {isManager : false};
     var distoken = undefined;
+    // console.log(body);
 
     users.forEach((user) => {
         try{
             distoken = jwt.verify(user.password, 'pro');
-        console.log(distoken);
+           console.log(distoken);
         }
         catch {
         }
         if (distoken) {
             if(user.login == body.login && distoken.password == body.password ) {
                     object.isManager = true;
+                    object.adminId = user._id;
                     object.token = jwt.sign({login: user.login, password: user.password}, 'pro')
             }
         }

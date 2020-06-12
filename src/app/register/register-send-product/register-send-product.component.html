@@ -1,4 +1,4 @@
- 
+
 
 
 <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
@@ -8,7 +8,7 @@
             <form action=" " method=" ">
               <div class="list-group list-group-flush">
                 <div class="list-group-item ">
-                  <div class="row  "> 
+                  <div class="row  ">
                       <div class="group col-12">
                           <label>Number of Tickets</label>
                           <select  formControlName="numberOfTickets" class="  " (change)="onChangeTickets($event)" [ngClass]="{ 'is-invalid': submitted && f.numberOfTickets.errors }">
@@ -18,13 +18,13 @@
                         <div *ngIf="submitted && f.numberOfTickets.errors" class="invalid-feedback">
                             <div *ngIf="f.numberOfTickets.errors.required">Number of tickets is required</div>
                         </div>
-                       </div> 
+                       </div>
                  </div>
                 </div>
               </div>
              </form>
         </div>
-  
+
         <div *ngFor="let ticket of t.controls; let i = index" class="list-group list-group-flush">
             <div class="list-group-item">
                 <h5 class="card-title">Ticket {{i + 1}}</h5>
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-  
+
         <div *ngFor="let ticket of t2.controls; let i = index" class="list-group list-group-flush">
           <div class="list-group-item">
               <h5 class="card-title">Ticket {{i + 1}}</h5>
@@ -50,26 +50,27 @@
               </div>
           </div>
       </div>
-  
-      
-  
+
+
+
       <div   class="list-group list-group-flush">
-        <div class="list-group-item"> 
+        <div class="list-group-item">
             <div  class="row">
                 <div class="group col-12 m-auto">
                     <label>User</label>
                     <select class="" formControlName="user" >
                       <option *ngFor = 'let user of users' value="{{user._id}}">{{user.login}}</option>
                     </select>
-                    <h4 class="my-3">General Ball his User: {{ball}}</h4>
-                       <!-- <input type="text" placeholder="UserID" formControlName='user' class="form-control"> -->
+
+                    <label>General Sum</label>
+                       <input type="number" placeholder="GSUm" formControlName='gSum' class="form-control">
                 </div>
             </div>
         </div>
     </div>
-  
+
     <div   class="list-group list-group-flush">
-      <div class="list-group-item"> 
+      <div class="list-group-item">
           <div  class="row">
             <div class="group col-md-6 text-center">
               <button class="myBtn bg-info text-white default br ">Buy Tickets </button>
@@ -85,4 +86,3 @@
   </div>
    </div>
   </form>
-   

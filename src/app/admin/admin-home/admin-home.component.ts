@@ -25,13 +25,34 @@ export class AdminHomeComponent implements OnInit {
 
   getRegs() {
     this.registerService.getAll().subscribe( result => {
-        this.regs = result.json();
+      if (result.ok) {
+        if (result.json().length > 0 ) {
+          this.regs = result.json();
+        } else {
+          console.log('Registerlar hali yo\'q');
+        }
+      } else {
+        console.log('Error in get Registers');
+
+      }
+
     });
   }
 
   getUsers() {
-    this.userService.getAllUsers().subscribe( result => {
-      this.users = result.json();
+    this.userService.getWithAdmin().subscribe( result => {
+      if (result.ok) {
+        if (result.json().length > 0) {
+          this.users = result.json();
+          console.log(this.users);
+
+        } else {
+          console.log('Hali Userlar yo\'q');
+        }
+      } else {
+        console.log('Error in get User');
+      }
+
     });
   }
 

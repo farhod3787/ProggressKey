@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import {MatInputModule} from '@angular/material';
@@ -84,6 +84,7 @@ import { NotFoundComponent } from './website/not-found/not-found.component';
 import { RegisterAcceptedProdComponent } from './register/register-accepted-prod/register-accepted-prod.component';
 import { AdminWarehouseAboutComponent } from './admin/admin-warehouse-about/admin-warehouse-about.component';
 import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-product.component';
+import { ManagerSignComponent } from './manager/manager-sign/manager-sign.component';
 
 
 @NgModule({
@@ -160,9 +161,11 @@ import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-pr
     RegisterAcceptedProdComponent,
     AdminWarehouseAboutComponent,
     AdminAddProductComponent,
+    ManagerSignComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     // MatInputModule,

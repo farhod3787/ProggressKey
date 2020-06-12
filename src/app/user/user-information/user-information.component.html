@@ -47,13 +47,13 @@
                 <div class="form-group">
                   <button type="button" class="btn btn-info btn-fw m-3" (click) = 'updateInformation(fullName.value, newPassword.value)'>Ma'lumotlarni o'zgartirish</button>
                   <button type="button" class="btn btn-info btn-fw m-3" data-toggle="modal" data-target="#exampleModal" >Modal</button>
-                  <button type="button" class="btn btn-dark btn-fw m-3">Accountni o'chirish</button>
+                  <button type="button" class="btn btn-dark btn-fw m-3" (click)='delete()'>Accountni o'chirish</button>
                 </div>
               </div>
             </div>
         </div>
       </div>
- 
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -68,7 +68,7 @@
         <button type="button" class="btn btn-info btn-fw m-3" data-dismiss="modal">Ha</button>
         <button type="button" class="btn btn-dark btn-fw m-3">Yo'q</button>
       </div>
- 
+
     </div>
   </div>
 </div>

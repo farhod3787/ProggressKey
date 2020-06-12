@@ -111,12 +111,12 @@
                 <div class="col-12 py-3">
                     <p class="m-0 pb-2 reg-temcolor">Qo'shgan profillari</p>
                     <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
+                      <div *ngFor = 'let img of user.addUsers' >
+                        <img *ngIf = 'img' src="{{img}}" alt="">
+                        <!-- <img src="assets/img/team.jpg" alt=""> -->
+                        <!-- <img src="assets/img/team.jpg" alt=""> -->
+                        <!-- <img src="assets/img/team.jpg" alt=""> -->
+                        <!-- <img src="assets/img/team.jpg" alt=""> -->
                       </div>
                     </div>
                     <p class="m-0 pb-2 pt-2 reg-temcolor">Faolligi <span class="  float-right">90%</span></p>

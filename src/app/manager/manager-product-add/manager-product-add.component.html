@@ -3,34 +3,72 @@
       <div class="card">
         <div class="card-body">
           <div class="d-sm-flex align-items-center mb-4">
-            <h4 class="card-title mb-sm-0">Mahsulot qo'shish</h4> 
+            <h4 class="card-title mb-sm-0">Mahsulot qo'shish</h4>
           </div>
- 
-          <form action=" " method=" ">
+
+          <form >
             <div class="row row10">
               <div class="col-12 ">
                  <div class="group">
-                    <input type="text" #name name="name" placeholder="Mahsulot nomini kiriting" required="">
+                    <input type="text" formControlName = "nameUz" name="name" placeholder="Mahsulot nomini kiriting UZ" required="">
                  </div>
               </div>
+              <div class="col-12 ">
+                <div class="group">
+                   <input type="text"  formControlName = "nameRu" name="name" placeholder="Mahsulot nomini kiriting RU"  required="">
+                </div>
+             </div>
+             <div class="col-12 ">
+              <div class="group">
+                 <input type="text"  formControlName = "nameRu" name="name" placeholder="Mahsulot nomini kiriting EN" required="">
+              </div>
+           </div>
               <div class="col-12  ">
                  <div class="group">
-                    <input type="file" #phone name="phone" placeholder="Mahsulor rasmini kiriting" required="">
+                    <input type="text" formControlName="descriptionUz" name="phone" placeholder="descriptionUz" required="">
                  </div>
               </div>
               <div class="col-12  ">
                 <div class="group">
-                   <input type="text" #phone name="phone" placeholder="Mahsulor narxini kiriting" required="">
+                   <input type="text" formControlName="descriptionRu" name="phone" placeholder="descriptionRU" required="">
                 </div>
              </div>
+             <div class="col-12  ">
+              <div class="group">
+                 <input type="text" formControlName="descriptionEn" name="phone" placeholder="descriptionEn" required="">
+              </div>
+           </div>
+              <div class="col-12  ">
+                <div class="group">
+                   <input type="text" formControlName="category" name="phone" placeholder="Category" required="">
+                </div>
+             </div>
+             <div class="col-12  ">
+              <div class="group">
+                 <input type="number" formControlName="quantity" name="phone" placeholder="quantity" required="">
+              </div>
+           </div>
+           <div class="col-12  ">
+            <div class="group">
+               <input type="number" formControlName="price" name="phone" placeholder="Price" required="">
+            </div>
+         </div>
+             <div class="col-12  ">
+                <input type="file" name='image' (change)="onInputChange($event)"> <br>
+                <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+                  <br><br><img width="300px" [src]="imagePreview" [alt]="form.value.image"> <br><br><br>
+                </div>
+
+
+           </div>
               <div class="col-12">
                  <div class="group">
-                    <textarea name="message" #text rows="5" placeholder="Matnni kiriting" required=""></textarea>
+                    <textarea name="message" formControlName="configuration" rows="5" placeholder="Configuration" required=""></textarea>
                  </div>
               </div>
               <div class="col-12">
                  <div class="group text-center">
-                    <button class="myBtn default br ">Xabarni saqlash  </button>
+                    <button type="submit" class="myBtn default br ">Xabarni saqlash  </button>
                  </div>
               </div>
            </div>
@@ -45,86 +83,33 @@
       <div class="card">
         <div class="card-body">
           <div class="d-sm-flex align-items-center mb-4">
-            <h4 class="card-title mb-sm-0">Mahsulotlar jadvali</h4> 
+            <h4 class="card-title mb-sm-0">Mahsulotlar jadvali</h4>
           </div>
           <div class="table-responsive border rounded p-1">
             <table class="table">
               <thead>
                 <tr>
                   <th class="font-weight-bold">Rasmi</th>
-                  <th class="font-weight-bold">Mahsulot nomi</th> 
+                  <th class="font-weight-bold">Mahsulot nomi</th>
                   <th class="font-weight-bold">Narxi</th>
                   <th class="font-weight-bold">Kategoriyasi</th>
                   <th class="font-weight-bold">Mahsulot haqda</th>
-                  <th class="font-weight-bold">O'chirish</th> 
+                  <th class="font-weight-bold">O'chirish</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image">   </td>
-                  <td>Progresskey mahsuloti</td>
-                  <td>  1200 000 ming</td>
-                  <td>Top mahsulotlar</td>
-                  <td  > 
-                      <p  >
-                        Tarkibi:
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  
-                      </p>
-                  </td>
+                <tr *ngFor="let product of products, let i=index">
+                  <td><img class="img-sm rounded-circle" src="{{product.image}}" alt="profile image">   </td>
+                  <td>{{product.nameUz}}</td>
+                  <td>  {{product.price}} so'm</td>
+                  <td>{{product.categoryId}}</td>
+                  <td>{{product.descriptionUz}}</td>
+                  <td>{{i}}</td>
                   <td>
                     <button _ngcontent-tqa-c102="" type="button" data-toggle="modal" data-target="#exampleModall" class="btn btn-dark btn-fw ">O'chirish</button>
                   </td>
                 </tr>
-                <tr>
-                    <td>
-                      <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image">   </td>
-                    <td>Progresskey mahsuloti</td>
-                    <td>  1200 000 ming</td>
-                    <td>Top mahsulotlar</td>
-                    <td  > 
-                        <p  >
-                          Tarkibi:
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  
-                        </p>
-                    </td>
-                    <td>
-                      <button _ngcontent-tqa-c102="" type="button" data-toggle="modal" data-target="#exampleModall" class="btn btn-dark btn-fw ">O'chirish</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image">   </td>
-                    <td>Progresskey mahsuloti</td>
-                    <td>  1200 000 ming</td>
-                    <td>Top mahsulotlar</td>
-                    <td  > 
-                        <p  >
-                          Tarkibi:
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  
-                        </p>
-                    </td>
-                    <td>
-                      <button _ngcontent-tqa-c102="" type="button" data-toggle="modal" data-target="#exampleModall" class="btn btn-dark btn-fw ">O'chirish</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <img class="img-sm rounded-circle" src="../../../assets/user/images/faces/face1.jpg" alt="profile image">   </td>
-                    <td>Progresskey mahsuloti</td>
-                    <td>  1200 000 ming</td>
-                    <td>Top mahsulotlar</td>
-                    <td  > 
-                        <p  >
-                          Tarkibi:
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  
-                        </p>
-                    </td>
-                    <td>
-                      <button _ngcontent-tqa-c102="" type="button" data-toggle="modal" data-target="#exampleModall" class="btn btn-dark btn-fw ">O'chirish</button>
-                    </td>
-                  </tr>
- 
+
               </tbody>
             </table>
           </div>

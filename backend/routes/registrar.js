@@ -3,9 +3,12 @@ const multer = require('multer');
 const User = require('../models/users');
 const Registrar = require('../models/registrar');
 const Admin = require('../models/admin');
+const config = require('../config/config');
 // const jwt = require('jsonwebtoken');
 const router = express.Router();
 
+var url = config.url;
+// var url = config.domen;
 
 const MIME_TYPE_MAP = {
   'image/png': 'png',
@@ -13,7 +16,6 @@ const MIME_TYPE_MAP = {
   'image/jpeg': 'jpg'
 }
 
-const url = 'http://localhost:5000';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -76,9 +78,18 @@ router.post('/:token',  upload.single('image'), async function (request, respons
 
 router.get('/', (request, response, next) =>{
     var users = [];
-    Registrar.find().then( (all) =>{
+    Registrar.find().then( async  (all) =>{
         for (let i=all.length-1; i>=0; i--) {
-            all[i].image = 'http://localhost:5000/images/' + all[i].image;
+          let use = all[i].registerUserId;
+          for (let j=0; j< use.length; j++) {
+            let user = await User.findById(use[j]);
+            if (user) {
+              all[i].registerUserId[j] = url + '/images/' + user.image;
+            } else {
+              all[i].registerUserId[j] = false;
+            }
+          }
+            all[i].image = url + '/images/' + all[i].image;
             users.push(all[i]);
         }
         response.status(200).json(users);
@@ -94,13 +105,14 @@ router.get('/:id', async function(request, response) {
     var data = {};
     var id = request.params.id;
 
-    await Registrar.findById(id).then( (res)=>{
+     Registrar.findById(id).then( (res)=>{
             if(!res) {
                 success = false;
                 data = "User not found"
                 response.status(400).json(data);
             }
             else {
+              res.image = url + '/images/' + res.image;
                 data = res;
                 response.status(200).json(data);
             }
@@ -111,6 +123,36 @@ router.get('/:id', async function(request, response) {
         });
 });
 
+router.get('/team/:id', async  function( req, res) {
+    var id = req.params.id;
+    var users = [];
+    var Id = [];
+    const register = await Registrar.findById(id);
+    if (register) {
+      Id = register.registerUserId;
+      for (let i=0; i<Id.length; i++) {
+        const user = await User.findById(Id[i]);
+
+        if (user) {
+          user.image = url + '/images/' + user.image;
+          users.push(user);
+        }
+      }
+      for (let j=0; j< users.length; j++) {
+        let use = users[j].addUsers;
+        for (let q=0; q< use.length; q++) {
+          let img = await User.findById(use[q]);
+          if (img) {
+            users[j].addUsers[q] = url + '/images/' + img.image;
+          }
+        }
+      }
+      res.status(200).json(users);
+    } else {
+      console.log('Register not found');
+    }
+
+})
 
 router.delete('/:id/:token', async function (request, response, next ){
     var data = {};

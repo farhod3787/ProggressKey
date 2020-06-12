@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/service/userService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-information',
@@ -10,7 +11,8 @@ export class UserInformationComponent implements OnInit {
 
   user: any = {};
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {
     this.getInformation();
   }
@@ -23,6 +25,14 @@ export class UserInformationComponent implements OnInit {
 
   updateInformation(fullName, newPassword) {
     console.log(fullName, newPassword);
+  }
+
+  delete() {
+    this.userService.delete().subscribe( result => {
+      if (result.ok) {
+        this.router.navigate(['/']);
+      }
+    });
   }
   ngOnInit() {
   }

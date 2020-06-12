@@ -62,6 +62,10 @@ export class UserService {
     return this.http.get(this.api + 'team/' + localStorage.getItem('token'))
   }
 
+  getWithAdmin() {
+    return this.http.get(this.api + 'withAdmin');
+  }
+
   getEmptyUsers() {
     return this.http.get(this.api + 'emptyUsers');
   }
@@ -78,8 +82,8 @@ export class UserService {
     return this.http.post( this.api + 'sign/home', body);
   }
 
-  delete(id) {
-    return this.http.delete(this.api + id + '/' + localStorage.getItem('token'));
+  delete() {
+    return this.http.delete(this.api + '/' + localStorage.getItem('token'));
   }
 
   update(

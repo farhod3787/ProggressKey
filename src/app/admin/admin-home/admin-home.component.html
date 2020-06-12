@@ -98,7 +98,7 @@
 
 
 
-          <div class="col-lg-3 mb-3" *ngFor = 'let reg of regs'>
+          <div class="col-lg-3 mb-3" *ngFor = 'let reg of regs, let i = index'>
             <div class="registr-box">
               <div class="row">
                 <div class="col-4">
@@ -111,12 +111,8 @@
                 <div class="col-12 py-3">
                     <p class="m-0 pb-2 reg-temcolor">Qo'shgan profillari</p>
                     <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
+                      <div *ngFor = 'let img of reg.registerUserId'>
+                        <img  *ngIf = 'img'  src="{{img}}" alt="">
                       </div>
                     </div>
                     <p class="m-0 pb-2 pt-2 reg-temcolor">Faolligi <span class="  float-right">90%</span></p>
@@ -174,12 +170,8 @@
                 <div class="col-12 py-3">
                     <p class="m-0 pb-2 shop-temcolor">Qo'shgan profillari</p>
                     <div class="team-regadd">
-                      <div>
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
-                        <img src="assets/img/team.jpg" alt="">
+                      <div *ngFor = 'let use of user.addUsers'>
+                        <img *ngIf = 'use' src="{{use}}" alt="">
                       </div>
                     </div>
                     <p class="m-0 pb-2 pt-2 shop-temcolor">Faolligi <span class="  float-right">90%</span></p>

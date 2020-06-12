@@ -20,7 +20,11 @@ const reqProductsRouter = require('./routes/reqProduct');
 const managerRouter = require('./routes/site-manager');
 const sendProductRouter = require('./routes/sendProduct');
 
+//  User Module
+const User = require('./models/users');
+
 const test = require('./routes/ball');
+const check = require('./routes/check');
 
 const cors = require("cors");
 const app = express();
@@ -84,9 +88,27 @@ app.use('/api/sendProduct/', sendProductRouter);
 // })
 
 
-cron.schedule('* * * * * *', () => {
-  var id = '5eba380af269c4319880521e';
-  // test.test(id);
+// Haftalik ideal balance
+cron.schedule('* * * * * *', async () => {
+  // let id2 = '5ec715af0234144020bbd9e7'  // 002
+  let id1 = '5ec715780234144020bbd9e6' //001
+  let users = await User.find();
+  for (let i = 0; i< users.length; i++) {
+    let id = users[0]._id;
+    // console.log(id);
+
+    // test.sizeHands(id)
+  }
+  // test.sizeHands(id1);
+//
 });
 
+
+
+// CheckOtCheck 1 hafta uchun
+cron.schedule('* * * * *', () => {
+  // check.check();
+  // console.log('Crone start');
+
+});
 module.exports = app;

@@ -3,7 +3,11 @@ const User = require('../models/users');
 const Admin = require('../models/admin');
 const Regsiter = require('../models/registrar');
 const multer = require('multer');
+const config = require('../config/config');
 var fs = require('fs');
+
+var url = config.url;
+// var url = config.domen;
 
 // const jwt = require('jsonwebtoken');
 
@@ -103,6 +107,7 @@ router.post('/:regId', upload.single('image'), async function (request, response
             update.genaralBall = res.genaralBall + body.ball * 0.15;
            } else {
             update.ballOfInvite = body.ball * 0.15;
+            update.genaralBall = res.genaralBall + update.ballOfInvite;
            }
           User.findByIdAndUpdate(body.whoAdd, {$set: update}, {new: true}).then( res => {
 
@@ -112,7 +117,7 @@ router.post('/:regId', upload.single('image'), async function (request, response
             })
         }).catch( err => {
           console.log(err);
-          response.status(404).json(err)
+          response.status(400).json(err)
         });
 
 
@@ -127,7 +132,7 @@ router.get('/', (request, response, next) =>{
     var users = [];
     User.find().then( (all) =>{
         for (let i=all.length-1; i>=0; i--) {
-          all[i].image = 'http://localhost:5000/images/' + all[i].image;
+          all[i].image = url + '/images/' + all[i].image;
             users.push(all[i]);
         }
         response.status(200).json(users);
@@ -138,12 +143,34 @@ router.get('/', (request, response, next) =>{
     })
 });
 
+router.get('/withAdmin', (request, response, next) =>{
+  var users = [];
+  User.find().then( async (all) =>{
+      for (let i=all.length-1; i>=0; i--) {
+        let use = all[i].addUsers;
+        for (let j=0; j< use.length; j++) {
+            let user = await User.findById(use[j]);
+            if (user) {
+              all[i].addUsers[j] = url + '/images/' + user.image;
+            }
+        }
+        all[i].image = url + '/images/' + all[i].image;
+          users.push(all[i]);
+      }
+      response.status(200).json(users);
+  }).catch(  (err)=>{
+      console.log(err)
+      response.status(400).json({message: "Error in Get All Users"});
+
+  })
+});
+
 router.get('/emptyUsers', (request, response, next) =>{
   var users = [];
   User.find().then( (all) =>{
       for (let i=all.length-1; i>=0; i--) {
         if (!all[i].leftHand || !all[i].rightHand) {
-        all[i].image = 'http://localhost:5000/images/' + all[i].image;
+        all[i].image = url + '/images/' + all[i].image;
           users.push(all[i]);
         }
       }
@@ -160,10 +187,26 @@ router.get('/:filialId', async (request, response) => {
   var filialId = request.params.filialId;
   var users = await User.find({filialId: filialId});
   for (let i=users.length-1; i>=0; i--) {
-    users[i].image = 'http://localhost:5000/images/' + users[i].image;
+    users[i].image = url + '/images/' + users[i].image;
   }
   response.status(200).json(users);
 })
+
+// router.get('/withHome/:filialId', async (request, response) => {
+//   var filialId = request.params.filialId;
+//   var users = await User.find({filialId: filialId});
+//   for (let i=users.length-1; i>=0; i--) {
+//     let use = users[i].addUsers;
+//     for (let j=0; j< use.length; j++) {
+//         let user = await User.findById(use[j]);
+//         if (user) {
+//           all[i].addUsers[j] = url + '/images/' + user.image;
+//         }
+//     }
+//     users[i].image = url + '/images/' + users[i].image;
+//   }
+//   response.status(200).json(users);
+// })
 
 router.get('/verifyLogin/:login', async (request, response) => {
   var login = request.params.login;
@@ -179,20 +222,16 @@ router.get('/verifyLogin/:login', async (request, response) => {
 })
 
 router.get('/me/:id', async function(request, response) {
+
     var data = {};
     var id = request.params.id;
-
-    await User.findById(id).then( (res)=>{
-            if(!res) {
-                success = false;
-                data = "User not found"
-                response.status(400).json(data);
-            }
-            else {
-                data = res;
-                data.image = 'http://localhost:5000/images/' + data.image;
-                response.status(200).json(data);
-            }
+    User.findById(id).then( (res)=>{
+      if (res) {
+        res.image = url + '/images/' + res.image;
+        response.status(200).json(res);
+      } else {
+        response.status(404).json(false);
+      }
         })
         .catch( (err) =>{
             console.log(err);
@@ -201,16 +240,16 @@ router.get('/me/:id', async function(request, response) {
 });
 
 
-router.delete('/:id/:token', async function (request, response, next ){
+router.delete('/:token', async function (request, response, next ){
     var data = {};
-    var id = request.params.id;
+    // var id = request.params.id;
     var token = request.params.token;
-    var users = await Admin.find();
+    var users = await User.find();
     var success = false;
-    var obj = Admin.verifyOfAdmin(users, token);
-    if (obj.isAdmin) {
+    var obj = User.verifyOfUser(users, token);
+    if (obj.isUser) {
         success = true
-            await User.findById(id).then( (res) =>{
+            User.findById(obj.userId).then( (res) =>{
                 if(res) {
                   var image= res.image;
                   fs.unlink('backend/images/' + image, function (err) {
@@ -232,7 +271,7 @@ router.delete('/:id/:token', async function (request, response, next ){
                 response.status(400).json({message: "User not found"});
             })
 
-                await User.findByIdAndRemove(id).catch( err => {
+                await User.findByIdAndRemove(obj.userId).catch( err => {
                     success = false;
                 })
                 if(success) {
@@ -350,7 +389,7 @@ router.get('/team/:token', async function(request, response) {
     var id = obj.userId;
     var team = await User.find({'whoBottom' : id});
     for (let i =0; i<= team.length - 1; i++) {
-      team[i].image = 'http://localhost:5000/images/' + team[i].image
+      team[i].image = url + '/images/' + team[i].image
     }
     response.status(200).json(team)
   }

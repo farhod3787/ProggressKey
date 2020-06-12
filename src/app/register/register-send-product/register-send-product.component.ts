@@ -60,6 +60,7 @@ export class RegisterSendProductComponent implements OnInit {
     this.dynamicForm = this.formBuilder.group({
       numberOfTickets: ['', Validators.required],
       user: ['', Validators.required],
+      gSum: ['', Validators.required],
       tickets: new FormArray([]),
       tickets2: new FormArray([])
   });
@@ -95,7 +96,8 @@ export class RegisterSendProductComponent implements OnInit {
     this.sendProdService.post(
       this.dynamicForm.value.tickets,
       this.dynamicForm.value.tickets2,
-      this.dynamicForm.value.user
+      this.dynamicForm.value.user,
+      this.dynamicForm.value.gSum
     ).subscribe( res => {
       if (res.ok) {
         Swal.fire({

@@ -29,12 +29,14 @@ export class SendProdService {
   post(
     products: any,
     quantity: any,
-    userId: string
+    userId: string,
+    gSum: Number
   ) {
     const body = {
       products,
       quantity,
-      userId
+      userId,
+      gSum
     };
 
     return this.http.post(this.api +  localStorage.getItem('token'), body);

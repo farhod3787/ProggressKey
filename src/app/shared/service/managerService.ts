@@ -48,8 +48,13 @@ export class ManagerService {
     return this.http.get(this.api + id);
   }
 
-  sign(body) {
-    return this.http.post( this.api + 'sign', body);
+  sign(login, password) {
+    const body = {
+      login,
+      password
+    };
+
+    return this.http.post( this.api , body);
   }
 
   delete(id) {

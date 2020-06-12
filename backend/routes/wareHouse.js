@@ -8,20 +8,24 @@ const router = express.Router();
  //                                                               R e g i  s t r a t s i o n
 router.post('/:token', async function (request, response, next) {
    var body = request.body;
+    var q = body.products;
+   for (let i=0; i < q.length; i++) {
+     body.products[i] = body.products[i].product;
+     body.quantity[i] = body.quantity[i].number;
+   }
     var token = request.params.token;
     var admins = await  Admin.find();
-    // console.log(body);
+    console.log(body);
     var obj = await Admin.verifyOfAdmin(admins, token);
 
     let wareHouse = {
         name : body.name,
-        filialId: body.fifialId,
-        // nameRu : body.nameRu,
-        // nameEn : body.nameEn,
+        filialId: body.filialId,
         products : body.products,
         quantity: body.quantity
     }
     const ware = new Warehouse(wareHouse);
+    console.log(ware);
 
     if(obj.isAdmin) {
         ware.save().then( (res) =>{

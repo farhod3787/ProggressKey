@@ -71,6 +71,7 @@ import { NotFoundComponent } from './website/not-found/not-found.component';
 import { RegisterAcceptedProdComponent } from './register/register-accepted-prod/register-accepted-prod.component';
 import { AdminWarehouseAboutComponent } from './admin/admin-warehouse-about/admin-warehouse-about.component';
 import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-product.component';
+import { ManagerSignComponent } from './manager/manager-sign/manager-sign.component';
 // import { ManagerProductAddComponent } from './manager-product-add/manager-product-add.component';
 
 
@@ -97,6 +98,7 @@ const routes: Routes = [
   { path: 'sign', component: SignComponent} ,
   { path: 'admin-sign', component: AdminSignComponent} ,
   { path: 'register-sign', component: RegisterSignComponent} ,
+  { path: 'manager-sign', component: ManagerSignComponent},
   { path: 'login', component: LoginComponent} ,
   { path: 'error', component: ErrorComponent} ,
 

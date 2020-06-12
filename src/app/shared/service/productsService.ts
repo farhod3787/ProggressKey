@@ -28,13 +28,11 @@ export class ProductService {
     descriptionUz: string,
     descriptionRu: string,
     descriptionEn: string,
-    image: string,
+    image: File,
     categoryId: string,
-    wareHouseId: string,
     quantity: string,  //miqdori
     configuration: string,
-    price: string,
-    rating: string
+    price: string
   ) {
     const Product = new FormData();
     Product.append('nameUz', nameUz);
@@ -44,12 +42,10 @@ export class ProductService {
     Product.append('descriptionRu', descriptionRu);
     Product.append('descriptionEn', descriptionEn);
     Product.append('categoryId', categoryId);
-    Product.append('wareHouseId', wareHouseId);
     Product.append('image', image);
     Product.append('quantity', quantity);
     Product.append('configuration', configuration);
     Product.append('price', price);
-    Product.append('rating', rating);
     // return this.http.post(this.api + localStorage.getItem('token'), Product);
     return this.http.post(this.api + 'create/' + localStorage.getItem('token'), Product);
 
