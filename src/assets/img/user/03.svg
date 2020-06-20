@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41">
+  <g id="_03" data-name="03" transform="translate(-8.305 -7)">
+    <rect id="Прямоугольник_802" data-name="Прямоугольник 802" width="40" height="41" rx="5" transform="translate(8.305 7)" fill="#e977ff"/>
+    <g id="Сгруппировать_3169" data-name="Сгруппировать 3169" transform="translate(12 12)">
+      <g id="package" transform="translate(4.464 9.73)">
+        <path id="Контур_11986" data-name="Контур 11986" d="M24.017,18.857,21.81,15.178A.368.368,0,0,0,21.5,15H4.575a.368.368,0,0,0-.315.178L2.053,18.857a.368.368,0,0,0,.315.557H4.207v8.46a.368.368,0,0,0,.368.368H21.5a.368.368,0,0,0,.368-.368v-8.46H23.7a.368.368,0,0,0,.315-.557Zm-16.5-3.121H8.989v2.623L8.457,18a.368.368,0,0,0-.408,0l-.532.355Zm-4.5,2.943L4.207,16.7v1.982Zm1.925,8.828V15.736H6.782v3.31a.368.368,0,0,0,.572.306l.9-.6.9.6a.368.368,0,0,0,.572-.305v-3.31h1.839V27.506Zm16.185,0H12.3V16.7l1.524,2.538a.368.368,0,0,0,.315.18h6.989Zm-6.781-8.828-1.766-2.943h8.706l1.766,2.943Z" transform="translate(-2 -15)" fill="#fff"/>
+        <path id="Контур_11987" data-name="Контур 11987" d="M48,45h1.471v.736H48Z" transform="translate(-31.08 -33.965)" fill="#fff"/>
+        <path id="Контур_11988" data-name="Контур 11988" d="M44,45h.736v.736H44Z" transform="translate(-28.551 -33.965)" fill="#fff"/>
+        <path id="Контур_11989" data-name="Контур 11989" d="M34,31.368V34.31a.368.368,0,0,0,.368.368h5.15a.368.368,0,0,0,.368-.368V31.368A.368.368,0,0,0,39.517,31h-5.15A.368.368,0,0,0,34,31.368Zm.736.368H39.15v2.207H34.736Z" transform="translate(-22.23 -25.115)" fill="#fff"/>
+        <path id="Контур_11990" data-name="Контур 11990" d="M38,35h.736v.736H38Z" transform="translate(-24.758 -27.643)" fill="#fff"/>
+        <path id="Контур_11991" data-name="Контур 11991" d="M42,35h1.471v.736H42Z" transform="translate(-27.287 -27.643)" fill="#fff"/>
+      </g>
+      <line id="Линия_32" data-name="Линия 32" x2="23.198" y2="19.487" transform="translate(4.928 5.554)" fill="none" stroke="#fff" stroke-width="1"/>
+      <g id="Эллипс_505" data-name="Эллипс 505" transform="translate(0.305)" fill="none" stroke="#fff" stroke-width="1">
+        <circle cx="16" cy="16" r="16" stroke="none"/>
+        <circle cx="16" cy="16" r="15.5" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
