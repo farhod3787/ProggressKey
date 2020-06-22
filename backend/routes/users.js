@@ -37,11 +37,31 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
  //                                                               R e g i  s t r a t s i o n
-router.post('/:regId', upload.single('image'), async function (request, response, next) {
-    var id = request.params.regId;
-    var body = request.body;
-    var file = request.file;
-    let user = {
+ router.post('/:regId', upload.single('image'), async function (request, response, next) {
+  var id = request.params.regId;
+  var body = request.body;
+  var file = request.file;
+
+  var whoAdd = request.body.whoAdd;
+  const user = await User.findById(whoAdd);
+  var ids = user.addUsers;
+  var date_new = new Date();
+  var count = 0;
+  for ( let i=0; i < ids.length; i++) {
+    let date_ob
+    let limit = await User.findById(ids[i]);
+    if (limit) {
+      date_ob = limit.date.getDate();
+      if(date_ob == date_new.getDate() ) {
+          count++;
+      }
+    }
+  }
+
+  if ( body.type == 'Iste\'molchi') {
+    if (count < 6) {
+
+      let user = {
         type : body.type,
         login : body.login,
         password: await User.hashofPassword(body.password),
@@ -62,11 +82,10 @@ router.post('/:regId', upload.single('image'), async function (request, response
         ballOfMonth : body.ballOfMonth,
         ball : body.ball,
         genaralBall: body.ball,
-        date: new Date().toISOString().         //new Date() ni o'zi bo'lishi kerak
-                          replace(/T/, ' ').
-                          replace(/\..+/, '')
+        date: new Date()
     }
     const use = new User(user);
+
     use.save().then( (res) =>{
         var userId = res._id;
 
@@ -126,6 +145,102 @@ router.post('/:regId', upload.single('image'), async function (request, response
         console.log(err);
         response.status(404).json({message: "Error in Saved user"})
     })
+
+    } else {
+      response.status(400).json({message: 'Bugunga Limit tugagan'})
+    }
+  };
+
+  if ( body.type == 'Console' || body.type == 'Leader' ) {
+    if (count < 11) {
+      let user = {
+        type : body.type,
+        login : body.login,
+        password: await User.hashofPassword(body.password),
+        fullName :  body.fullName,
+        telNumber: body.telNumber,
+        filialId: body.filialId,
+        image: file.filename,
+        firstBalance :  body.firstBalance,
+        leftHand : body.leftHand,
+        rightHand : body.rightHand,
+        whoAdd : body.whoAdd,
+        whoBottom : body.whoBottom,
+        addUsers : body.addUsers,
+        ballOfBinar : body.ballOfBinar,
+        ballOfInvite : body.ballOfInvite,
+        ballOfCheck : body.ballOfCheck,
+        ballOfWeek : body.ballOfWeek,
+        ballOfMonth : body.ballOfMonth,
+        ball : body.ball,
+        genaralBall: body.ball,
+        date: new Date()
+    }
+    const use = new User(user);
+
+    use.save().then( (res) =>{
+        var userId = res._id;
+
+        Regsiter.findById(id).then(res => {
+          res.registerUserId.push(userId);
+        Regsiter.findByIdAndUpdate(id, { $set: res }, { new: true }).then( result => {
+
+        }).catch( error => {
+          response.status(404).json(error)
+        })
+        }).catch( err => {
+          response.status(404).json(err)
+        });
+
+        User.findById(body.whoBottom).then( res => {
+          var update = res
+            if (res.leftHand) {
+              update.rightHand = userId;
+            } else {
+              update.leftHand = userId;
+            }
+            User.findByIdAndUpdate(body.whoBottom, {$set: update}, {new: true}).then( res => {
+
+            }).catch( err => {
+              console.log(err);
+              response.status(404).json(err)
+            })
+        }).catch( err => {
+          console.log(err);
+          response.status(404).json(err)
+        });
+
+        User.findById(body.whoAdd).then( res => {
+           res.addUsers.push(userId);
+           var update = res;
+           if (res.ballOfInvite) {
+            update.ballOfInvite = res.ballOfInvite + body.ball * 0.15;
+            update.genaralBall = res.genaralBall + body.ball * 0.15;
+           } else {
+            update.ballOfInvite = body.ball * 0.15;
+            update.genaralBall = res.genaralBall + update.ballOfInvite;
+           }
+          User.findByIdAndUpdate(body.whoAdd, {$set: update}, {new: true}).then( res => {
+
+            }).catch( err => {
+              console.log(err);
+              response.status(404).json(err)
+            })
+        }).catch( err => {
+          console.log(err);
+          response.status(400).json(err)
+        });
+
+
+          response.status(200).json(true);
+    }).catch( err =>{
+        console.log(err);
+        response.status(404).json({message: "Error in Saved user"})
+    })
+    } else {
+      response.status(400).json({message: 'Bugunga Limit tugagan'})
+    }
+  };
 });
 
 router.get('/', (request, response, next) =>{

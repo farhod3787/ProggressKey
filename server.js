@@ -1,5 +1,5 @@
 const http = require('http')
-const debug = require('debug')('node-angular')
+// const debug = require('debug')('node-angular')
 const app = require('./backend/app');
 // const socketIO = require('socket.io');
 const path = require("path")
@@ -39,7 +39,7 @@ const onError = error => {
 const onListening = () => {
     const addr = server.address();
     const bind = typeof addr === "string" ? "pipe " + addr : "port " + port;
-    debug("Listening on " + bind);
+    // debug("Listening on " + bind);
 }
 
 
@@ -57,9 +57,9 @@ const server = http.createServer(app);
 server.on("error", onError);
 server.on("listening", onListening);
 
-// require("./bot/index")
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+app.use(express.static(path.join(__dirname, '/dist/progresskey')))
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/dist/progresskey', 'index.html'))
+})
 
 server.listen(port, () => { console.log("Running...") });

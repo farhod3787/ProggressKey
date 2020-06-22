@@ -19,6 +19,8 @@ export class RegisterComponent implements OnInit {
   }
 
   verifyOfRegistrar() {
+    let token = localStorage.getItem('token');
+    if (token) {
     this.registrarService.verify().subscribe( result => {
       const obj = result.json();
       if (obj.isRegistrar) {
@@ -30,6 +32,10 @@ export class RegisterComponent implements OnInit {
         this.route.navigate(['register-sign']);
       }
     });
+  } else {
+    this.route.navigate(['register-sign']);
+  }
+
   }
 
 

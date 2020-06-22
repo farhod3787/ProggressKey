@@ -19,15 +19,24 @@ export class AdminSignComponent implements OnInit {
   }
 
   verifyOfAdmin() {
+    let token = localStorage.getItem('token');
+    if (token) {
+      console.log(token);
+
     this.adminService.verify().subscribe( result => {
       const object = result.json();
+      console.log(object);
+
       if ( object.isAdmin ) {
         this.router.navigate(['admin']);
       } else {
         this.router.navigate(['admin-sign']);
       }
    });
-   }
+  } else {
+        this.router.navigate(['admin-sign']);
+  }
+}
 
   sign(login, password) {
     this.adminService.sign(login, password).subscribe( result => {

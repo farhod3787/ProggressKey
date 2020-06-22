@@ -21,6 +21,8 @@ export class SignComponent implements OnInit {
    }
 
    verifyOfUser() {
+    let token = localStorage.getItem('token');
+    if (token) {
      this.userService.verify().subscribe( result => {
         const object = result.json();
         if ( object.isUser ) {
@@ -29,6 +31,9 @@ export class SignComponent implements OnInit {
           this.router.navigate(['sign']);
         }
      });
+    } else {
+      this.router.navigate(['sign']);
+    }
    }
 
 

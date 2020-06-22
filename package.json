@@ -9,6 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "engines": {
+    "node": "10.14.1"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^9.0.6",
@@ -25,6 +28,8 @@
     "angular-material": "^1.1.21",
     "bootstrap": "^4.4.1",
     "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "cron": "^1.8.2",
     "font-awesome": "^4.7.0",
     "i": "^0.3.6",
     "jquery": "^3.4.1",

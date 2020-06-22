@@ -10,12 +10,35 @@ import Swal from 'sweetalert2';
 })
 export class RegisterSignComponent implements OnInit {
 
+  register: any = {};
   constructor(
     private registerService: ResgistrarService,
     private route: Router
-  ) { }
+  ) {
+    this.verifyOfRegistrar();
+
+  }
 
   ngOnInit(): void {
+  }
+  verifyOfRegistrar() {
+    let token = localStorage.getItem('token');
+    if (token) {
+    this.registerService.verify().subscribe( result => {
+      const obj = result.json();
+      if (obj.isRegistrar) {
+        this.registerService.getId(obj.userId).subscribe( res => {
+            this.register = res.json();
+        });
+        this.route.navigate(['register']);
+      } else {
+        this.route.navigate(['register-sign']);
+      }
+    });
+  } else {
+    this.route.navigate(['register-sign']);
+  }
+
   }
 
   sign(login, pass) {

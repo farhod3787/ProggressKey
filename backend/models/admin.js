@@ -62,9 +62,8 @@ adminSchema.statics.verifyOfAdmin = function(admins, token) {
                     object.token = jwt.sign({login: admin.login, password: admin.password}, 'pro');
                     object.adminId = admin._id;
                     object.adminName = admin.login;
-                    if(admin == admins[0]){
                         object.isAdmin = true;
-                    }
+
             }
         }
         else {

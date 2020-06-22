@@ -17,6 +17,8 @@ export class UserComponent implements OnInit {
     this.verifyOfUser();
   }
   verifyOfUser() {
+    let token = localStorage.getItem('token');
+    if (token) {
     this.userService.verify().subscribe( result => {
       const object = result.json();
       if ( object.isUser ) {
@@ -28,6 +30,9 @@ export class UserComponent implements OnInit {
         this.router.navigate(['sign']);
       }
     });
+  } else {
+    this.router.navigate(['sign']);
+  }
   }
 
   logOut() {

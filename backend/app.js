@@ -3,6 +3,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 var cron = require('node-cron');
+var CronJob = require('cron').CronJob;
+
+// With CronJob
+
+const test = require('./routes/ball');
+const check = require('./routes/check');
+const month = require('./routes/month')
+
 
 const adminRouter = require('./routes/admin');
 const userRouter = require('./routes/users');
@@ -20,11 +28,6 @@ const reqProductsRouter = require('./routes/reqProduct');
 const managerRouter = require('./routes/site-manager');
 const sendProductRouter = require('./routes/sendProduct');
 
-//  User Module
-const User = require('./models/users');
-
-const test = require('./routes/ball');
-const check = require('./routes/check');
 
 const cors = require("cors");
 const app = express();
@@ -88,27 +91,26 @@ app.use('/api/sendProduct/', sendProductRouter);
 // })
 
 
-// Haftalik ideal balance
-cron.schedule('* * * * * *', async () => {
-  // let id2 = '5ec715af0234144020bbd9e7'  // 002
-  let id1 = '5ec715780234144020bbd9e6' //001
-  let users = await User.find();
-  for (let i = 0; i< users.length; i++) {
-    let id = users[0]._id;
-    // console.log(id);
 
-    // test.sizeHands(id)
-  }
-  // test.sizeHands(id1);
-//
-});
+var job = new CronJob('0 0 * * 0', function() {
+  console.log('Start first CronJob, Ball os CheckOtCheck');
+  check.check()
+}, null, true, 'Asia/Tashkent');
+
+var secondJob = new CronJob('0 0 * * 0', async function() {
+  // console.log('Start second CronJob. Ball of week');
+      // test.sizeHands()
+}, null, true, 'Asia/Tashkent');
 
 
+var monthJob = new CronJob('0 0 1 * *', async function() {
+  console.log('Start threed  CronJob, Ball of Month');
+      month.month()
+}, null, true, 'Asia/Tashkent');
+// job.start();
 
-// CheckOtCheck 1 hafta uchun
-cron.schedule('* * * * *', () => {
-  // check.check();
-  // console.log('Crone start');
 
-});
+
+
+
 module.exports = app;

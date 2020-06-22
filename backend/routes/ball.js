@@ -1,68 +1,71 @@
 const User = require('../models/users');
 
+async function sizeHands() {
+  let users = await User.find();
+  if (users.length > 0) {
+  for(let i=0; i< users.length; i++) {
+    let id = users[i]._id;
+    let user = await User.findById(id);
+    if (user) {
+    if (user.leftHand && user.rightHand) {
+      let leftUser = await User.findById(user.leftHand);
+      let rightUser = await User.findById(user.rightHand);
+      if (leftUser && rightUser) {
+        let left = leftUser.firstbalance;
+        let right = rightUser.firstbalance;
 
-var left = 0;
-var right = 0;
- async function sizeHands(id) {
-  let user = await User.findById(id);
-  if (user.leftHand && user.rightHand) {
-    sizeHelperLeft(user.leftHand)
-    sizeHelperRight(user.rightHand);
-      console.log(user.login  +  " --  left");
-      console.log(left);
-      console.log(user.login  +  " --  right");
-      console.log(right);
-      left = 0;
-      right = 0;
-    } else {
-      console.log('bir nima kam');
+        if (left == right) {
+          if(user.type == 'Iste\'molchi') {
+              if (user.ballOfWeek) {
+                user.ballOfWeek = user.ballOfWeek + 50;
+              } else {
+                user.ballOfWeek = 50;
+              }
+          }
+          if (user.type == 'Console') {
+            if (user.ballOfWeek) {
+              user.ballOfWeek = user.ballOfWeek + 100;
+            } else {
+              user.ballOfWeek = 100;
+            }
+          }
+          if (user.type == 'Leader') {
+            if (user.ballOfWeek) {
+              user.ballOfWeek = user.ballOfWeek + 100;
+            } else {
+              user.ballOfWeek = 100;
+            }
+          }
+          try {
+            const update = await User.findByIdAndUpdate(id, {$set: user}, {new: true} )
+            if (update){
+              console.log('Updated');
+            } else {
+              console.log('Error in update Inform');
 
-  }
+            }
+          } catch (error) {
+            console.log('Error in update');
 
-
-  // for (let i=0; i< users.length; i++) {
-
-  //   if (users[i].leftHand && users[i].rightHand) {
-  //     let leftId = users[0].leftHand;
-  //     let rightId = users[0].rightHand;
-  //     // sizeHelperLeft(leftId);
-  //     sizeHelperRight(rightId);
-  //     // console.log("left");
-  //     // console.log(left);
-  //     console.log("right");
-  //     console.log(right);
-  //     left = 0;
-  //     right = 0;
-  //   } else {
-  //     console.log('Userni chap yoki o\'ng qo\'li yo\'q');
-  //   }
-  // }
- }
-async function sizeHelperLeft(id) {
-  let node = await User.findById(id);
-  if (node) {
-    left = left +1;
-      return 1 + sizeHelperLeft(node.leftHand) + sizeHelperLeft(node.rightHand);
+          }
+      } else {
+        console.log('Userni chap va o\'ng qo\'llari teng emas');
+      }
+      } else {
+        console.log('User not found');
+      }
+      } else {
+        console.log('Userning chap yoki o\'ng qo\'li yo\'q');
+    }
   } else {
-    return 0;
-
+    console.log('User not found');
   }
 }
-
-async function sizeHelperRight(id) {
-  let node = await User.findById(id);
-  if (node) {
-    right = right +1;
-      return 1 + sizeHelperRight(node.leftHand) + sizeHelperRight(node.rightHand);
-  } else {
-    return 0;
-
-  }
+}
 }
 
 
 
 
 module.exports.sizeHands = sizeHands;
-module.exports.sizeHelperLeft = sizeHelperLeft;
 

@@ -1,7 +1,6 @@
-url = 'http://localhost:5000';
-domen = 'domen.com';
+// url = 'http://localhost:5000';
+url = 'https://progresskey.herokuapp.com';
 
 module.exports = {
-  url,
-  domen
+  url
 }
